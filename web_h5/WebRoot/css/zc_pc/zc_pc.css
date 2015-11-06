@@ -1,0 +1,177 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #DDD;
+}
+div{
+	position: relative;
+	display: block;
+	margin:0 auto;
+}
+p{
+	position:relative;
+	padding: 0;
+	margin: 0;
+}
+.clear_float::after{
+	clear: both;
+	content: '';
+}
+section.content{
+	width: 840px;
+	margin: 0 auto;
+	background-color: rgb(241,241,241);
+	
+}
+div.top_div{
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom:27px;
+	
+}
+div.top_title_div{
+	width: 100%;
+}
+p.p_top_title{
+	display:inline-block;
+	font-size: 25px;
+	font-weight: bold;
+}
+div.top_like{
+	display:inline-block;
+	width:90px;
+	height:25px;
+	top:-6px;
+	border:1px #DDD solid;
+	border-radius:5px;
+	background-color: #FFF;
+	cursor: pointer;
+}
+div.top_like img{
+	position:relative;
+	left:5px;
+	top:2px;
+	width: 12px;
+}
+span.like_num{
+	position:relative;
+	margin-left:12px;
+	font-size: 12px;
+	color:#c9c9c9;
+	
+}
+p.p_top_content{
+	margin-top:5px;
+	color: #585858;
+	font-size: 15px;
+	line-height: 24px;
+	width: 430px;
+}
+div.share_out{
+	position:absolute;
+	width: 180px;
+	right:0px;
+	bottom:20px;
+	
+}
+div.share_out span{
+	font-size: 15px;
+}
+div.share_out a{
+	cursor: pointer;
+}
+div.share_out img {
+	position:relative;
+	width: 15px;
+	height: 15px;
+	top:2px;
+}
+a.more{
+	font-size: 12px;
+	color:#818080;
+}
+div.bottom_div{
+	width: 100%;
+}
+div.mess_div{
+	width: 520px;
+	float: left;
+	background-color: #FFF;
+}
+div.sub_mess_div{
+	width: 480px;
+	padding-bottom: 300px;
+}
+div.sub_mess_div img{
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+div.sub_mess_div p{
+	color: #828282;
+	font-size: 18px;
+	text-align: justify;
+	line-height: 25px;
+}
+div.act_div{
+	width: 310px;
+	float: right;
+	
+}
+div.sub_act_div{
+	width: 310px;
+	padding-top:40px;
+	padding-bottom:40px;
+	background-color: #FFF;
+	margin-bottom: 10px;
+}
+div.sub_top{
+	width:250px;
+	padding-bottom:27px;
+	border-bottom:1px #DDD solid;
+}
+span.price_sign{
+	font-size: 18px;
+	font-weight: bold;
+}
+span.price{
+	font-size: 30px;
+	font-weight: bold;
+}
+div.sub_mid{
+	width:250px;
+	padding-top: 20px;
+	padding-bottom:20px;
+	border-bottom:1px #DDD dashed;
+}
+p.p_num{
+	font-size: 20px;
+	font-weight: bold;
+}
+p.p_time{
+	margin-top: 15px;
+	font-size: 15px;
+	color: #666666;
+}
+button.sup_bt{
+	margin-top:20px;
+	width: 120px;
+	height:40px;
+	background-color: #E5A430;
+	color: #FFF;
+	font-size: 20px;
+	border:none;
+	outline: none;
+	border-radius:5px;
+	cursor:pointer;
+}
+div.sub_bottom{
+	width:250px;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+div.sub_bottom p{
+	font-size: 18px;
+	color: #666666;
+	text-align: justify;
+	line_height:25px;
+}
