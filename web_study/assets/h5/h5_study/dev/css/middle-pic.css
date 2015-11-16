@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    width: 980px;
+    overflow:hidden;
+    zoom:1;
+    margin: 200px auto 0 auto;
+}
+ul li{
+    float:left;
+    width:160px;
+    /*height:160px;*/
+    list-style: none;
+    overflow: hidden;
+    border:1px solid #FFF;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+ul li:after{
+    content:' ';
+    vertical-align:middle;
+}
+ul li .sub_top{
+    margin: 0 auto;
+    width:150px;
+    height:150px;
+    text-align:center;
+    line-height:150px;
+    *font-size:125px;
+
+
+}
+ul li .sub_bottom{
+    margin: 0 auto;
+    width:150px;
+
+}
+ul li img{
+    vertical-align:middle;
+    max-height: 128px;
+    max-width: 128px;
+}
+.sub_bottom div{
+    font-size: 14px;
+
+    text-align: center;
+    padding: 5px 0 10px 0;
+
+}
+div .sign{
+    background-color: #EEE;
+    font-size: 12px;
+    width: 30px;
+    *display:inline;
+    display: inline-block;
+    text-align: center;
+
+
+
+}
+div .price{
+
+}
+.demo_dl{
+
+    padding-bottom: 20px;
+    text-align: center;
+}
+.demo_dl dd{
+    font-size: 16px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.demo_dl dt{
+    display: inline-block;
+    font-size: 14px;
+
+}
+.demo_dl dt a{
+    color: #000;
+    text-decoration: none;
+}

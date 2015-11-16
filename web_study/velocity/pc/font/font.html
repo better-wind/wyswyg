@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../../build/pc/font/css/dafault.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../../build/pc/font/css/demo.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../../build/pc/font/css/linkstyles.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../../build/pc/font/css/normalize.min.css"></link>
+</head>
+<body>
+<div class="grid">
+    <div class="grid__item color-1">
+        <a class="link link--kukuri" href="#" data-letters="Kukuri">Kukuri</a>
+    </div>
+    <div class="grid__item">
+        <a class="link link--takiri" href="#">Takiri <span>Where do you want to be?</span></a>
+    </div>
+    <div class="grid__item color-2">
+        <a class="link link--surinami" href="#"><span data-letters-l="Suri" data-letters-r="nami">Surinami</span></a>
+    </div>
+    <div class="grid__item color-3">
+        <a class="link link--nukun" href="#">Nu<span>k</span>un</a>
+    </div>
+    <div class="grid__item color-4">
+        <a class="link link--kumya" href="#"><span data-letters="Kumya">Kumya</span></a>
+    </div>
+    <div class="grid__item color-8">
+        <a class="link link--manko" href="#">Manko <span>one step</span> <span>at a time</span></a>
+    </div>
+    <div class="grid__item color-11">
+        <a class="link link--yaku" href="#">
+            <span>Y</span><span>a</span><span>k</span><span>u</span>
+        </a>
+    </div>
+    <div class="grid__item color-7">
+        <a class="link link--mallki" href="#">Mallki<span data-letters="Mallki"></span><span data-letters="Mallki"></span></a>
+    </div>
+    <div class="grid__item color-9">
+        <a class="link link--ilin" href="#"><span>Il</span><span>in</span></a>
+    </div>
+    <div class="grid__item">
+        <p>The next effects only work in Firefox and Chrome.</p>
+    </div>
+    <div class="grid__item color-5">
+        <a class="link link--urpi" href="#" data-letters="Urpi">Urpi</a>
+    </div>
+    <div class="grid__item color-10">
+        <a class="link link--asiri" href="#">
+            <!-- Content for text -->
+            <div class="text-fill">
+                <canvas id="canv"></canvas>
+            </div>
+            <!-- SVG to cover text fill -->
+            <svg viewBox="0 0 400 200" class="svg-inverted-mask">
+                <!-- Big shape with hole in form of text -->
+                <rect width="100%" height="100%" mask="url(#m-text)" class="shape--fill" />
+                <!-- Transparent copy of text to keep
+                     patterned text selectable -->
+                <use xlink:href="#s-text" class="text--transparent"></use>
+            </svg>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
