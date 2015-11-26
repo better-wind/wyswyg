@@ -1,0 +1,229 @@
+body{
+    background-color: #EEE;
+
+}
+.wrap_B{
+    position: relative;
+    width: 980px;
+    height: 180px;
+     margin: 0 auto;
+    margin-top: 50px;
+}
+.three{
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+
+
+}
+.three div{
+    position: absolute;
+    opacity: .6;
+
+}
+.three .left{
+    transform: rotate(60deg);
+}
+.three .center{
+
+}
+.three .right{
+    transform: rotate(-60deg);
+}
+
+.three_A div{
+    top:40px;
+    left: 290px;
+    width: 173px;
+    height: 100px;
+    background-color:yellowgreen;
+}
+.three_B div{
+    top:80px;
+    left: 150px;
+    width: 173px;
+    height: 100px;
+    background-color: darkseagreen;
+}
+.three_C div{
+    top:60px;
+    left: 420px;
+    width: 173px;
+    height: 100px;
+    background-color:plum;
+}
+.three_D div{
+    top:140px;
+    left: 390px;
+    width: 173px;
+    height: 100px;
+    background-color: palegreen;
+}
+.three_E div{
+    top:190px;
+    left: 230px;
+    width: 173px;
+    height: 100px;
+    background-color: khaki;
+}
+.wrap{
+   position: relative;
+    width: 980px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    overflow: hidden;
+    -webkit-perspective: 1200px;
+}
+.six{
+
+}
+.J_six{
+
+    transform: rotateX(-50deg);
+
+
+}
+.six_A{
+    position: absolute;
+    left: 350px;
+    top:140px;
+
+    z-index: 100;
+    width: 250px;
+    height:250px;
+}
+.six_A .top{
+    width: 0;
+    border-bottom: 60px solid #6C6;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+
+}
+.six_A .center{
+    width: 208px;
+    height: 104px;
+    background-color: #6c6;
+}
+.six_A .bottom{
+    width: 0;
+    border-top: 60px solid #6C6;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+
+}
+.six_B{
+
+    position: absolute;
+    left: 380px;
+    top:40px;
+
+    z-index: 99;
+    width: 160px;
+    height:160px;
+}
+.six_B .top{
+    width: 0;
+    border-bottom: 40px solid yellow;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+
+}
+.six_B .center{
+    width: 140px;
+    height: 70px;
+    background-color: yellow;
+}
+.six_B .bottom{
+    width: 0;
+    border-top: 40px solid yellow;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+
+}
+.six_C{
+    position: absolute;
+    left: 500px;
+    top:80px;
+
+    z-index: 99;
+    width: 200px;
+    height:200px;
+}
+.six_C .top{
+    width: 0;
+    border-bottom: 50px solid plum;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+
+}
+.six_C .center{
+    width: 170px;
+    height: 85px;
+    background-color: plum;
+}
+.six_C .bottom{
+    width: 0;
+    border-top: 50px solid plum;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+
+}
+.six_D{
+    position: absolute;
+    left: 520px;
+    top:230px;
+
+    z-index: 101;
+    width: 150px;
+    height:150px;
+}
+.six_D .top{
+    width: 0;
+    border-bottom: 33px solid blue;
+    border-left: 56px solid transparent;
+    border-right: 56px solid transparent;
+
+}
+.six_D .center{
+    width: 112px;
+    height: 56px;
+    background-color: blue;
+}
+.six_D .bottom{
+    width: 0;
+    border-top: 33px solid blue;
+    border-left: 56px solid transparent;
+    border-right: 56px solid transparent;
+
+}
+.six_E{
+    position: absolute;
+    left: 250px;
+    top:80px;
+    z-index: 99;
+    width: 200px;
+    height:200px;
+}
+.six_E .top{
+    width: 0;
+    border-bottom:50px solid darkgray;
+    border-left: 84px solid transparent;
+    border-right: 84px solid transparent;
+
+}
+.six_E .center{
+    width: 168px;
+    height: 84px;
+    background-color: darkgray;
+}
+.six_E .bottom{
+    width: 0;
+    border-top: 50px solid darkgray;
+    border-left: 84px solid transparent;
+    border-right: 84px solid transparent;
+
+}
+

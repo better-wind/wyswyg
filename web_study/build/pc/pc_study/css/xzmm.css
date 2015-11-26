@@ -7,7 +7,9 @@ body{
     margin-top: 30px;
     width: 910px;
     height: 600px;
-    -webkit-perspective: 200px;
+    -webkit-perspective: 2000px;
+
+
 
 }
 
@@ -100,10 +102,13 @@ li:nth-child(9)
     -webkit-transform: rotateY(360deg) translateZ(400px);
 }
 .wrap {
+    position: relative;
     perspective: 800px;
     perspective-origin: 50% 100px;
-    margin-top: 50px;
-    margin-left: 200px;
+    top: 250px;
+    margin-left: 350px;
+
+
 }
 .cube div {
     position: absolute;

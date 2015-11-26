@@ -88,6 +88,18 @@ module.exports = function(grunt) {
                             '<%= path.src%>/css/middle-pic.css'
                         ],
                         dest:'<%= path.dist%>/css/middle-pic.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/column.css'
+                        ],
+                        dest:'<%= path.dist%>/css/column.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/xzmm.css'
+                        ],
+                        dest:'<%= path.dist%>/css/xzmm.css'
                     }
                 ]
             },
@@ -100,9 +112,19 @@ module.exports = function(grunt) {
                         dest:'<%= path.dist_pre%>/js/jquery/jquery183.js'
                     },
                     {
+                        src:['<%= path.pre%>/js/zepto/zepto.js'
+                        ],
+                        dest:'<%= path.dist_pre%>/js/zepto/zepto.js'
+                    },
+                    {
                         src:['<%= path.src%>/js/middle-pic.js'
                         ],
                         dest:'<%= path.dist%>/js/middle-pic.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/xzmm.js'
+                        ],
+                        dest:'<%= path.dist%>/js/xzmm.js'
                     }
 
                 ]

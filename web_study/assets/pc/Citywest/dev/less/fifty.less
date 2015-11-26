@@ -1,0 +1,72 @@
+@iterations: 50;
+.mixin-loop (@i) when (@i > 0) {
+  div:nth-child(@{i}) {
+    padding: (@i * 5px);
+    top: (@i * -5px);
+    left: (@i * -5px);
+    border: 1px solid rgb((@i * 10), (@i * 1), 255);
+    box-shadow: 0px 0px 6px 2px #ffffff;
+    -webkit-animation: magic 3s ease infinite alternate;
+    -webkit-animation-delay: (@i * 0.02s);
+    animation: magic 3s ease infinite alternate;
+    animation-delay: (@i * 0.02s);
+  }
+
+  .mixin-loop(@i - 1);
+}
+.mixin-loop(@iterations);
+
+body {
+  background-color: #45CEEF;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+div {
+  position: absolute;
+}
+
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@-webkit-keyframes magic {
+  0% {
+    -webkit-transform: scale(0)
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(2.5) rotate(180deg);
+  }
+}
+
+@keyframes magic {
+  0% {
+    transform: scale(0) rotate(90deg);
+  }
+  50% {
+    transform: scale(1.25) rotate(180deg);
+  }
+  100% {
+    transform: scale(2.5) rotate(-180deg);
+
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {background-color: #45CEEF;}
+  25% {background-color: #FFF5A5;}
+  50% {background-color: #FFD4DA;}
+  75% {background-color: #99D2E4;}
+  100% {background-color: #D8CAB4;}
+}
+body {
+  background-color: #45CEEF;
+  -webkit-animation: pulse 40s infinite alternate;
+
+}

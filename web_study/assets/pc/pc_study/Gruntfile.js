@@ -71,9 +71,9 @@ module.exports = function(grunt) {
 			build:{
 				files:[
 					{//示例,真实项目请按实际路径修改
-						src:['<%= path.src%>/less/common/wap_global.less'
+						src:['<%= path.src%>/css/test.less'
 						],
-						dest:'<%= path.temp%>/css/common/wap_global.css'
+						dest:'<%= path.temp%>/css/test.css'
 					}
 
 				]
@@ -94,6 +94,28 @@ module.exports = function(grunt) {
                             '<%= path.src%>/css/font.css'
                         ],
                         dest:'<%= path.dist%>/css/font.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.temp%>/css/test.css'
+                        ],
+                        dest:'<%= path.dist%>/css/test.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/macair.css'
+                        ],
+                        dest:'<%= path.dist%>/css/macair.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/six_z.css'
+                        ],
+                        dest:'<%= path.dist%>/css/six_z.css'
+                    },
+                    {
+                        src:['<%= path.src%>/css/index.css'],
+                        dest:'<%= path.dist%>/css/index.css'
                     }
                 ]
             },
@@ -109,6 +131,16 @@ module.exports = function(grunt) {
                         src:['<%= path.src%>/js/xzmm.js'
                         ],
                         dest:'<%= path.dist%>/js/xzmm.js'
+                    }
+                    ,
+                    {
+                        src:['<%= path.src%>/js/six_z.js'
+                        ],
+                        dest:'<%= path.dist%>/js/six_z.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/index.js'],
+                        dest:'<%= path.dist%>/js/index.js'
                     }
 
                 ]
@@ -154,10 +186,10 @@ module.exports = function(grunt) {
         },
         watch: {
             css:{
-                files:[//'<%= path.src%>/css/**/*.less',
+                files:['<%= path.src%>/css/**/*.less',
 					'<%= path.src%>/css/**/*.css',
 				],
-                tasks:['clean:css',/*'less',*/'concat:css','cssmin']
+                tasks:['clean:css','less','concat:css','cssmin']
             },
             minjs:{
                 files:['<%= path.src%>/js/**/*.js'],
@@ -181,7 +213,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default task.
-    grunt.registerTask('default', ['copy','clean',/*'less',*/'concat','cssmin','uglify','clean:temp']);
+    grunt.registerTask('default', ['copy','clean','less','concat','cssmin','uglify','clean:temp']);
     grunt.registerTask('bowerCopy',['bower']);
     grunt.registerTask('dev',['watch']);
 };

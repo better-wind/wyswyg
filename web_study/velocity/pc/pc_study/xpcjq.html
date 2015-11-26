@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Keywords" content="想去,端午节,端午,香囊,端午活动,想去设计">
+    <meta name="Description" content="免费体验古人手制香囊的乐趣，还能送TA一个自己制作的古方香囊哦！">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <style>
+        *{padding: 0;
+
+            margin:0;
+        }
+        .ggl{
+            position: relative;
+
+            background-color: #AAA;
+            margin: 0 auto;
+
+        }
+        .ggl p{
+            position: absolute;
+        }
+        .ggl canvas{
+            position: relative;
+        }
+    </style>
+    <script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+    <script type="text/javascript">
+        (function($){
+            var xpc = {
+                init:function(){
+                   var self = this;
+
+                    self.eventing();
+                },
+                eventing:function(){
+                   var self = this;
+                   var clip =new imageClip(.8,200,200);
+                    clip.finish(function(){
+                        clip.clear();
+                    });
+
+
+                }
+
+
+            }
+            $(function(){
+                xpc.init();
+            })
+            function imageClip(filter,width,height){
+                var out_can = $('.ggl');
+
+                var p =  $('.ggl p');
+                var canvas = document.getElementById("myCanvas"),
+                        context = canvas.getContext('2d'),
+                        img = new Image(),
+                        finish;
+                img.src = "sha.jpg";
+//        图片划层
+//        img.onload = function(){
+//            canvas.width  = 200;
+//            canvas.height = 200;
+//            context.drawImage(img,0,0,canvas.width,canvas.height);
+//            context.globalCompositeOperation = 'destination-out';
+//
+//        }
+                offsetX = canvas.offsetLeft,
+                offsetY = canvas.offsetTop,
+                mousedown = false;
+
+                isfirst = true;
+                out_X =parseInt(out_can.css('marginLeft'));
+                out_Y =parseInt(out_can.css('marginTop'));
+                console.log(out_X+','+out_Y);
+                canvas.width  = width;
+                canvas.height = height;
+                context.fillStyle = 'gray';
+                context.globalAlpha = 1;
+                context.fillRect(0,0,width,height);
+                context.globalCompositeOperation = 'destination-out';
+
+                function first(){
+                    if(isfirst){
+                        p.html('456');
+                        alert(1);
+
+                    }
+                    isfirst = false;
+                }
+
+
+                function eventDown(e){
+                    e.preventDefault(); // 阻止冒泡
+                    mousedown = true; // 设置为点击事件
+                    first();
+
+                }
+                function eventUp(e){
+                    e.preventDefault(); // 阻止冒泡
+                    mousedown = false; // 设置为是否鼠标点击事件
+                    clearMask(); // 清空模糊层
+                }
+                function clearMask(){
+                    var num = 0, // 计数器
+                            datas = context.getImageData(0,0,width,height), // 噪点对象
+                            datasLength = datas.data.length; // 噪点数量
+                    for (var i = 0; i < datasLength; i++) {
+                        if (datas.data[i] == 0) num++; // 为0则已经清空，计数器++
+                    }
+                    if (num >= datasLength * filter) { // 噪点清空数量大于当前百分比
+                        if(finish) finish(); // 执行成功函数
+                    };
+                }
+                function eventMove(e){
+                    e.preventDefault();
+                    if(mousedown) {
+                        if(e.changedTouches){
+                            e = e.changedTouches[e.changedTouches.length-1];
+                        }
+                        var x = (e.clientX + document.body.scrollLeft || e.pageX) - offsetX - out_X || 0, // X轴坐标
+                                y = (e.clientY + document.body.scrollTop  || e.pageY) - offsetY -out_Y|| 0; // Y轴坐标
+
+                        // 清空模糊层
+                        context.beginPath();
+                        context.arc(x, y, 15, 0, Math.PI * 2); // 画圆
+                        context.fill();
+                    }
+                }
+
+
+                canvas.addEventListener('touchstart', eventDown);
+                canvas.addEventListener('touchend', eventUp);
+                canvas.addEventListener('touchmove', eventMove);
+
+
+                this.finish = function(callback){
+                    finish = callback;
+
+                }
+                this.clear = function(){
+                    context.beginPath();
+                    context.rect(0,0,width,height);
+                    context.fill();
+                    alert('success');
+                    canvas.removeEventListener('touchstart', eventDown);
+                    canvas.removeEventListener('touchend', eventUp);
+                    canvas.removeEventListener('touchmove', eventMove);
+
+
+                }
+
+            }
+
+
+        })(jQuery)
+    </script>
+</head>
+<body>
+<section class="ggl">
+    <p >1234</p>
+    <canvas id="myCanvas">
+    </canvas>
+</section>
+</body>
+</html>
