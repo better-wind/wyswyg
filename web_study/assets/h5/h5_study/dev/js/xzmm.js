@@ -1,10 +1,10 @@
 (function($){
    var xzmm = {
         init:function(){
-            var self = this;
-            self.J_li = $('.wrap ul li');
-            self.eventing();
-
+          var self = this;
+          self.J_li = $('.wrap ul li');
+          self.eventing();
+          self.li_nth();
 
         },
        eventing:function(){
@@ -12,13 +12,42 @@
        },
        left_li:function(){
            var self = this;
-            alert('left');
+           var _i = self.li_nth();
+           console.log(_i);
+           self.J_li.removeClass('show show_left show_right hide_left hide_right');
+           self.J_li.eq(_i).addClass('hide_left');
+           self.J_li.eq(_i+1).addClass('show show_left');
+           if(_i > 10){
+               self.J_li.eq(0).addClass('show show_left');
+           }
+           else{
+               self.J_li.eq(_i+1).addClass('show show_left');
+           }
        },
        right_li:function(){
-            alert('right');
+           var self = this;
+           var _i = self.li_nth();
+           console.log(_i);
+           self.J_li.removeClass('show show_left show_right hide_left hide_right');
+           self.J_li.eq(_i).addClass('hide_right');
+           self.J_li.eq(_i-1).addClass('show show_right');
+           if(_i < 1){
+               self.J_li.eq(11).addClass('show show_right');
+           }
+           else{
+               self.J_li.eq(_i-1).addClass('show show_right');
+           }
        },
        li_nth:function(){
+           var self = this;
+           var i=0;
+           for(var _i =0;_i<self.J_li.length;_i++){
+               if(self.J_li.eq(_i).hasClass('show')){
+                   i=_i;
+               }
 
+           }
+           return i;
        }
     }
     $(function(){
