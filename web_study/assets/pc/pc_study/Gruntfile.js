@@ -116,6 +116,10 @@ module.exports = function(grunt) {
                     {
                         src:['<%= path.src%>/css/index.css'],
                         dest:'<%= path.dist%>/css/index.css'
+                    },
+                    {
+                        src:['<%= path.src%>/css/dice.css'],
+                        dest:'<%= path.dist%>/css/dice.css'
                     }
                 ]
             },
@@ -141,6 +145,10 @@ module.exports = function(grunt) {
                     {
                         src:['<%= path.src%>/js/index.js'],
                         dest:'<%= path.dist%>/js/index.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/dice.js'],
+                        dest:'<%= path.dist%>/js/dice.js'
                     }
 
                 ]

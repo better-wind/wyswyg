@@ -5,7 +5,12 @@
     var Index = {
         init:function(){
             var self = this;
-            
+            self.eventing();
+
+        },
+        eventing:function(){
+
+
         }
     }
     $(function(){

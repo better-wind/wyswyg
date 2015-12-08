@@ -100,6 +100,24 @@ module.exports = function(grunt) {
                             '<%= path.src%>/css/xzmm.css'
                         ],
                         dest:'<%= path.dist%>/css/xzmm.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/nxzmm.css'
+                        ],
+                        dest:'<%= path.dist%>/css/nxzmm.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/autowidth.css'
+                        ],
+                        dest:'<%= path.dist%>/css/autowidth.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/move_tab.css'
+                        ],
+                        dest:'<%= path.dist%>/css/move_tab.css'
                     }
                 ]
             },
@@ -125,7 +143,23 @@ module.exports = function(grunt) {
                         src:['<%= path.src%>/js/xzmm.js'
                         ],
                         dest:'<%= path.dist%>/js/xzmm.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/nxzmm.js'
+                        ],
+                        dest:'<%= path.dist%>/js/nxzmm.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/autowidth.js'
+                        ],
+                        dest:'<%= path.dist%>/js/autowidth.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/move_tab.js'
+                        ],
+                        dest:'<%= path.dist%>/js/move_tab.js'
                     }
+
 
                 ]
             }
