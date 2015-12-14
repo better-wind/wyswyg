@@ -118,6 +118,12 @@ module.exports = function(grunt) {
                             '<%= path.src%>/css/move_tab.css'
                         ],
                         dest:'<%= path.dist%>/css/move_tab.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/d12_ggl.css'
+                        ],
+                        dest:'<%= path.dist%>/css/d12_ggl.css'
                     }
                 ]
             },
@@ -158,6 +164,11 @@ module.exports = function(grunt) {
                         src:['<%= path.src%>/js/move_tab.js'
                         ],
                         dest:'<%= path.dist%>/js/move_tab.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/d12_ggl.js'
+                        ],
+                        dest:'<%= path.dist%>/js/d12_ggl.js'
                     }
 
 

@@ -54,25 +54,25 @@
         finish;
         img.src = "sha.jpg";
 //        图片划层
-//        img.onload = function(){
-//            canvas.width  = 200;
-//            canvas.height = 200;
-//            context.drawImage(img,0,0,canvas.width,canvas.height);
-//            context.globalCompositeOperation = 'destination-out';
-//
-//        }
+        img.onload = function(){
+            canvas.width  = 200;
+            canvas.height = 200;
+            context.drawImage(img,0,0,canvas.width,canvas.height);
+            context.globalCompositeOperation = 'destination-out';
+
+        }
         offsetX = canvas.offsetLeft,
         offsetY = canvas.offsetTop,
         mousedown = false;
         isfirst = true;
         out_X =out_can.offsetLeft;
         out_Y =out_can.offsetTop;
-        canvas.width  = width;
-        canvas.height = height;
-        context.fillStyle = 'gray';
-        context.globalAlpha = 1;
-        context.fillRect(0,0,width,height);
-        context.globalCompositeOperation = 'destination-out';
+//        canvas.width  = width;
+//        canvas.height = height;
+//        context.fillStyle = 'gray';
+//        context.globalAlpha = 1;
+//        context.fillRect(0,0,width,height);
+//        context.globalCompositeOperation = 'destination-out';
 
         function first(){
             if(isfirst){
