@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>倒计时</title>
+    <meta name="Keywords" content="双十一，好设计，红包，免费，设计师，原创，手工，个性，定制，减价，折扣，江南布衣，独立，文艺，小清新，陈秋实同款卫衣">
+    <meta name="Description" content="50元现金免费拿,想去11.11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        body{
+            position: relative;
+        }
+        .time_wrap{
+            width: 160px;
+            position: relative;
+            margin: 10% auto 0;
+
+        }
+        .time{
+            width: 20px;
+            height: 40px;
+            background: url('http://xqproduct.xiangqu.com/FqCiOqFrRhB5It5akGqwEdeCa-oW') no-repeat;
+            background-size: 100%;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body data-currenttime="${currentTime}" data-nick="$!{loginContext.nick}" data-avata="$!{loginContext.avata}" data-loginUrl="$!{loginUrl}" data-product="${productDetailUrl}" data-bindPhone="${phoneBound}" data-sellerId="${userId}" data-log="${marked}" data-isSeller="${isSeller}" is-CJ="${iscj}">
+<section class="wrap J_wrap">
+    <section class="J_time_wrap time_wrap">
+        <span class="time hour0"></span>
+        <span class="time hour1"></span>
+        <span class="time minu0"></span>
+        <span class="time minu1"></span>
+        <span class="time secn0"></span>
+        <span class="time secn1"></span>
+    </section>
+
+
+</section>
+<script type="text/javascript" src="../../../build/h5/common/js/zepto/zepto.min.js"></script>
+<script>
+    (function($){
+        var nextPosition = 0;
+        var sday,shour,sminu,ssecn;
+        var timeRepeatS = null;
+        var double12= {
+            init: function(){
+                var self = this;
+                self.J_time_wrap= $('.J_time_wrap');
+                self.J_time = $('.time');
+                self.eventing();
+            },
+            eventing:function(){
+                var self = this;
+                self.init_img();
+
+            },
+            init_img:function(){
+                var self = this;
+                self.img_clock_0 = new Image();
+                self.img_clock_1 = new Image();
+                self.img_clock_2 = new Image();
+                self.img_clock_3 = new Image();
+                self.img_clock_4 = new Image();
+                self.img_clock_5 = new Image();
+                self.img_clock_6 = new Image();
+                self.img_clock_7 = new Image();
+                self.img_clock_8 = new Image();
+                self.img_clock_9 = new Image();
+                self.img_clock_0.src='http://xqproduct.xiangqu.com/FqyVbsm7GGQ9WFefLQXmIfte8HFQ';
+                self.img_clock_1.src='http://xqproduct.xiangqu.com/FslfX5ydfNtAhH2ZrjHSCUdL6D3h';
+                self.img_clock_2.src='http://xqproduct.xiangqu.com/FswaOh_18ToBDRehApoKBn5OKpvz';
+                self.img_clock_3.src='http://xqproduct.xiangqu.com/Fn1fIIOMSlXH6hB6EirWjNdptgJF';
+                self.img_clock_4.src='http://xqproduct.xiangqu.com/FupG0LteaB5OjEvbw7vetJOzqHBd';
+                self.img_clock_5.src='http://xqproduct.xiangqu.com/FvptCsVVElg-znBSwMW7VdbkaHED';
+                self.img_clock_6.src='http://xqproduct.xiangqu.com/FkjOhN5aBA0SBvGF_HNNFeUYRhMR';
+                self.img_clock_7.src='http://xqproduct.xiangqu.com/Fo6OvlS7CUpkcblSmiSfMBE4duOq';
+                self.img_clock_8.src='http://xqproduct.xiangqu.com/FqCiOqFrRhB5It5akGqwEdeCa-oW';
+                self.img_clock_9.src='http://xqproduct.xiangqu.com/FrpaoKGk2HIRZYIKV2q10qBgHXpI';
+                self.clockurl = [
+                    self.img_clock_0.src,
+                    self.img_clock_1.src,
+                    self.img_clock_2.src,
+                    self.img_clock_3.src,
+                    self.img_clock_4.src,
+                    self.img_clock_5.src,
+                    self.img_clock_6.src,
+                    self.img_clock_7.src,
+                    self.img_clock_8.src,
+                    self.img_clock_9.src
+                ];
+                self.timelimit();
+            },
+            timelimit:function(){
+                var self = this;
+                var ts = (new Date('2015/12/23 10:00:00')) - (new Date('2015/12/22 10:00:00'));
+                sday = Math.floor(ts / 1000 / 60 / 60 / 24);
+                shour = Math.floor(ts /1000 / 60 / 60);
+                sminu = Math.floor(ts /1000 / 60 % 60);
+                ssecn = Math.floor(ts /1000 % 60);
+                if(ts<0){
+                    self.J_time.css('background-image','url('+self.clockurl[0]+')');
+                }
+                else{
+                    timeRepeatS = setInterval(function(){
+                        self.countDownS();
+                    },1000);
+                }
+            },
+            countDownS:function(){
+                var self = this;
+                if(sday == 0) {
+                    if(ssecn == 0 && sminu == 0 && shour == 0){
+                        clearInterval(timeRepeatS);
+                        return false;
+                    }
+                    ssecn -= 1;
+                    if(ssecn == -1) {
+                        sminu -= 1;
+                        ssecn = 59;
+                        if (sminu == -1) {
+                            sminu = 59;
+                            shour -= 1;
+                        }
+                    }
+                }else{
+                    if(ssecn == 0 && sminu == 0 && shour == 0 && sday == 0){
+                        clearInterval(timeRepeatS);
+                        return false;
+                    }
+                    ssecn -= 1;
+                    if(ssecn == -1) {
+                        sminu -= 1;
+                        ssecn = 59;
+                        if (sminu == -1) {
+                            sminu = 59;
+                            shour -= 1;
+                            if (shour == -1) {
+                                shour = 23;
+                                sday -= 1;
+                            }
+                        }
+
+                    }
+                }
+
+                if(parseInt(sday,10).toString().length == 1){
+                    sday = '0' + parseInt(sday, 10).toString();
+                }
+                if(parseInt(shour,10).toString().length == 1){
+                    shour = '0' + parseInt(shour, 10).toString();
+                }
+                if (parseInt(sminu, 10).toString().length == 1) {
+                    sminu = "0" + parseInt(sminu, 10).toString();
+                };
+                if (parseInt(ssecn, 10).toString().length == 1) {
+                    ssecn = "0" + parseInt(ssecn, 10).toString();
+                };
+
+                self.timeGoes(Math.floor(shour / 10),self.J_time_wrap.find(".hour0"));
+                self.timeGoes(Math.floor(shour % 10),self.J_time_wrap.find(".hour1"));
+                self.timeGoes(Math.floor(sminu / 10),self.J_time_wrap.find(".minu0"));
+                self.timeGoes(Math.floor(sminu % 10),self.J_time_wrap.find(".minu1"));
+                self.timeGoes(Math.floor(ssecn / 10),self.J_time_wrap.find(".secn0"));
+                self.timeGoes(Math.floor(ssecn % 10),self.J_time_wrap.find(".secn1"));
+                console.log(Math.floor(shour / 10)+','+Math.floor(shour % 10)+','+Math.floor(sminu / 10)+','+Math.floor(sminu % 10)+','+Math.floor(ssecn / 10)+','+Math.floor(ssecn % 10))
+            },
+            timeGoes:function(otime,obj){
+                var self = this;
+                self.clockurl
+                if(otime == 0){
+                    obj.css('background-image','url('+self.clockurl[0]+')');
+                    return false;
+                }
+                if(otime != 0 && otime){
+                    obj.css('background-image','url('+self.clockurl[otime]+')');
+                }
+            }
+
+        };
+        $(function(){
+            double12.init();
+        });
+    })(Zepto);
+</script>
+</body>
+</html>

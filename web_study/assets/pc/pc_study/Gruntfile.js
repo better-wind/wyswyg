@@ -120,6 +120,10 @@ module.exports = function(grunt) {
                     {
                         src:['<%= path.src%>/css/dice.css'],
                         dest:'<%= path.dist%>/css/dice.css'
+                    },
+                    {
+                        src:['<%= path.src%>/css/drop_drap.css'],
+                        dest:'<%= path.dist%>/css/drop_drap.css'
                     }
                 ]
             },
@@ -149,6 +153,10 @@ module.exports = function(grunt) {
                     {
                         src:['<%= path.src%>/js/dice.js'],
                         dest:'<%= path.dist%>/js/dice.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/drop_drap.js'],
+                        dest:'<%= path.dist%>/js/drop_drap.js'
                     }
 
                 ]

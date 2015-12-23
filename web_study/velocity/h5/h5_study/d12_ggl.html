@@ -10,84 +10,29 @@
     <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link type="text/css" rel="stylesheet" href="../../../build/h5/h5_study/css/d12_ggl.min.css">
+    <link rel="stylesheet" href="../../../build/h5/h5_study/css/d12_ggl.min.css">
     <style>
         body{
             position: relative;
         }
-        .getMB2{
-            width: 100%;
-            height: 100%;
-            background: black;
-            opacity: 0.7;
-            filter:alpha(opacity=70);
-            -moz-opacity:0.7;
-            position: absolute;
-            z-index: 100;
-            display:none;
-        }
-        .MB2_img{
-            display:none;
-            z-index: 101;
-        }
     </style>
 </head>
-
-<body data-currenttime="${currentTime}" data-nick="$!{loginContext.nick}" data-avata="$!{loginContext.avata}" data-loginUrl="$!{loginUrl}" data-product="${productDetailUrl}" data-bindPhone="${phoneBound}" data-sellerId="${userId}" data-log="${marked}" data-isSeller="${isSeller}">
-<section class="wrap">
-    <!--<img class="img_bg" src="http://xqproduct.xiangqu.com/FoA-30Cpzt_8lcTYuC27Notg1moj?imageView2/2/w/640/q/100/format/jpg/640x1511/">-->
-    <img class="img_bg" src="http://xqproduct.xiangqu.com/FtZMRd_Jjcn8ZmruxHpN35RzPDC8?imageView2/2/w/640/q/100/format/jpg/640x1512/">
+<body data-currenttime="${currentTime}" data-nick="$!{loginContext.nick}" data-avata="$!{loginContext.avata}" data-loginUrl="$!{loginUrl}" data-product="${productDetailUrl}" data-bindPhone="${phoneBound}" data-sellerId="${userId}" data-log="${marked}" data-isSeller="${isSeller}" is-CJ="${iscj}">
+<section class="wrap J_wrap">
     <section class="ggl">
-        <p></p>
+        <div class="message">
+            <p class="no J_no">好遗憾，明天再来吧！</p>
+            <p class="no J_is_cj">明天再来吧！</p>
+            <p class="product J_product">恭喜获得</p>
+            <p class="product_mess J_product_mess">价值88元充电宝一个</p>
+            <p class="coupon J_coupon ">恭喜获得10元现金券</p>
+            <p class="coupon_date J_coupon_date">订单满200元使用 现金券截止日期:12月26日 </p>
+        </div>
         <canvas id="myCanvas"></canvas>
     </section>
-    <section class="rule_wrap">
-        <img class="rule_title" src="http://xqproduct.xiangqu.com/FoFdHOu4MN0qRxHQIaIusKCUMyvW">
-        <p>1. 活动期间，<span class="fw">想去用户可通过下单获取刮刮卡的机会，每天有且只有一次刮奖机会。</span></p>
-        <p>2.  抽奖机会对应的订单在确认收货后，奖品由想去同意发送；本活动最终解释权归想去网所有；想去网有权对恶意侵犯想去权益的用户进行处理。</p>
-        <p>3.  获得实物奖品的用户，如需修改收货地址，请在"我的奖品池"中修改，更改地址作为用户统一的收货地址。</p>
-        <!--<img src="http://xqproduct.xiangqu.com/Fl-__7MHRiSjmth7IwdFvCSu60Oe">-->
-    </section>
-    <section class="get_lottery">
-        <p>恭喜您，中奖啦！</p>
-        <button class="go_see">去看看</button>
-    </section>
-    <section class="write_address">
-        <p class="title">恭喜您，中奖啦！</p>
-        <p class="sub_title">补充您的领奖信息</p>
-        <div class="address_wrap">
-            <div class="sub_wrap"><span>收件人：</span><input type="text" /></div>
-            <div class="sub_wrap"><span>地址：</span><input type="text" /></div>
-            <div class="sub_wrap"><span>联系方式(手机)：</span><input type="text" class="tel" /></div>
-            <button class="go_get">提交</button>
-        </div>
 
 
-    </section>
-    <section class="my_lottery">
-        <div class="title_wrap">
-            <p>我的奖池</p>
-            <span>修改地址></span>
-        </div>
-        <section class="lotter_content">
-            <div class="sub_content">
-                <span class="date">2012.12.18</span>
-                <span class="name">恭喜您获得价值88元充电宝一个</span>
-            </div>
-            <div class="sub_content">
-                <span class="date">2012.12.18</span>
-                <span class="name">恭喜您获得价值88元充电宝一个</span>
-            </div>
-
-
-        </section>
-
-    </section>
 </section>
-
-
-
-
 <script type="text/javascript" src="../../../build/h5/common/js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="../../../build/h5/h5_study/js/d12_ggl.min.js"></script>
 </body>

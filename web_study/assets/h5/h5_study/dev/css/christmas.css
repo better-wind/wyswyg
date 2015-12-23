@@ -1,0 +1,221 @@
+html{
+    font-size: 62.5%;
+}
+body,ul,li,p{
+    padding: 0;
+    margin: 0;
+}
+.wrap{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.wrap_bg{
+    background: url("http://xqproduct.xiangqu.com/FhUPsz4oZrsecYRVSBd9VVmCV1ei?imageView2/2/w/640/q/100/format/jpg/640x1000/") repeat;
+    background-size:100% 100%;
+    /*background-position-x:10%;*/
+    background-position-y:0%;
+}
+.wrap_bg_move{
+    /*animation: bg_move 10s linear infinite;*/
+}
+@-webkit-keyframes bg_move{
+    0%{
+        background-position-x:10%;
+    }
+    50%{
+        background-position-x:20%;
+    }
+    100%{
+        background-position-x:10%;
+    }
+
+}
+.win_show{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.snow_bg_0{
+    background-color: #FFF;
+}
+.snow_bg_1{
+    background: url('http://xqproduct.xiangqu.com/Ft19JuXW8IMbrr3uRT8Qm5nh2MoR');
+    background-size: 100% 100%;
+}
+.snow_bg_2{
+    background: url("http://xqproduct.xiangqu.com/FglASA5GrVrrnBjYsGYoZ4oNPjf2");
+    background-size: 100% 100%;
+}
+.snow_bg_3{
+    background:url("http://xqproduct.xiangqu.com/FlLJqIJb31s2RiwQpMxJ1lvAF8mX");
+    background-size: 100% 100%;
+}
+.snow_bg_4{
+    background: url("http://xqproduct.xiangqu.com/FglASA5GrVrrnBjYsGYoZ4oNPjf2");
+    background-size: 100% 100%;
+}
+.snow_bg_5{
+    background: url("http://xqproduct.xiangqu.com/FglASA5GrVrrnBjYsGYoZ4oNPjf2");
+    background-size: 100% 100%;
+}
+.snow_bg_6{
+    background: url("http://xqproduct.xiangqu.com/FglASA5GrVrrnBjYsGYoZ4oNPjf2");
+    background-size: 100% 100%;
+}
+.snow_bg_7{
+    background: url("http://xqproduct.xiangqu.com/FglASA5GrVrrnBjYsGYoZ4oNPjf2");
+    background-size: 100% 100%;
+}
+.drop{
+    -webkit-animation: drop 10s ease;
+}
+@-webkit-keyframes drop {
+    0%{
+
+    }
+    100%{
+        top:90%;
+        opacity: .1;
+        -webkit-transform: rotate(360deg);
+    }
+}
+.bg_text{
+    position: absolute;
+    width: 70%;
+    top: 20%;
+    left: 15%;
+    -webkit-animation: test_move 5s linear ;
+    z-index: 20;
+}
+@-webkit-keyframes test_move{
+    0%{
+        opacity: 0;
+        top: 10%;
+        -webkit-transform: scale(0);
+    }
+    60%{
+        opacity: .8;
+    }
+    100%{
+        top: 20%;
+        opacity: .5;
+        -webkit-transform: scale(1);
+    }
+
+}
+.gift_wrap{
+    position: relative;
+    width: 100%;
+    height: 30rem;
+    margin-top: 40%;
+    -webkit-perspective: 100rem;
+    -webkit-perspective-origin: 0px 0px;
+    overflow: hidden;
+    z-index: 19;
+}
+.gift_box{
+    display: none;
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+    -webkit-transform: rotateY(35deg);
+    -webkit-transform-style: preserve-3d;
+}
+.gift_box_rotate{
+    -webkit-animation: gift_rotate 10s linear infinite;
+}
+.gift_box_show{
+    -webkit-animation: gift_box_show 2s ease;
+}
+@-webkit-keyframes gift_box_show {
+    0%{
+        opacity: .1;
+        transform: scale(3.1);
+        -webkit-transform: rotateY(35deg);
+
+    }
+    100%{
+        opacity: .9;
+        transform: scale(1);
+        -webkit-transform: rotateY(395deg);
+    }
+}
+@-webkit-keyframes gift_rotate {
+    0%{}
+    100%{
+     transform:rotateY(395deg);
+    }
+}
+.gift_box div{
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    border: 1px solid #FFF;
+    text-align: center;
+    line-height: 15rem;
+    font-size: 2.5rem;
+    font-family: 'Arial';
+    font-weight: bold;
+    background:-webkit-linear-gradient(135deg,rgb(234,222,206) 30%,rgb(215,197,173));
+    color:#FFF;
+    backface-visibility: hidden;
+
+}
+.gift_box div .split{
+    position: absolute;
+    width: 3rem;
+    height: 100%;
+    margin-left:6rem;
+    background:-webkit-linear-gradient(-45deg,rgb(245,67,53) 20%,rgb(164,17,7));
+}
+.gift_box div .split_top{
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    border-left: 1px rgb(130,106,80) solid;
+    border-right: 1px rgb(130,106,80) solid;
+    border-bottom: 2px rgb(130,106,80) solid;
+    box-shadow: 1px 2px 3px rgb(177,157,127);
+
+}
+.gift_box div.top{
+    position: absolute;
+    transform: rotateX(90deg);
+
+}
+.gift_box div.bottom{
+    position: absolute;
+    top:15rem;
+    transform: rotateX(-90deg);
+
+}
+.gift_box div.left{
+    position: absolute;
+    left:-7.5rem;
+    top:7.5rem;
+    transform: rotateY(-90deg);
+
+}
+.gift_box div.right{
+    position: absolute;
+    left:7.5rem;
+    top:7.5rem;
+    transform: rotateY(90deg);
+
+}
+.gift_box div.front{
+    position: absolute;
+    top:7.5rem;
+    transform:translateZ(7.5rem) rotateY(0deg);
+
+}
+.gift_box div.behind{
+    position: absolute;
+    top:7.5rem;
+    transform:translateZ(-7.5rem) rotateY(180deg);
+
+}

@@ -91,12 +91,6 @@ module.exports = function(grunt) {
                     },
                     {
                         src:[
-                            '<%= path.src%>/css/column.css'
-                        ],
-                        dest:'<%= path.dist%>/css/column.css'
-                    },
-                    {
-                        src:[
                             '<%= path.src%>/css/xzmm.css'
                         ],
                         dest:'<%= path.dist%>/css/xzmm.css'
@@ -124,6 +118,12 @@ module.exports = function(grunt) {
                             '<%= path.src%>/css/d12_ggl.css'
                         ],
                         dest:'<%= path.dist%>/css/d12_ggl.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.src%>/css/christmas.css'
+                        ],
+                        dest:'<%= path.dist%>/css/christmas.css'
                     }
                 ]
             },
@@ -169,6 +169,11 @@ module.exports = function(grunt) {
                         src:['<%= path.src%>/js/d12_ggl.js'
                         ],
                         dest:'<%= path.dist%>/js/d12_ggl.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/christmas.js'
+                        ],
+                        dest:'<%= path.dist%>/js/christmas.js'
                     }
 
 
