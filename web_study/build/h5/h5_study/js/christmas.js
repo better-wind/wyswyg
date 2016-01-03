@@ -5,7 +5,16 @@
             self.J_wrap = $('.J_wrap');
             self.J_gift_wrap = $('.J_gift_wrap');
             self.J_gift_box = $('.J_gift_box');
+            self.J_gift_box_top = $('.J_gift_box_top');
+            self.J_gift_box_bottom = $('.J_gift_box_bottom');
             self.J_wrap.css('height',$(window).height());
+            self.J_top = $('.J_top');
+            self.J_left_open = $('.J_left_open');
+            self.J_right_open = $('.J_right_open');
+            self.J_front_open = $('.J_front_open');
+            self.J_behind_open = $('.J_behind_open');
+            self.J_love = $('.J_love');
+            self.J_ggl_wrap = $('.J_ggl_wrap');
             self.eventing();
         },
         eventing:function(){
@@ -13,6 +22,38 @@
             self.text_init();
             self.gift_init();
             self.snow_init();
+            self.my_gift_show();
+            self.ggl_init();
+
+        },
+        love_heart_show:function(){
+            var self = this;
+            self.J_love.show().addClass('love_show');
+            var ggl_show = setTimeout(function(){
+                self.J_love.hide();
+                $('.message').show();
+                $('#myCanvas').show();
+            },3000)
+        },
+        my_gift_show:function(){
+            var self = this;
+            self.J_gift_box.on('click',function(){
+                $(this).removeClass('gift_box_rotate');
+                self.J_gift_box_top.addClass('gift_box_top_open');
+                self.J_gift_box_bottom.addClass('gift_box_bottom_open');
+                self.J_left_open.addClass('left_open');
+                self.J_right_open.addClass('right_open');
+                self.J_front_open.addClass('front_open');
+                self.J_behind_open.addClass('behind_open');
+                var hide = setTimeout(function(){
+                    self.J_gift_wrap.hide();
+                },1000)
+                var love_show = setTimeout(function(){
+                    self.love_heart_show();
+                    $('.bg_text').addClass('text_hug');
+                },200)
+
+            })
         },
         gift_init:function(){
             var self = this;
@@ -76,7 +117,7 @@
                     settime(_a-50);
                 },_a);
             }
-            settime(2000);
+            settime(1000);
         },
         drop_snow:function(){
              var self = this;
@@ -95,9 +136,128 @@
             }
             return str.split('%')[0];
 
+        },
+        ggl_init:function(){
+            var self = this;
+            var _w = $('.ggl').width();
+            var _h = $('.ggl').height();
+            $('.ggl canvas').css('height',_h);
+            var clip =new imageClip(.2,_w,_h);
+            clip.finish(function(){
+                clip.clear();
+            });
+        },
+        last_show:function(){
+            var self = this;
+            self.J_ggl_wrap.hide();
+            $('.bg_text').hide();
+            $('.my_nn').show().addClass('my_nn_show');
+            var my_nn_op = setTimeout(function(){
+                $('.my_nn').removeClass('my_nn_show').addClass('my_nn_op');
+                $('.ILU').show().addClass('ILU_hug');
+            },5000);
+
+
+
         }
     }
     $(function(){
         Christmas.init();
     })
+    function imageClip(filter,width,height){
+        var ggl_nav = $('.ggl');
+        var ggl_wrap = $('.ggl_wrap');
+        var canvas = document.getElementById("myCanvas"),
+            context = canvas.getContext('2d'),
+            img = new Image(),
+            finish;
+        img.src = '../../../build/h5/h5_study/img/heart.png';
+        img.onload = function(){
+            canvas.width  = width;
+            canvas.height = height;
+            context.drawImage(img,0,0,canvas.width,canvas.height);
+            context.globalCompositeOperation = 'destination-out';
+
+        }
+        canvasLeft = canvas.offsetLeft,
+            canvasTop = canvas.offsetTop,
+            mousedown = false;
+        isfirst = true;
+        ggl_navmarginLeft = parseInt(Nopx(ggl_nav.css('margin-left')));
+        ggl_navmarginTop = parseInt(Nopx(ggl_nav.css('margin-top')));
+        ggl_navLeft =ggl_nav.position().left;
+        ggl_navTop =ggl_nav.position().top;
+        ggl_wrapmarginLeft =parseInt(Nopx(ggl_wrap.css('margin-left')));
+        ggl_wrapmarginTop =parseInt(Nopx(ggl_wrap.css('margin-top')));
+        ggl_wrapLeft =ggl_wrap.position().left;
+        ggl_wrapTop =ggl_wrap.position().top;
+        function first(){
+            if(isfirst){
+                $('.ggl .message img').show();
+            }
+            isfirst = false;
+        }
+        function eventDown(e){
+            e.preventDefault();
+            mousedown = true;
+            first();
+
+        }
+        function eventUp(e){
+            e.preventDefault();
+            mousedown = false;
+            clearMask();
+        }
+        function clearMask(){
+            var num = 0,
+                datas = context.getImageData(width*0.1,height*0.1,width*0.8,height*0.8),
+                datasLength = datas.data.length;
+            for (var i = 0; i < datasLength; i++) {
+                if (datas.data[i] == 0) num++;
+            }
+            if (num >= datasLength * filter) {
+                if(finish) finish();
+            };
+        }
+        function eventMove(e){
+            e.preventDefault();
+            if(mousedown) {
+                if(e.changedTouches){
+                    e = e.changedTouches[e.changedTouches.length-1];
+                }
+                var x = (e.clientX + $(document).scrollLeft() || e.pageX) - canvasLeft - ggl_navLeft - ggl_navmarginLeft -ggl_wrapmarginLeft -ggl_wrapLeft|| 0,
+                    y = (e.clientY + $(document).scrollTop()  || e.pageY) - canvasTop -ggl_navTop - ggl_navmarginTop-ggl_wrapTop - ggl_wrapmarginTop|| 0;
+                //console.log(e.clientX+','+e.clientY+'    '+e.pageX+','+e.pageY+'    '+x+','+y);
+
+                context.beginPath();
+                context.arc(x, y, 15, 0, Math.PI * 2);
+                context.fill();
+            }
+        }
+
+        canvas.addEventListener('touchstart', eventDown);
+        canvas.addEventListener('touchend', eventUp);
+        canvas.addEventListener('touchmove', eventMove);
+        this.finish = function(callback){
+            finish = callback;
+        }
+        this.clear = function(){
+            context.beginPath();
+            context.rect(0,0,width,height);
+            context.fill();
+            canvas.removeEventListener('touchstart', eventDown);
+            canvas.removeEventListener('touchend', eventUp);
+            canvas.removeEventListener('touchmove', eventMove);
+            Christmas.last_show();
+
+        }
+
+    }
+    function Nopx(_px){
+        if(!_px){
+            return false;
+        }
+        var _intpx = _px.split('px');
+        return _intpx[0];
+    }
 })(Zepto)

@@ -41,13 +41,19 @@
             img = new Image(),
             finish;
         img.src = '';
-        img.onload = function(){
-            canvas.width  = width;
-            canvas.height = height;
-            context.drawImage(img,0,0,canvas.width,canvas.height);
-            context.globalCompositeOperation = 'destination-out';
-
-        }
+        //img.onload = function(){
+        //    canvas.width  = width;
+        //    canvas.height = height;
+        //    context.drawImage(img,0,0,canvas.width,canvas.height);
+        //    context.globalCompositeOperation = 'destination-out';
+        //
+        //}
+        canvas.width  = width;
+        canvas.height = height;
+        context.fillStyle = 'gray';
+        context.globalAlpha = 1;
+        context.fillRect(0,0,width,height);
+        context.globalCompositeOperation = 'destination-out';
         canvasLeft = canvas.offsetLeft,
             canvasTop = canvas.offsetTop,
             mousedown = false;
@@ -112,7 +118,6 @@
             canvas.removeEventListener('touchstart', eventDown);
             canvas.removeEventListener('touchend', eventUp);
             canvas.removeEventListener('touchmove', eventMove);
-            $('.J_no').show();
 
         }
 

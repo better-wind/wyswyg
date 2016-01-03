@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+
+<meta charset="utf-8">
+<title>PB_xiaow</title>
+<style type="text/css">
+    body, ul, li, h3 {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font: bold 12px "微软雅黑"; }
+
+    #PB-box{
+        position:relative;
+        margin-top:80px;
+        width:90%;
+        margin:0 auto;
+    }
+    #PB-box ul{
+        position: relative;
+
+    }
+    #PB-box ul li {
+        position: absolute;
+        background: #fff;
+        border: solid 1px #ccc;
+        text-align: center;
+        padding: 10px; left: 0px; top: 0;
+    }
+    h3 {
+        padding-top: 8px;
+    }
+    img {
+        width: 200px;
+        height: auto;
+        display: block;
+        border: 0;
+    }
+
+    li {
+        -webkit-transition: all .7s ease-out .1s;
+        -moz-transition: all .7s ease-out;
+        -o-transition: all .7s ease-out .1s;
+        transition: all .7s ease-out .1s;
+    }
+</style>
+<script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Pubu..小Wang</h1>
+</header>
+<div id="PB-box">
+    <ul>
+
+        <li><img src="http://xqproduct.xiangqu.com/Fjd3VhE9hNUjdt_L9sb7SM9ycWzK"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FicwCVaGN12UXfxz9gBGMVDtWVJ5"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FluIECOvoIsi9OvHdKuJti_EHBZW"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FlbaFs2C8rTSdw5CcCSkEjKnnLqs"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FjYWNBxw6QiRgdk5xtdRvrbQ8S-r"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FluIECOvoIsi9OvHdKuJti_EHBZW"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FjYWNBxw6QiRgdk5xtdRvrbQ8S-r"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FkjlA4Dz0qKJ63x30gZZFl9JUbFz"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/Fhb4CPfiOofzub19CQzlmjjonVwe"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FicwCVaGN12UXfxz9gBGMVDtWVJ5"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FluIECOvoIsi9OvHdKuJti_EHBZW"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FlbaFs2C8rTSdw5CcCSkEjKnnLqs"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FjYWNBxw6QiRgdk5xtdRvrbQ8S-r"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FluIECOvoIsi9OvHdKuJti_EHBZW"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FjYWNBxw6QiRgdk5xtdRvrbQ8S-r"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FkjlA4Dz0qKJ63x30gZZFl9JUbFz"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/Fhb4CPfiOofzub19CQzlmjjonVwe"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FicwCVaGN12UXfxz9gBGMVDtWVJ5"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FluIECOvoIsi9OvHdKuJti_EHBZW"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FlbaFs2C8rTSdw5CcCSkEjKnnLqs"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FjYWNBxw6QiRgdk5xtdRvrbQ8S-r"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FluIECOvoIsi9OvHdKuJti_EHBZW"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FjYWNBxw6QiRgdk5xtdRvrbQ8S-r"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/FkjlA4Dz0qKJ63x30gZZFl9JUbFz"><h3>message</h3></li>
+        <li><img src="http://xqproduct.xiangqu.com/Fhb4CPfiOofzub19CQzlmjjonVwe"><h3>message</h3></li>
+
+    </ul>
+</div>
+<script>
+    /*
+     原理：1.把所有的li的高度值放到数组里面
+     2.第一行的top都为0
+     3.计算高度值最小的值是哪个li
+     4.把接下来的li放到那个li的下面
+
+     */
+    var margin = 10;//这里设置间距
+    var li=$("li");
+    var box = $("#PB-box");
+    var box_W = box.width();
+
+    var	li_W = li[0].offsetWidth+margin;//取区块的实际宽度（包含间距，这里使用源生的offsetWidth函数，不适用jQuery的width()函数是因为它不能取得实际宽度，例如元素内有pandding就不行了）
+    function PB(){//定义成函数便于调用
+        var h=[];//记录区块高度的数组
+        var n = box_W/li_W|0;//窗口的宽度除以区块宽度就是一行能放几个区块
+        for(var i = 0;i < li.length;i++) {//有多少个li就循环多少次
+            li_H = li[i].offsetHeight;//获取每个li的高度
+            if(i < n) {//n是一行最多的li，所以小于n就是第一行了
+                h[i]=li_H;//把每个li放到数组里面
+                li.eq(i).css("top",0);//第一行的Li的top值为0
+                li.eq(i).css("left",i * li_W);//第i个li的左坐标就是i*li的宽度
+            }
+            else{
+                min_H =Math.min.apply(null,h) ;//取得数组中的最小值，区块中高度值最小的那个
+                minKey = getarraykey(h, min_H);//最小的值对应的指针
+                h[minKey] += li_H+margin ;//加上新高度后更新高度值
+                li.eq(i).css("top",min_H+margin);//先得到高度最小的Li，然后把接下来的li放到它的下面
+                li.eq(i).css("left",minKey * li_W);	//第i个li的左坐标就是i*li的宽度
+            }
+            $("h3").eq(i).text("num："+i+"，height："+li_H);//把区块的序号和它的高度值写入对应的区块H3标题里面
+        }
+    }
+    /* 使用for in运算返回数组中某一值的对应项数(比如算出最小的高度值是数组里面的第几个) */
+    function getarraykey(s, v) {
+        for(k in s) {
+            if(s[k] == v) {
+                return k;
+            }
+        }
+    }
+    /*这里一定要用onload，因为图片不加载完就不知道高度值*/
+    window.onload = function() {PB();};
+    /*浏览器窗口改变时也运行函数*/
+    window.onresize = function() {PB();};
+</script>
+
+
+
+</html>

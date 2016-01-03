@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+li {
+  list-style: none;
+}
+html {
+  width: 100%;
+  font-size: 62.5%;
+  line-height: 0;
+}
+body {
+  display: block;
+  width: 100%;
+  font-size: 62.5%;
+  position: relative;
+}
+b,
+i {
+  font-style: normal;
+}
+button {
+  margin-bottom: 10px;
+}
+span {
+  line-height: 0;
+}
+em {
+  width: 10px;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-left: 4px solid #000;
+  border-bottom: 3px solid transparent;
+  display: inline-block;
+  vertical-align: middle;
+}
+.timelimit_wrap {
+  width: 100%;
+  height: 22rem;
+}
+.timelimit_wrap .show_img_wrap {
+  position: relative;
+  width: 100%;
+  height: 17rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.timelimit_wrap .show_img_wrap .show_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.timelimit_wrap .show_img_wrap .show_block {
+  display: block;
+}
+.timelimit_wrap .show_img_wrap .show_left {
+  -webkit-animation: show_left 1s ease;
+  display: block;
+}
+.timelimit_wrap .show_img_wrap .hide_left {
+  -webkit-animation: hide_left 1s ease;
+  display: block;
+  left: -100%;
+}
+.timelimit_wrap .show_img_wrap .show_right {
+  -webkit-animation: show_right 1s ease;
+  display: block;
+}
+.timelimit_wrap .show_img_wrap .hide_right {
+  -webkit-animation: hide_right 1s ease;
+  display: block;
+  left: 100%;
+}
+@-webkit-keyframes show_left {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hide_left {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes show_right {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hide_right {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+.timelimit_wrap .date_wrap {
+  width: 100%;
+  height: 5rem;
+  margin: 0 auto;
+}
+.timelimit_wrap .date_wrap .date_ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.timelimit_wrap .date_wrap .date_ul .date_li {
+  float: left;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  background-color: #35302c;
+}
+.timelimit_wrap .date_wrap .date_ul .date_li p {
+  font-family: "Arial Black";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #FFF;
+}
+.timelimit_wrap .date_wrap .date_ul .date_li .date_product {
+  font-size: .8rem;
+}
+.timelimit_wrap .date_wrap .date_ul .date_li .time_djs .time {
+  width: 10%;
+  height: 3rem;
+  background: url('http://xqproduct.xiangqu.com/FqCiOqFrRhB5It5akGqwEdeCa-oW') no-repeat;
+  background-size: 100%;
+  display: inline-block;
+}
+.timelimit_wrap .date_wrap .date_ul .add_current {
+  background-color: #d6a330;
+  -webkit-animation: add_current 1s ease;
+}
+.timelimit_wrap .date_wrap .date_ul .remove_current {
+  background-color: #35302c;
+  -webkit-animation: remove_current 1s ease;
+}
+@-webkit-keyframes add_current {
+  0% {
+    background-color: #35302c;
+  }
+  100% {
+    background-color: #d6a330;
+  }
+}
+@-webkit-keyframes remove_current {
+  0% {
+    background-color: #d6a330;
+  }
+  100% {
+    background-color: #35302c;
+  }
+}

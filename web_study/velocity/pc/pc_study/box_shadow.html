@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p><strong>这是原图</strong></p>
+    <img id="imageOrigin" src="../../../build/pc/Citywest/image/heart.png" style="width: 200px;"/>
+    <p><strong>这是box-shadow生成的</strong></p>
+    <div id="boxShadow"></div>
+<script>
+    if ( typeof window.screenX !== "undefined") {
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+        var width = 256, height = 191;
+        canvas.width = width;
+        canvas.height = height;
+
+        var imageOrigin = document.getElementById("imageOrigin");
+        var boxShadow = document.getElementById("boxShadow");
+
+        var funBoxShadow = function() {
+            context.drawImage(imageOrigin, 0, 0, width, height);
+            var imageData = context.getImageData(0, 0, width, height);
+            var arrBoxShadow = [], length = imageData.data.length;
+            // 遍历颜色参数值
+            for (var index = 0; index < length; index++) {
+                if (index % 4 === 0) {
+                    var x = index / 4 % width, y = Math.floor(index / 4 / width);
+                    arrBoxShadow.push((x + 1) + "px " + (y + 1) + "px rgba(" +
+                            [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], imageData.data[index + 3]].join() +
+                            ")");
+                }
+            };
+
+            boxShadow.style.boxShadow = arrBoxShadow.join();
+        };
+
+        if (imageOrigin.height === height) {
+            // has cached
+            funBoxShadow();
+        } else {
+            imageOrigin.onload = funBoxShadow;
+        }
+
+        boxShadow.style.width = boxShadow.style.height = "1px";
+        boxShadow.style.margin = "-1px 0 0 -1px";
+    } else {
+        document.getElementById("boxShadow").innerHTML = '当前浏览器low了点~~';
+    };
+</script>
+</body>
+</html>

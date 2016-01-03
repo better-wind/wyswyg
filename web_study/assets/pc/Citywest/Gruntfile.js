@@ -79,6 +79,11 @@ module.exports = function(grunt) {
                         src:['<%= path.src%>/less/global.less'
                         ],
                         dest:'<%= path.temp%>/css/global.css'
+                    },
+                    {
+                        src:['<%= path.src%>/less/starry_sky.less'
+                        ],
+                        dest:'<%= path.temp%>/css/starry_sky.css'
                     }
 
 
@@ -106,6 +111,12 @@ module.exports = function(grunt) {
                             '<%= path.temp%>/css/global.css'
                         ],
                         dest:'<%= path.dist%>/css/global.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.temp%>/css/starry_sky.css'
+                        ],
+                        dest:'<%= path.dist%>/css/starry_sky.css'
                     },
                     {
                         src:[
@@ -139,6 +150,11 @@ module.exports = function(grunt) {
                         src:['<%= path.src%>/js/nav.js'
                         ],
                         dest:'<%= path.dist%>/js/nav.js'
+                    },
+                    {
+                        src:['<%= path.src%>/js/starry_sky.js'
+                        ],
+                        dest:'<%= path.dist%>/js/starry_sky.js'
                     }
 
                 ]
