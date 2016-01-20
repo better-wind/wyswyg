@@ -1,0 +1,114 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.banner_wrap{
+    position: relative;
+    width: 100%;
+    background: url("../icon/bg_240.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.banner_wrap img{
+    width: 20%;
+    float: left;
+    margin-top: 2.5rem;
+    margin-left: 2rem;
+}
+.banner_wrap button{
+    font-size: 1.5rem;
+    color: #FFF;
+    padding: .3rem 1.5rem;
+    float: right;
+    margin-right: 2rem;
+    border:1px solid #FFF;
+    background-color: transparent;
+    margin-top: 4.2rem;
+
+}
+.default{
+    width: 100%;
+    height: 8rem;
+    text-align: center;
+    display: none;
+}
+.default img{
+    width: 40%;
+    margin-top: 3rem;
+}
+.content_wrap{
+    margin-top: 1rem;
+    width: 100%;
+
+}
+.sub_content{
+     width: 100%;
+    background-color: #FFF;
+    padding: .5rem 0;
+    color:#000;
+ }
+.select{
+    background-color: #795548;
+}
+.content_wrap .add{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+.content_wrap .sub_add{
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+.select{
+    background-color: #795548;
+    color:#FFF;
+}
+
+.fix_menu{
+    position: fixed;
+    left: 0;
+    bottom:0;
+    width: 100%;
+}
+.fix_menu ul{
+    width: 100%;
+    overflow: hidden;
+}
+.fix_menu ul li{
+    float: left;
+    font-size: 1.5rem;
+    padding: .8rem 0;
+    text-align: center;
+}
+.fix_menu ul li.left{
+    width: 65%;
+    background-color: #EEE;
+    text-align: left;
+}
+.fix_menu ul li.left span{
+    margin-left: 2rem;
+}
+.fix_menu ul li.left span.type_A{
+    display: none;
+}
+.fix_menu ul li.left span.type_B{
+    display: none;
+}
+.fix_menu ul li.right{
+    width: 35%;
+    background-color: #795548;
+}

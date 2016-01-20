@@ -1,0 +1,164 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.banner_wrap{
+    position: relative;
+    width: 100%;
+    background: url("../icon/bg_240.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.banner_wrap img{
+    width: 16%;
+    margin-top: 2.5rem;
+}
+.banner_wrap p{
+    font-size: 1.5rem;
+    color: #FFF;
+    background-color: transparent;
+    margin-top: .5rem;
+}
+.default_wrap{
+    width: 100%;
+    height: 8rem;
+    text-align: center;
+    display: none;
+}
+.default_wrap img{
+    width: 40%;
+    margin-top: 3rem;
+}
+.default_wrap p{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.main{
+    background: #fff;
+    padding-left: 2%;
+    margin-top: 1rem;
+}
+.content_wrap{
+    width: 100%;
+    position: relative;
+    background-color: #FFF;
+    padding-bottom: 3.5rem;
+}
+.sub_content{
+    float: left;
+    width: 80%;
+    height: 2rem;
+    padding: .5rem 0;
+    color: #000;
+    overflow: hidden;
+}
+.sub_content_B{
+    padding: .5rem 0;
+    color: #000;
+}
+.select{
+    background-color: #795548;
+}
+.content_wrap .add{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.content_wrap .sub_add{
+    font-size: 1rem;
+    color: #b6b6b6;
+}
+.time{
+    display: inline-block;
+    margin: .5rem;
+}
+.order .sub_content,.price .sub_content,.overage .sub_content{
+    width: 96%;
+    padding-left: 2%;
+}
+.sub_order{
+    display: inline-block;
+    margin: .5rem .2rem;
+}
+.name{
+    float: left;
+    margin: .5rem .2rem;
+}
+.num{
+    float: right;
+    margin: .5rem 1rem;
+    color: #ff5252;
+}
+
+.bottom{
+    padding-bottom: 10rem;
+}
+.bottom .sub_content{
+    padding-left: 2%;
+}
+.bottom .content_wrap .forward{
+    width: 1.5rem;
+    padding: 1rem;
+}
+.content_wrap  img{
+    width: 2rem;
+    float: left;
+    padding: .6rem;
+}
+.mesg{
+    width: 92%;
+    height: 5rem;
+    margin: 1rem 0 4rem 1%;
+}
+.select{
+    background-color: #795548;
+    color:#FFF;
+}
+
+.fix_menu{
+    position: fixed;
+    left: 0;
+    bottom:0;
+    width: 100%;
+    background: #d7ccc8;
+}
+.fix_menu ul{
+    width: 100%;
+    overflow: hidden;
+}
+.fix_menu ul li{
+    font-size: 1.5rem;
+    text-align: center;
+    float: left;
+    width: 33%;
+    text-align: center;
+    padding: 1rem 0;
+}
+.fix_menu ul li.last{
+    width: 34%;
+}
+
+.hidden{
+    display: none;
+}
+
+.line{
+    width: 92%;
+    margin-left: 2%;
+    padding-bottom: .1rem;
+    background: #ddd;
+}

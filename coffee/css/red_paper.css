@@ -1,0 +1,71 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+
+}
+.banner_wrap{
+    position: relative;
+    width: 100%;
+    background: url("../icon/ic_bg_lunky_money.png");
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.banner_wrap .price{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 6rem;
+    color: rgb(255,204,0);
+
+}
+.default_wrap{
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+.default_wrap img{
+    width: 20%;
+    margin-top: 20%;
+}
+.default_wrap p{
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.sub_paper_wrap{
+    margin-top: 2rem;
+    width: 100%;
+    background-color: #FFF;
+}
+.sub_paper{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    border-bottom: 1px #AAA solid;
+    overflow: hidden;
+    font-size: 1.2rem;
+}
+.sub_paper .left{
+    float: left;
+    color:#FF5252;
+    font-size: 1.4rem;
+}
+.sub_paper .right{
+    float: right;
+    color: #FFF;
+    background-color: #FF5252;
+    padding: .2rem 2rem;
+}

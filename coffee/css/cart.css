@@ -1,0 +1,155 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.curt_wrap{
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 1.5rem;
+}
+.title_wrap{
+    width: 90%;
+    margin: 0 auto;
+    border-bottom:1px solid #AAA;
+    padding:1rem 0 ;
+}
+.title_wrap p{
+    width: 100%;
+    color: #000;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+
+}
+.title_wrap p img{
+    width: 2rem;
+    vertical-align: text-bottom;
+    margin-right: .5rem;
+}
+.content_wrap{
+    width: 90%;
+    margin: 0 auto;
+    padding:1rem 0 ;
+    height: 6rem;
+    border-bottom:1px solid #AAA;
+}
+.content_wrap div{
+    float: left;
+    height: 6rem;
+}
+.content_wrap .left{
+    width: 20%;
+}
+.content_wrap .left img{
+    width: 6rem;
+}
+.content_wrap .right{
+    width: 80%;
+
+}
+.content_wrap .right p{
+    height: 3rem;
+
+}
+.content_wrap .right p.first{
+    margin-top: .5rem;
+}
+.content_wrap .right p .name{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+.content_wrap .right p .size{
+    float: right;
+}
+.content_wrap .right p .hot_cold{
+    float: right;
+    margin-right: 3rem;
+}
+.content_wrap .right p .choose{
+    font-size: 1.6rem;
+    display: inline-block;
+    border:1px solid #795548;
+    padding: 0 5px;
+}
+.content_wrap .right p .choose_left{
+    border-right:none;
+}
+.content_wrap .right p .choose_right{
+    border-left:none;
+}
+.content_wrap .right p .choose_mid{
+
+}
+.content_wrap .right p .on{
+    background-color: #795548;
+}
+.content_wrap .right p .price{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    color: #FF5252;
+    font-weight: bold;
+}
+.content_wrap .right p .num{
+    float: right;
+
+}
+.select_wrap{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+.select_wrap p{
+    font-size: 1.3rem;
+}
+.select_wrap p .right{
+    float: right;
+}
+.select_wrap p .price{
+    color:#FF5252;
+}
+.fix_menu{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom:0;
+}
+.fix_menu ul{
+    width: 100%;
+}
+.fix_menu ul li{
+    float: left;
+    width: 33%;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding: 1rem 0;
+}
+.fix_menu ul li.left{
+    background-color: #D7CCC8;
+
+}
+.fix_menu ul li.center{
+    color: #FF5252;
+    background-color: #EEE;
+
+}
+.fix_menu ul li.right {
+    width: 34%;
+    color: #FFF;
+    background-color: #795548;
+}

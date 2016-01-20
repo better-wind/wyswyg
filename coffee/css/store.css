@@ -1,0 +1,115 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.default{
+    width: 100%;
+    height: 8rem;
+    text-align: center;
+    display: none;
+}
+.default img{
+    width: 40%;
+    margin-top: 3rem;
+}
+.content_wrap{
+    margin-top: 1rem;
+    width: 100%;
+    background-color: #fff;
+}
+.sub_content{
+     width: 84%;
+    background-color: #FFF;
+    padding: .5rem;
+    color:#000;
+    clear: both;
+    padding: 0 8%;
+    height: 8rem;
+ }
+ .sub_content img{
+    width: 20%;
+    float: left;
+    margin-top: 1.5rem;
+ }
+ .sub_content .detail{
+    float: left;
+    width: 80%;
+    margin-top:1.5rem;
+ }
+.select{
+    background-color: #795548;
+    color:#FFF;
+}
+.content_wrap .name{
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.content_wrap .add{
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: #b6b6b6;
+}
+.content_wrap .dist{
+    top: -.5rem;
+    position: relative;
+    float: right;
+    color: #b6b6b6;
+}
+.fix_menu{
+    position: fixed;
+    left: 0;
+    bottom:0;
+    width: 100%;
+}
+.fix_menu ul{
+    width: 100%;
+    overflow: hidden;
+}
+.fix_menu ul li{
+    float: left;
+    font-size: 1.5rem;
+    padding: .8rem 0;
+    text-align: center;
+}
+.fix_menu ul li.left{
+    width: 65%;
+    background-color: #EEE;
+    text-align: left;
+}
+.fix_menu ul li.left span{
+    margin-left: 2rem;
+}
+.fix_menu ul li.right{
+    width: 35%;
+    background-color: #795548;
+    color: #fff;
+}
+.line{
+    width: 84%;
+    margin-left: 8%;
+    padding-bottom: .1rem;
+    background: #ddd;
+}
+.current{
+    background: #795548;
+    color: #fff;
+}
+.current .add,.current .dist{
+    color: #fff;
+}

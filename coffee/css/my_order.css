@@ -1,0 +1,134 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.order_wrap{
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 1rem;
+}
+.sub_order{
+    width: 100%;
+}
+.order_title{
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding: .5rem 0;
+    border-bottom: 1px solid #DDD;
+}
+.order_title p{
+    width: 100%;
+    font-size: 1.2rem;
+}
+.order_title p .cricle{
+    position: absolute;
+    display: inline-block;
+    width:1rem;
+    height: 1rem;
+    border:1px solid #D7CCCB;
+    border-radius: 50%;
+    left: 0rem;
+    top:.8rem;
+}
+.order_title p .num{
+    margin-left: 3rem;
+}
+.order_title p .date{
+    float: right;
+}
+.product_name{
+    width: 90%;
+    margin: 0 auto;
+    padding: .5rem 0;
+    border-bottom: 1px solid #DDD;
+}
+.product_name .name{
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+.money_wrap{
+    width: 90%;
+    margin: 0 auto;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    overflow: hidden;
+}
+.money_wrap .sign{
+    float: left;
+    font-size: 1.5rem;
+}
+.money_wrap .price{
+    float: right;
+    color: #FF5252;
+    font-size: 1.5rem;
+}
+.default_wrap{
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+.default_wrap img{
+    width: 20%;
+    margin-top: 50%;
+}
+.default_wrap p{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.fix_menu{
+    position: fixed;
+    left: 0;
+    bottom:0;
+    width:100%;
+}
+.fix_menu ul{
+    width: 100%;
+}
+.fix_menu ul li{
+    float: left;
+    padding: 1rem 0;
+    text-align: center;
+}
+.fix_menu ul li.left{
+    position: relative;
+    width: 60%;
+    background-color: #EEE;
+    font-size: 1.6rem;
+    text-align: left;
+}
+.fix_menu ul li.left .cricle{
+    position: absolute;
+    display: inline-block;
+    width:1rem;
+    height: 1rem;
+    border:1px solid #D7CCCB;
+    border-radius: 50%;
+    left: 2rem;
+    top:1.6rem;
+}
+.fix_menu ul li.left .sign{
+    margin-left: 4rem;
+}
+.fix_menu ul li.right{
+    width: 40%;
+    background-color: #D7CCCB;
+    font-size: 1.6rem;
+}
+span.select{
+    background-color: #D7CCCB;
+}

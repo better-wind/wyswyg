@@ -1,0 +1,166 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.banner_wrap{
+    position: relative;
+    width: 100%;
+    background: url("../icon/bg_goods_coffee.jpg");
+    /*background: url("../icon/bg_goods_cake.jpg");*/
+    /*background: url("../icon/bg_goods_tea.jpg");*/
+    /*background: url("../icon/bg_goods_others.jpg");*/
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.banner_wrap ul{
+    width: 100%;
+    margin-top: 2.5rem;
+}
+.banner_wrap ul li{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+.banner_wrap ul li img{
+    width: 80%;
+}
+.banner_wrap ul li img.select{
+    display: none;
+}
+.curt_wrap{
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 1.5rem;
+}
+.content_wrap{
+    width: 90%;
+    margin: 0 auto;
+    padding:1rem 0 ;
+    height: 6rem;
+}
+.content_wrap div{
+    float: left;
+    height: 6rem;
+}
+.content_wrap .left{
+    width: 20%;
+}
+.content_wrap .left img{
+    width: 6rem;
+}
+.content_wrap .right{
+    width: 80%;
+
+}
+.content_wrap .right p{
+    height: 3rem;
+}
+.content_wrap .right p.first{
+    margin-top:.5rem;
+}
+.content_wrap .right p .name{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+.content_wrap .right p .size{
+    float: right;
+}
+.content_wrap .right p .hot_cold{
+    float: right;
+    margin-right: 3rem;
+}
+.content_wrap .right p .choose{
+    font-size: 1.6rem;
+    display: inline-block;
+    border:1px solid #795548;
+    padding: 0 5px;
+}
+.content_wrap .right p .choose_left{
+    border-right:none;
+}
+.content_wrap .right p .choose_right{
+    border-left:none;
+}
+.content_wrap .right p .choose_mid{
+
+}
+.content_wrap .right p .on{
+    background-color: #795548;
+}
+.content_wrap .right p .price{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    color: #FF5252;
+    font-weight: bold;
+}
+.content_wrap .right p .num{
+    float: right;
+
+}
+.fix_menu{
+    position: fixed;
+    left: 0;
+    bottom:0;
+    width: 100%;
+}
+.fix_menu ul{
+    width: 100%;
+}
+.fix_menu ul li{
+    float: left;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+.fix_menu ul li.left{
+    position: relative;
+    width: 60%;
+    text-align: right;
+    background-color: #EEE;
+    color: #FF5252;
+}
+.fix_menu ul li.left img{
+    position: absolute;
+    top:1rem;
+    left: 2rem;
+    width: 2rem;
+}
+.fix_menu ul li.left .num{
+    position: absolute;
+    top:1rem;
+    left: 3.2rem;
+    width: 1rem;
+    height: 1rem;
+    font-size: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    background-color: #FF5252;
+    border-radius: 50%;
+    color:#FFF;
+    font-size: .8rem;
+}
+.fix_menu ul li.left span{
+    margin-right: 1rem;
+}
+.fix_menu ul li.right{
+    color: #FFF;
+    width: 40%;
+    text-align: center;
+    background-color: #795548;
+    font-weight: bold;
+}

@@ -1,0 +1,73 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    background-color: #DDD;
+}
+.wrap{
+    width: 100%;
+}
+.banner_wrap{
+    position: relative;
+    width: 100%;
+    background: url("../icon/bg_money.png");
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.banner_wrap .over_num{
+    font-size: 3rem;
+    color: #FFF;
+    font-weight: bold;
+    margin-top: 5.5rem;
+    color: #ffcc00;
+}
+.sub_menu_wrap{
+    width: 100%;
+    margin-top: 2rem;
+}
+.sub_menu_wrap ul.ul_wrap{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 2rem;
+}
+.sub_menu_wrap ul li{
+    float: left;
+    width: 33%;
+    height: 5rem;
+    margin-top: 2rem;
+    background-color: #dddddd;
+    color: #795548;
+    text-align: center;
+}
+.sub_menu_wrap ul li ul.current{
+    background-color: #795548;
+    color: #fff;
+}
+.sub_menu_wrap ul li .numb{
+    font-size: 1.5rem;
+    padding: .8rem 0 .4rem 0;
+    width: 100%;
+    text-align: center;
+}
+.sub_menu_wrap ul li .price{
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+
+}
+.sub_menu_wrap ul li ul{
+    border: 1px solid #795548;
+    width: 70%;
+    margin: 0 auto;
+    height: 100%;
+}

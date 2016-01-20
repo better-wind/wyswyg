@@ -1,0 +1,40 @@
+body,ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+html{
+    font-size: 62.5%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: url("../icon/bg_succeed.jpg");
+    background-size: cover;
+}
+.wrap{
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.wrap img{
+    width: 30%;
+    margin-top: 25%;
+    opacity: .9;
+}
+.wrap p{
+    font-size: 1.5rem;
+    color: #FFF;
+    margin-top: 3rem;
+    line-height: 2rem;
+}
+.wrap button{
+    border:1px solid #FFF;
+    font-size: 1.5rem;
+    padding:.8rem 2rem;
+    margin-top: 5rem;
+    color: #FFF;
+}
