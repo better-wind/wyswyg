@@ -13,7 +13,7 @@
         },
         eventing:function(){
             var self = this;
-            self.getwidth(3,20/640,20/640);
+            self.getwidth(1,20/640,20/640);
 
         },
         getwidth:function(n_V,n_pb,n_mg){

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设计师入驻</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            font-family: '\5fae\8f6f\96c5\9ed1',"Microsoft YaHei",sans-serif;
+        }
+        .msg-show{
+            position: relative;
+            width: 235px;
+            height: 101px;
+            padding: 10px;
+            border: 2px solid #ccc;
+        }
+        .name{
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+        .address span,.address em{
+            display: inline;
+            font-size: 12px;
+        }
+        .edit-address-box {
+            /*display: none;*/
+            position: fixed;
+            top: 13%;
+            left: 50%;
+            width: 490px;
+            height: 350px;
+            margin-left: -245px;
+            background: #fff;
+            box-shadow: 1px 2px 3px #ccc;
+            z-index: 99999;
+            overflow: hidden;
+            border: 1px solid #eee
+        }
+
+        .edit-address-box .edit-title {
+            background: #000;
+            height: 30px;
+            padding: 0 10px;
+            color: #fff
+        }
+
+        .edit-address-box .edit-title h3 {
+            float: left;
+            width: 70%;
+            line-height: 30px;
+            font-size: 14px
+        }
+
+        .edit-address-box .edit-title span {
+            float: right;
+            width: 11px;
+            /*background: url(../../images/order/edit_close.jpg) right center no-repeat;*/
+            cursor: pointer;
+            height: 30px
+        }
+
+        .edit-address-box input:focus,.edit-address-box select:focus,.edit-address-box textarea:focus {
+            outline: 0
+        }
+
+        .edit-address-box .content-box {
+            padding: 10px
+        }
+        .edit-address-box .content-box ul{
+            list-style: none;
+        }
+        .edit-address-box .content-box ul li {
+            padding-bottom: 10px
+        }
+
+        .edit-address-box .content-box ul li .lable-form {
+            float: left;
+            width: 90px;
+            height: 26px;
+            text-align: right;
+            font-size: 12px;
+            line-height: 26px;
+            padding-right: 5px
+        }
+
+        .edit-address-box .content-box ul li .lable-form i {
+            display: inline-block;
+            width: 7px;
+            color: #f63c40;
+            font-style: normal
+        }
+
+        .edit-address-box .content-box ul li .group-input input {
+            width: 208px;
+            height: 26px;
+            border: 1px solid #ccc;
+            padding: 2px 4px;
+            line-height: 26px;
+            font-size: 12px
+        }
+
+        .edit-address-box .content-box ul li .group-input select {
+            height: 26px;
+            border-color: #ccc;
+            max-width: 116px
+        }
+
+        .edit-address-box .content-box ul li .group-input textarea {
+            border-color: #ccc;
+            width: 355px;
+            height: 70px;
+            background: #f5f5f5;
+            padding: 2px 4px;
+            font-size: 12px
+        }
+
+        .edit-address-box .content-box .save-setting {
+            padding-left: 90px
+        }
+
+        .edit-address-box .content-box .save-setting a {
+            display: inline-block;
+            width: 78px;
+            height: 26px;
+            border: 1px solid #ccc;
+            line-height: 26px;
+            text-align: center;
+            font-size: 14px;
+            color: #000
+        }
+
+        .edit-address-box .content-box .save-setting a.save {
+            float: left;
+            background: #e5e5e5
+        }
+    </style>
+</head>
+<body>
+<div class="msg-show">
+    <h3 class="name" data-name="tier">tier&nbsp;(收)</h3>
+    <div class="address">
+        <span class="pcd" data-id="1008">浙江省</span>
+        <span class="pcd" data-id="1009">杭州市</span>
+        <span class="pcd" data-id="1015">西湖区</span>
+        <em class="street">天目山路</em>
+        <em class="tel">18868831682</em>
+    </div>
+
+</div>
+
+<div class="J_editAddressBox edit-address-box" style="display: block;">
+    <div class="edit-title">
+        <h3>添加新地址</h3>
+        <span class="J_clearEditAddress clear"></span>
+    </div>
+    <div class="content-box clearfix">
+        <ul class="J_groupItems">
+            <li>
+                <span class="lable-form">所在地区<i>*</i></span>
+                <div class="J_citiesCheck group-input">
+                    <select class="J_province" name="province">
+                        <option value="0">--省份--</option>
+                    </select>
+                    <select class="J_city" name="city">
+                        <option value="0">--城市--</option>
+                    </select>
+                    <select name="district" class="J_district">
+                        <option value="0">--地区--</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span class="lable-form">详细地址<i>*</i></span>
+                <div class="group-input">
+                    <textarea class="J_addressInfo" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层 和房间号等信息"></textarea>
+                </div>
+            </li>
+
+            <li>
+                <span class="lable-form">收货人姓名<i>*</i></span>
+                <div class="group-input">
+                    <input type="text" class="J_userName" placeholder="长度不超过30个字符">
+                </div>
+
+            </li>
+            <li>
+                <span class="lable-form">手机号码<i>*</i></span>
+                <div class="group-input">
+                    <input type="text" class="J_userTel">
+                </div>
+            </li>
+            <li>
+                <span class="lable-form">邮政编码<i></i></span>
+                <div class="group-input">
+                    <input type="text" class="J_zipcode" placeholder="如您不清楚邮递区号，请填写000000">
+                </div>
+            </li>
+        </ul>
+        <div class="save-setting">
+            <a class="J_editAddressSave save" id="setting-save" imgchange="">保存</a>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

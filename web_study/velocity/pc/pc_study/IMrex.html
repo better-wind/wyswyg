@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+</head>
+<body>
+<section class="wrap">
+    <pre class="J_a"></pre>
+</section>
+<script>
+    function rex(_str){
+        var strRegex = '(http|xiangqu){1}' +
+                ':\/\/www.xiangqu.com' +
+                '(\/product\/detail\/\\d{4,10}.html' +
+                '|' +
+                '\/detail\\?id=\\d{4,10}' +
+                '|' +
+                '\/product\/detail\\?id=\\d{4,10}){1}'
+
+        var re=new RegExp(strRegex);
+        if(re.test(_str)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+//    var src = '  http://www.xiangqu.com/product/detail/2129622.html';
+//            var src = 'http://www.xiangqu.com/detail?id=2129622';
+//            var src = 'http://www.xiangqu.com/product/detail?id=2129622'
+            var src = 'xiangqu://www.xiangqu.com/product/detail?id=2129622';
+//            var src = 'http://www.xiangqu.com';
+
+    console.log(src);
+    var t = "http://www.xiangqu.com/product/detail/2129622.html我的的测试   xiangqu://www.xiangqu.com/product/detail?id=2129622,这个啊http://www.xiangqu.com/product/detail?id=2129622和http://www.xiangqu.com和http://www.xiangqu.";
+    var strRegex = '(http|xiangqu){1}' +
+            ':\/\/www.xiangqu.com' +
+            '(\/product\/detail\/\\d{4,10}.html' +
+            '|' +
+            '\/detail\\?id=\\d{4,10}' +
+            '|' +
+            '\/product\/detail\\?id=\\d{4,10}){1}'
+    var s = t.replace(/((xiangqu|http)?:\/\/(\w+\.){2,}\w+(\/\w+){0,}(\.html)?(\?\w+=\w+){0,})/img, "<a href='$1'>$1</a>");
+   $('.J_a').html(s);
+</script>
+</body>
+</html>
