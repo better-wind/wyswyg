@@ -5,12 +5,11 @@
 ul{
     margin: 0 auto;
     background-color: #AAA;
-
 }
 ul li{
     list-style: none;
     height:200px;
     float: left;
     background-color: #000;
-    margin-top: 5px;
+    margin-top: 6px;
 }

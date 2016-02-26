@@ -75,5 +75,17 @@
 
 <script type="text/javascript" src="../../../build/h5/common/js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="../../../build/h5/h5_study/js/christmas.min.js"></script>
+<script>
+    var time = new Date();
+    console.log('in:'+time.getSeconds()+':'+time.getMilliseconds());//页面一进来直接运行
+    $(document).ready(function(){
+        var time2 = new Date();
+        console.log('in2:'+time2.getSeconds()+':'+time2.getMilliseconds());
+    });//dom tree 加载完
+    window.onload = function(){
+        var time3 = new Date();
+        console.log('in3:'+time3.getSeconds()+':'+time3.getMilliseconds());
+    }//全部加载完，包括dom tree 外部图片，外部资源
+</script>
 </body>
 </html>

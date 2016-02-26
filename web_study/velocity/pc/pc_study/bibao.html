@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js闭包demo</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+<script>
+    (function($){
+        var BiBao = {
+            init:function(){
+                var self = this;
+                self.eventing();
+            },
+            eventing:function(){
+                var self = this;
+                self.bbtest();
+            },
+            bbtest:function(){
+                var a = function abc(){
+                    var str = 1;
+                    console.log(str);
+                }
+                return a();
+
+            }
+
+        }
+        $(function(){
+            BiBao.init();
+        })
+    })(jQuery)
+</script>
+</body>
+</html>

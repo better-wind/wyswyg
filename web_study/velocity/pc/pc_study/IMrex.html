@@ -20,6 +20,7 @@
                 '\/product\/detail\\?id=\\d{4,10}){1}'
 
         var re=new RegExp(strRegex);
+        var strRegex = '\d{0,}'
         if(re.test(_str)) {
             return true;
         }
@@ -34,8 +35,7 @@
             var src = 'xiangqu://www.xiangqu.com/product/detail?id=2129622';
 //            var src = 'http://www.xiangqu.com';
 
-    console.log(src);
-    var t = "http://www.xiangqu.com/product/detail/2129622.html我的的测试   xiangqu://www.xiangqu.com/product/detail?id=2129622,这个啊http://www.xiangqu.com/product/detail?id=2129622和http://www.xiangqu.com和http://www.xiangqu.";
+    var t = "http://www.xiangqu.com/product/detail/2129622.html?spn=1212&a=1xiangqu://www.xiangqu.com/product/detail?id=2129622?a=1,这个啊http://www.xiangqu.com/product/detail?id=2129622&a=2&b=5和http://www.xiangqu.com和http://www.xiangqu.";
     var strRegex = '(http|xiangqu){1}' +
             ':\/\/www.xiangqu.com' +
             '(\/product\/detail\/\\d{4,10}.html' +
@@ -43,8 +43,37 @@
             '\/detail\\?id=\\d{4,10}' +
             '|' +
             '\/product\/detail\\?id=\\d{4,10}){1}'
-    var s = t.replace(/((xiangqu|http)?:\/\/(\w+\.){2,}\w+(\/\w+){0,}(\.html)?(\?\w+=\w+){0,})/img, "<a href='$1'>$1</a>");
-   $('.J_a').html(s);
+    var s = t.replace(/((xiangqu|http){1}:\/\/(\w+\.){2,}\w+(\/\w+){0,}(\.html)?(\?\w+=\w+)?(&\w+=\w+){0,})/img, "%%xiangqu%%$1%%xiangqu%%");
+    console.log()
+//   $('.J_a').html(s);
+    splitUrl(s,'%%xiangqu%%');
+    function splitUrl(str,split_src){
+        if(!str){
+            return false;
+        }
+
+        var data = {};
+        var _urlArray = str.split(split_src);
+        for(var _i = 0;_i <_urlArray.length;_i+=2){
+            data[_i] = {
+                msg:_urlArray[_i],
+                type:'text'
+            };
+        }
+        for(var _i = 1;_i <_urlArray.length;_i+=2){
+            data[_i] = {
+                msg:_urlArray[_i],
+                type:'link'
+            };
+        }
+        var dataArray =[];
+        for(var _i = 0;_i<_urlArray.length;_i++){
+            dataArray[_i] = data[_i];
+        }
+        console.log(dataArray);
+
+
+    }
 </script>
 </body>
 </html>

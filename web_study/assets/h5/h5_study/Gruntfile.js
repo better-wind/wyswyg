@@ -70,11 +70,6 @@ module.exports = function(grunt) {
 		less:{
 			build:{
 				files:[
-					{//示例,真实项目请按实际路径修改
-						src:['<%= path.src%>/less/common/wap_global.less'
-						],
-						dest:'<%= path.temp%>/css/common/wap_global.css'
-					},
                     {
                         src:[
                             '<%= path.src%>/less/top_table_change.less'
@@ -85,6 +80,19 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+        sass:{
+            build:{
+                files:[
+                    {
+                        src:[
+                            '<%= path.src%>/sass/test_sass.scss'
+                        ],
+                        dest:'<%= path.temp%>/css/test_sass.css'
+                    }
+
+                ]
+            }
+        },
         concat: {
             /*合并文件*/
             css:{
@@ -136,6 +144,12 @@ module.exports = function(grunt) {
                             '<%= path.temp%>/css/top_table_change.css'
                         ],
                         dest:'<%= path.dist%>/css/top_table_change.css'
+                    },
+                    {
+                        src:[
+                            '<%= path.temp%>/css/test_sass.css'
+                        ],
+                        dest:'<%= path.dist%>/css/test_sass.css'
                     }
                 ]
             },
@@ -239,8 +253,9 @@ module.exports = function(grunt) {
             css:{
                 files:['<%= path.src%>/less/**/*.less',
 					'<%= path.src%>/css/**/*.css',
+                    '<%= path.src%>/sass/**/*.scss',
 				],
-                tasks:['clean:css','less','concat:css','cssmin']
+                tasks:['clean:css','less','sass','concat:css','cssmin']
             },
             minjs:{
                 files:['<%= path.src%>/js/**/*.js'],
@@ -264,7 +279,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default task.
-    grunt.registerTask('default', ['copy','clean','less','concat','cssmin','uglify','clean:temp']);
+    grunt.registerTask('default', ['copy','clean','less','sass','concat','cssmin','uglify','clean:temp']);
     grunt.registerTask('bowerCopy',['bower']);
     grunt.registerTask('dev',['watch']);
 };

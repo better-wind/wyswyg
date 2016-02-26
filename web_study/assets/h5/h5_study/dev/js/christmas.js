@@ -106,7 +106,7 @@
                     _X = $(window).width()-22;
                 }
                 var _snow_bg = _X%8;
-                console.log(_snow_bg);
+                //console.log(_snow_bg);
                 var _html = '<div class="win_show snow_bg_'+_snow_bg+'" style="top:'+_Y+'px;left:'+_X+'px;"></div>'
                 self.J_wrap.append(_html);
                 self.drop_snow();

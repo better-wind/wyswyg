@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta name="Keywords" content="想去,端午节,端午,香囊,端午活动,想去设计">
+    <meta name="Description" content="免费体验古人手制香囊的乐趣，还能送TA一个自己制作的古方香囊哦！">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+</head>
+
+<style>
+    body,p,ul{
+        padding: 0;
+        margin: 0;
+    }
+    .main{
+        magin:0 auto;
+        width: 6.4rem;
+        height: 200px;
+        background-color: #AAA;
+    }
+</style>
+<script type="text/javascript" src="../../../build/h5/common/js/jquery/jquery183.min.js"></script>
+<script>
+    (function(win, lib) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var dpr = 1;
+        var tid;
+        var flexible = lib.flexible || (lib.flexible = {});
+        docEl.setAttribute('data-dpr', dpr);
+
+        function refreshRem(){
+            console.log(docEl.getBoundingClientRect().width);
+            console.log(document.documentElement.clientWidth);
+            var width = docEl.getBoundingClientRect().width;
+            if (width / dpr > 540) {
+                width = 540 * dpr;
+            }
+            var rem = width / 6.4;
+            docEl.style.fontSize = rem + 'px';
+            flexible.rem = win.rem = rem;
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        if (doc.readyState === 'complete') {
+            doc.body.style.fontSize = 12 + 'px';
+        } else {
+            doc.addEventListener('DOMContentLoaded', function(e) {
+                doc.body.style.fontSize = 12 + 'px';
+            }, false);
+        }
+        refreshRem();
+        flexible.dpr = win.dpr = dpr;
+        flexible.refreshRem = refreshRem;
+
+    })(window, window['lib'] || (window['lib'] = {}));
+
+</script>
+<body>
+    <section class="main">
+
+    </section>
+</body>
+</html>

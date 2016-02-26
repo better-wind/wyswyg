@@ -10,8 +10,10 @@
     "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-uglify": "^0.10.0",
     "grunt-contrib-watch": "^0.6.1",
+    "gulp-ruby-sass": "^2.0.6",
     "load-grunt-tasks": "^3.3.0"
   }
 }
