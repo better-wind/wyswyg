@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script>
+        function RemInit(){
+            var dpr, rem, scale;
+            var docEl = window.document.documentElement;
+            var bodyEl = window.document.body;
+            var metaEl = window.document.querySelector('meta[name="viewport"]');
+            var psdWidth = 640/100;
+            dpr = window.devicePixelRatio || 1;
+            rem = docEl.clientWidth * dpr / psdWidth;
+            docEl.style.fontSize = rem +'px'
+            scale = 1 / dpr;
+            metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+            docEl.setAttribute('data-dpr', dpr);
+            window.dpr = dpr;
+            window.rem = rem;
+        }
+        RemInit();
+
+
+    </script>
+    <link type="text/css" rel="stylesheet" href="../../../build/h5/sass_gulp/20160302/css/rem.min.css" />
+
+</head>
+<body>
+<div class="rem-box">
+    rem高清适配方案
+</div>
+<script type="text/javascript" src="../../../build/h5/common/js/zepto/zepto.min.js"></script>
+
+</body>
+</html>

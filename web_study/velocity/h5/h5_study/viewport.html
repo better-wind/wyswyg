@@ -36,6 +36,7 @@
         docEl.setAttribute('data-dpr', dpr);
 
         function refreshRem(){
+            console.log(window.devicePixelRatio);
             console.log(docEl.getBoundingClientRect().width);
             console.log(document.documentElement.clientWidth);
             var width = docEl.getBoundingClientRect().width;
@@ -46,6 +47,7 @@
             docEl.style.fontSize = rem + 'px';
             flexible.rem = win.rem = rem;
         }
+
 
         win.addEventListener('resize', function() {
             clearTimeout(tid);
