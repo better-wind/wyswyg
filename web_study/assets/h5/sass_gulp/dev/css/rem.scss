@@ -14,5 +14,5 @@ body{
   color: #FFF;
   line-height: 3.2rem;
   text-align: center;
-  @include px2rem(font-size,48);
+  @include px2rem(font-size,72);
 }

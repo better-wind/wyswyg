@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery.js"></script>
+<script>
+    function Fish(name,color){
+        this.name = name;
+        this.color = color;
+    }
+    Fish.prototype.livesIn = "water";
+    var fish = new Fish('bigfish','red');
+
+    console.log(fish.livesIn);
+
+    var a = 'jijk';
+    var b = a.replace(/^\s+|\s+$/g,'');
+    console.log(b);
+
+    String.prototype.abc=function(){
+        return this.replace(/^\w+$/g,'a');
+    }
+    var d = 'bbbbb';
+    console.log(d);
+    console.log(d.abc());
+
+</script>
+</body>
+</html>
