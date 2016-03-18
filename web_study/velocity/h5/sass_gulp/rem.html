@@ -12,22 +12,29 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <script>
-        function RemInit(){
-            var dpr, rem, scale;
-            var docEl = window.document.documentElement;
-            var bodyEl = window.document.body;
-            var metaEl = window.document.querySelector('meta[name="viewport"]');
-            var psdWidth = 640/100;
-            dpr = window.devicePixelRatio || 1;
-            rem = docEl.clientWidth * dpr / psdWidth;
-            docEl.style.fontSize = rem +'px'
-            scale = 1 / dpr;
-            metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
-            docEl.setAttribute('data-dpr', dpr);
-            window.dpr = dpr;
-            window.rem = rem;
-        }
-        RemInit();
+        (function(){
+            function RemInit(){
+                var dpr, rem, scale;
+                var docEl = window.document.documentElement;
+                var bodyEl = window.document.body;
+                var metaEl = window.document.querySelector('meta[name="viewport"]');
+                var psdWidth = 750/100;
+                var isAndroid = navigator.userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+                dpr = window.devicePixelRatio || 1;
+                if(isAndroid){
+                    dpr= 2;
+                }
+                rem = docEl.clientWidth * dpr / psdWidth;
+                docEl.style.fontSize = rem +'px'
+                scale = 1 / dpr;
+                metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+                docEl.setAttribute('data-dpr', dpr);
+                window.dpr = dpr;
+                window.rem = rem;
+            }
+            RemInit();
+        })()
+
 
 
     </script>
@@ -35,9 +42,180 @@
 
 </head>
 <body>
-<div class="rem-box">
-    rem高清适配方案
-</div>
+<section class="banner-wrap">
+    <img src="http://xqproduct.xiangqu.com/FsQeaDCKM3dVZ-NS2Aq_8a5sYX2C?imageView2/2/w/750/q/100/format/jpg/750x450/" alt=""/>
+    <img class="split" src="../../../build/activity/modulePage2/20160317/image/split.png">
+</section>
+<section class="word-coupon-wrap">
+    <div class="word-wrap">
+        <p class="title">［想去］春季新款特辑限时购</p>
+        <p class="content">
+            比他更了解时尚动向的你，是时候拿出你的第六感， <br>为他的衣橱添砖加瓦吧！
+        </p>
+    </div>
+    <div class="coupon-wrap">
+        <!--<ul class="tw">-->
+        <!--<li>-->
+        <!--<img src="http://xqproduct.xiangqu.com/FmFsq0AI2RnK56K7IahbOeGWoRwt?imageView2/2/w/194/q/100/format/jpg/194x194/" alt=""/>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <ul class="tw">
+            <li>
+                <img src="http://xqproduct.xiangqu.com/Fko8__7eyZXyaDnJb3IREYthW9ee?imageView2/2/w/245/q/100/format/jpg/245x245/" alt=""/>
+            </li>
+            <li>
+                <img src="http://xqproduct.xiangqu.com/Fko8__7eyZXyaDnJb3IREYthW9ee?imageView2/2/w/245/q/100/format/jpg/245x245/" alt=""/>
+            </li>
+        </ul>
+        <ul class="tr">
+            <li>
+                <img src="http://xqproduct.xiangqu.com/FmFsq0AI2RnK56K7IahbOeGWoRwt?imageView2/2/w/194/q/100/format/jpg/194x194/" alt=""/>
+            </li>
+            <li>
+                <img src="http://xqproduct.xiangqu.com/FmFsq0AI2RnK56K7IahbOeGWoRwt?imageView2/2/w/194/q/100/format/jpg/194x194/" alt=""/>
+            </li>
+            <li>
+                <img src="http://xqproduct.xiangqu.com/FmFsq0AI2RnK56K7IahbOeGWoRwt?imageView2/2/w/194/q/100/format/jpg/194x194/" alt=""/>
+            </li>
+        </ul>
+    </div>
+
+
+</section>
+
+<section class="topic-wrap">
+    <section class="sub-topic-wrap">
+        <div class="title-wrap color">
+            早春出行 新品尝鲜
+        </div>
+        <ul class="J_product_ul">
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/Fk3xB2mZ-1Qwf-otpoQ1rYx5O1nQ?imageView2/2/w/325/q/100/format/jpg/325x325/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="tag bg-color">限时价</span>
+                        <span class="new-price">￥258.00</span>
+                    </p>
+                    <button class="bg-color">立即购买</button>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/Fk3xB2mZ-1Qwf-otpoQ1rYx5O1nQ?imageView2/2/w/325/q/100/format/jpg/400x400/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="tag bg-color">限时价</span>
+                        <span class="new-price">￥258.00</span>
+                    </p>
+                    <button class="bg-color">立即购买</button>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/FlcXO6sEpPbNUsZ2JA4O-6UKLLmC?imageView2/2/w/205/q/100/format/jpg/205x325/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="tag bg-color">限时价</span>
+                        <span class="new-price">￥258.00</span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/FlcXO6sEpPbNUsZ2JA4O-6UKLLmC?imageView2/2/w/615/q/100/format/jpg/615x975/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="tag bg-color">限时价</span>
+                        <span class="new-price">￥258.00</span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/Fk3xB2mZ-1Qwf-otpoQ1rYx5O1nQ?imageView2/2/w/325/q/100/format/jpg/325x325/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="tag bg-color">限时价</span>
+                        <span class="new-price">￥2589.00</span>
+                        <span class="old-price">原价:<span>8500.00</span></span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/Fk3xB2mZ-1Qwf-otpoQ1rYx5O1nQ?imageView2/2/w/325/q/100/format/jpg/325x325/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="tag bg-color">限时价</span>
+                        <span class="new-price">￥258.00</span>
+                        <span class="old-price">原价:<span>850.00</span></span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img class="J_WH" src="http://xqproduct.xiangqu.com/FuBoi5RSFcD2f7EzsuRcs9qVju16?imageView2/2/w/326/q/100/format/jpg/326x242/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="new-price">￥258.00</span>
+                        <span class="old-price">原价:<span>850.00</span></span>
+                    </p>
+                    <div class="rotate-tag bg-color">
+                        限量
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="a-pic-wrap">
+                    <div>
+                        <img  class="J_WH" src="http://xqproduct.xiangqu.com/FuBoi5RSFcD2f7EzsuRcs9qVju16?imageView2/2/w/440/q/100/format/jpg/326x242/" />
+                    </div>
+                </a>
+                <div class="product-message-wrap">
+                    <p class="product-title">天然山花土蜂蜜</p>
+                    <p class="price-wrap">
+                        <span class="new-price">￥258.00</span>
+                        <span class="old-price">原价:<span>850.00</span></span>
+                    </p>
+                    <div class="rotate-tag bg-color">
+                        限量
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+
+</section>
 <script type="text/javascript" src="../../../build/h5/common/js/zepto/zepto.min.js"></script>
 
 </body>
