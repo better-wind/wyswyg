@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 闭包学习</title>
+</head>
+<script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+<script>
+//    (function(){
+//        var FenghouTool ={
+//            c_console:function(){
+//                var x = 1;
+//                console.log(1);
+//            }
+//        }
+//        window.FenghouTool = FenghouTool;
+//    })()
+//    FenghouTool.c_console();
+(function($){
+    $.fn.extend({
+        check:function() {
+            return console.log(1);
+        }
+      })
+   $('.a').check();
+})(jQuery)
+
+</script>
+<body>
+
+</body>
+</html>
