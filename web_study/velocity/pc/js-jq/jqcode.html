@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+</head>
+<body>
+<div id="a" class="a">FhTool.Fn()</div>
+<div id="b" class="a">GhTool.prototype()</div>
+<script type="text/javascript" src="../../../build/h5/sass_gulp/20160302/js/tool.js"></script>
+<script>
+    (function(){
+        var a = FhTool('#a').Val();
+        console.log(a);
+        var b = FhTool('#b').Val();
+        console.log(b);
+        var c = FhTool('.a').Val();
+        console.log(c);
+    })()
+</script>
+</body>
+</html>
