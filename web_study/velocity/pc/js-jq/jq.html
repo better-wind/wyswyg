@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        (function(){
+            fHou = function(){
+                return fHou.fn.init;
+            }
+            fHou.fn = fHou.prototype={
+                init:function(){
+                    alert(1);
+
+                },
+                fHouconsole:function(_str){
+                    console.log(_str);
+                }
+            }
+            fHou.fn.init = fHou.prototype;
+            window.fHou = fHou;
+        })()
+        fHou().fHouconsole('as');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
