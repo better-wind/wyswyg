@@ -38,14 +38,14 @@ gulp.task('sass',function(){
        .pipe(gulp.dest(srcSass.dist))
 });
 gulp.task('js',function(){
-   return gulp.src(srcJs.src+'/rem.js')
+   return gulp.src([srcJs.src+'/rem.js',path.src+'/common/js/tool.js'])
          .pipe(gulp.dest(srcJs.dist))
          .pipe(uglify())
        .pipe(rename({extname:'.min.js'}))
          .pipe(gulp.dest(srcJs.dist))
 });
 gulp.task('watch',function(){
-    gulp.watch([srcSass.src+'/*.scss',srcJs.src+'/*.js'],['default']);
+    gulp.watch([srcSass.src+'/*.scss',srcJs.src+'/*.js',path.src+'/common/js/*.js'],['default']);
 })
 gulp.task('default',['clean'],function(){
     gulp.start('sass','js');
