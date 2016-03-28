@@ -5,28 +5,88 @@
     <title>js 闭包学习</title>
 </head>
 <script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
-<script>
-//    (function(){
-//        var FenghouTool ={
-//            c_console:function(){
-//                var x = 1;
-//                console.log(1);
-//            }
-//        }
-//        window.FenghouTool = FenghouTool;
-//    })()
-//    FenghouTool.c_console();
-(function($){
-    $.fn.extend({
-        check:function() {
-            return console.log(1);
-        }
-      })
-   $('.a').check();
-})(jQuery)
+<!--<script>-->
+    <!--(function(){-->
+        <!--var FenghouTool ={-->
+            <!--c_console:function(){-->
+                <!--var x = 1;-->
+                <!--console.log(1);-->
+            <!--}-->
+        <!--}-->
+        <!--window.FenghouTool = FenghouTool;-->
+    <!--})()-->
+    <!--FenghouTool.c_console(); 定义全局函数-->
+<!--(function($){-->
+    <!--$.fn.extend({-->
+        <!--check:function() {-->
+            <!--return console.log(1);-->
+        <!--}-->
+      <!--})-->
+   <!--$('.a').check();-->
+    <!--[1,2,3].forEach(function(value){-->
+        <!--alert(value)-->
+    <!--});-->
+<!--})(jQuery) //自定义函数-->
 
+<!--</script>-->
+<!--<script>-->
+<!--var TextCount = (function(){-->
+<!--var _bind = function(that){-->
+<!--that.input.on('keyup',function(){-->
+<!--that.render();-->
+<!--});-->
+<!--}-->
+<!--var _getNum = function(that){-->
+<!--return that.input.val().length;-->
+<!--}-->
+<!--var TextCountFun = function(config){-->
+<!--}-->
+<!--TextCountFun.prototype.init = function(config) {-->
+<!--this.input = $(config.id);-->
+<!--_bind(this);-->
+<!--return this;-->
+<!--};-->
+<!--TextCountFun.prototype.render = function() {-->
+<!--var num = _getNum(this);-->
+<!--if ($('#J_input_count').length == 0) {-->
+<!--this.input.after('<span id="J_input_count"></span>');-->
+<!--};-->
+<!--$('#J_input_count').html(num+'个字');-->
+<!--};-->
+<!--return TextCountFun;-->
+<!--})();-->
+<!--$(function() {-->
+<!--new TextCount().init({id:'#J_input'}).render();-->
+<!--})-->
+<!--</script>-->
+<script>
+    (function($){
+        var FhTool = (function(){
+            var fun1 = function(_val){
+                var No_change_fun1 = 'No_change_fun1'
+                console.log(_val);
+            }
+            var fun2 = function(_val){
+                var No_change_fun2 = 'No_change_fun2'
+                console.log(_val);
+            }
+            var FhToolFun = function(){
+
+            }
+            FhToolFun.prototype.init=function(config){
+                fun1(config.ms1);
+                fun2(config.ms2);
+            }
+            return FhToolFun;
+
+        })()
+        $(function(){
+            var test = new FhTool();
+            test.init({ms1:'No',ms2:'change'});
+        })
+    })(jQuery)
 </script>
 <body>
-
+<input type="text"id="J_input"/>
 </body>
 </html>
