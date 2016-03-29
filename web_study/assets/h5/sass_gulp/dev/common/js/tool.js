@@ -16,8 +16,10 @@
             },//选择器判断可以存在 this 对象里，也可以新建 一个属性存。
             regId:/^(#([\w+]*))$/,
             regClass:/^(\.([\w+]*))$/,
+            constructor:FhTool,
             init:function(sel){
                 var self = this;
+                console.log(FhTool.prototype.constructor);
                 if(self.regId.test(sel)){
                     var split_arr = sel.split('#');
                     self.now_selector.type = "id";
