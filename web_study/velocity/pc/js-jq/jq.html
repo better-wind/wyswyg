@@ -3,27 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script>
-        (function(){
-            fHou = function(){
-                return fHou.fn.init;
-            }
-            fHou.fn = fHou.prototype={
-                init:function(){
-                    alert(1);
-
-                },
-                fHouconsole:function(_str){
-                    console.log(_str);
-                }
-            }
-            fHou.fn.init = fHou.prototype;
-            window.fHou = fHou;
-        })()
-        fHou().fHouconsole('as');
-    </script>
 </head>
 <body>
 
+<script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+<script>
+    (function(){
+        var str = '<li>1</li><li>2</li>';
+        var str2 ={
+            0:'1',
+            length:0
+        }
+        var arr = jQuery.merge(jQuery.parseHTML(str,str2));
+        console.log(arr);
+    })()
+</script>
 </body>
+
 </html>
