@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery</title>
+    <style>
+        div.a{
+            width: 200px;
+            text-align: center;
+            line-height: 200px;
+            height: 200px;
+            font-size: 25px;
+            background:-webkit-linear-gradient(45deg ,#AAA 20%,#000 70%);
+        }
+        div.b{
+            background:-webkit-radial-gradient(50% 50%,#FFF 10%,#000 30%,#fff 50%,#000 60%,#FFF 75%);
+
+        }
+    </style>
 </head>
 <body>
-<div id="a" class="a">FhTool.Fn()</div>
-<div id="b" class="a">GhTool.prototype()</div>
+<div id="a" class="a b c d f"></div>
+<div id="b" class="a b e c d"></div>
 <script type="text/javascript" src="../../../build/h5/sass_gulp/20160302/js/tool.js"></script>
 <script>
     (function(){
-        var a = FhTool('#a').Val();
-        console.log(a);
-        var b = FhTool('#b').Val();
-        console.log(b);
-        var c = FhTool('.a').Val();
-        console.log(c);
-    })()
+        //Val() HasClass() AddClass() RemoveClass
+//        $$('.a').AddClass('b d f')
+//        $$('.c').AddClass('c d');
+//        $$('.e').AddClass('c d m n');
+//        $$('.a').AddClass('n');
+//        $$('.b').RemoveClass('c d f');
+
+
+
+    })(FhTool)
 </script>
 </body>
 </html>
