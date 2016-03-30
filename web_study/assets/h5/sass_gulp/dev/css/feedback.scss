@@ -1,0 +1,190 @@
+@import "config";
+@import "reset";
+body{
+  background-color: #EEE;
+}
+.wrap{
+  width: 100%;
+  padding: .2rem 0;
+  .fdbk-wrap{
+    width: 7.1rem;
+    min-height: 2rem;
+    margin: 0 auto;
+    border: 1px solid #c6c6c6;
+    background-color: #fff;
+    .type-wrap{
+      width: 100%;
+      padding: .15rem 0 .25rem;
+      border-bottom:1px solid #c6c6c6;
+      display: -webkit-flex;
+      align-items: flex-start;
+      //ul{
+      //  overflow: hidden;
+      //  li{
+      //    position: relative;
+      //    height: .64rem;
+      //    float: left;
+      //    margin-left: .15rem;
+      //    line-height: .64rem;
+      //    padding: 0 .14rem;
+      //    @include remsize(font-size,24);
+      //    border: 1px solid #dcdcdc;
+      //  }
+      //  li:nth-child(1){
+      //    @include remsize(font-size,28);
+      //    line-height: .67rem;
+      //    margin-left: 0rem;
+      //    padding:0 0 0 .2rem;
+      //    border: none;
+      //
+      //  }
+      //}
+      ul{
+        @include remsize(font-size,24);
+        display: inline-block;
+        overflow: hidden;
+      }
+      .type-title{
+        li{
+          position: relative;
+          height: .64rem;
+          float: left;
+          margin-top: .1rem;
+          line-height: .67rem;
+          padding:0 0 0 .2rem;
+          @include remsize(font-size,28);
+        }
+      }
+      .type-name{
+        li{
+          position: relative;
+          height: .64rem;
+          float: left;
+          margin: .1rem 0 0 .15rem;
+          line-height: .64rem;
+          padding: 0 .14rem;
+          border: 1px solid #dcdcdc;
+        }
+      }
+
+    }
+    .order-wrap{
+      width: 100%;
+      padding: .2rem 0;
+      border-bottom:1px solid #c6c6c6;
+      overflow: hidden;
+      display:-webkit-flex;
+      align-items: flex-start;
+      position: relative;
+      .choose-icon{
+        display: inline-block;
+        overflow: hidden;
+        margin: 0 .2rem;
+        img{
+          width: .26rem;
+        }
+      }
+      .order-message{
+        display: inline-block;
+        overflow: hidden;
+        .name{
+          @include remsize(font-size,24);
+          color: #858585;
+        }
+        .time{
+          margin-top:.16rem;
+          @include remsize(font-size,18);
+          color: #858585;
+      }
+
+      }
+      .arrow-icon{
+        position: absolute;
+        right: .2rem;
+        top:0;
+        height: 100%;
+        margin: 0 .2rem;
+        display: -webkit-flex;
+        align-items: center;
+        image{
+          width: .14rem;
+        }
+      }
+    }
+    .message-wrap{
+      position: relative;
+      width: 100%;
+      min-height: 3.3rem;
+      border-bottom:1px solid #c6c6c6;
+      text-align: center;
+      textarea{
+        height: 2.9rem;
+        width: 6.7rem;
+        @include remsize(font-size,24);
+        margin-top:.3rem;
+        border:none;
+      }
+      p{
+        position: absolute;
+        bottom: .2rem;
+        right:.2rem;
+        @include remsize(font-size,24);
+        color: #858585;
+      }
+    }
+    .tel-wrap{
+      width: 100%;
+      overflow: hidden;
+      input{
+        width: 100%;
+        margin-left:.2rem;
+        @include remsize(font-size,24);
+        border: none;
+        line-height: .82rem;
+
+      }
+
+    }
+  }
+  .contact-wrap{
+    width: 7.1rem;
+    min-height: 2rem;
+    margin: .2rem auto 0;
+    border: 1px solid #c6c6c6;
+    background-color: #fff;
+    overflow: hidden;
+    .title{
+      @include remsize(font-size,28);
+      padding-left: .2rem;
+      line-height: .94rem;
+      border-bottom: 1px solid #c6c6c6;
+    }
+    .content{
+      border-top:1px solid #c6c6c6;
+      @include remsize(font-size,24);
+      color: #858585;
+      margin: 0 .2rem;
+      line-height: .84rem;
+    }
+    .no-border-top{
+      border-top:none;
+    }
+
+  }
+  .button-wrap{
+    width: 7.1rem;
+    margin: .2rem auto 0;
+    overflow: hidden;
+    button{
+      width: 100%;
+      line-height: .72rem;
+      text-align: center;
+      border: none;
+      background-color: #000;
+      @include remsize(font-size,36);
+      color:#fff;
+
+    }
+  }
+}
+

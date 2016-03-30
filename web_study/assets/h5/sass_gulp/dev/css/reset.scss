@@ -1,0 +1,14 @@
+body,ul,li,p{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+section,p,div,ul,li{
+  box-sizing: border-box;
+}
+body{
+  font-size: 12px;
+  //font-family:'Helvetica';
+}
