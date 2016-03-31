@@ -19,7 +19,6 @@
             constructor:FhTool,
             init:function(sel){
                 var self = this;
-                console.log(FhTool.prototype.constructor);
                 if(self.regId.test(sel)){
                     var split_arr = sel.split('#');
                     self.now_selector.type = "id";
@@ -350,6 +349,8 @@
                 class_arr[0].setAttribute('class',pre_class_arr.join(' '));
             }
 
+            return FhTool.fn;
+
 
         }
         FhTool.prototype.RemoveClass = function(_s){
@@ -413,6 +414,14 @@
 
 
         }
+        FhTool.extend = FhTool.fn.extend = function(){
+            return FhTool;
+        }
+        FhTool.fn.extend({
+            Cc:function(){
+                console.log('sss');
+            }
+        });
         return FhTool;
     }
 
