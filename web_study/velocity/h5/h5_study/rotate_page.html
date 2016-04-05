@@ -24,12 +24,29 @@
 
         }
         .a_wrap{
+            width: 100%;
+            height: 400px;
+            position: relative;
+
+        }
+        .a_a{
+            position: absolute;
+            width: 100%;
+            height: 500px;
+            top: 26px;
+            left: -422px;
+            background-color: #FFF;
+            z-index: 90;
+            transform: rotate(-32deg);
+            transform-origin: 250px -500px;
+            /* transform: translate(0px, 0px); */
+            transition-property: transform, transform-origin;
+            transition-duration: 1s;
 
         }
         .a{
             width: 100%;
             height: 400px;
-
             background: url('http://xqproduct.xiangqu.com/FlCMgRxAQx_Bo4rZwgghVXSUEZog?imageView2/2/w/714/q/100/format/jpg/714x570/') no-repeat;
             background-size: contain;
             transform-origin: 45px 500px;
@@ -37,7 +54,7 @@
             transition-property: transform, transform-origin;
             transition-duration: 1s;
         }
-        .a:hover{
+        .a_a:hover{
             transform: translate(300px, 12px) rotate(-32deg);
         }
 
@@ -46,6 +63,7 @@
 <body data-currenttime="${currentTime}" data-nick="$!{loginContext.nick}" data-avata="$!{loginContext.avata}" data-loginUrl="$!{loginUrl}" data-product="${productDetailUrl}" data-bindPhone="${phoneBound}" data-sellerId="${userId}" data-log="${marked}" data-isSeller="${isSeller}" is-CJ="${iscj}">
 <section class="wrap J_wrap">
     <section class="a_wrap">
+        <div class="a_a"></div>
         <div class="a">
 
         </div>
