@@ -30,7 +30,7 @@ gulp.task('clean',function(){
     return gulp.src([srcSass.dist,srcJs.dist],{read:false}).pipe(clean({force:true}));
 });
 gulp.task('sass',function(){
-   return gulp.src([srcSass.src+'/rem.scss',srcSass.src+'/feedback.scss'])
+   return gulp.src([srcSass.src+'/rem.scss',srcSass.src+'/feedback.scss',srcSass.src+'/wx_index.scss'])
        .pipe(sass({outputStyle:'expanded'}))
        .pipe(gulp.dest(srcSass.dist))
        .pipe(minify())

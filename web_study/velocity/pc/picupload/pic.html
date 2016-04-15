@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<section>
+    <input type="file" name="uploadify" id="uploadify" />
+</section>
+<script type="text/javascript" src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+<script type="text/javascript" src="jquery.uploadify.js"></script>
+<script type="text/javascript">
+    (function($){
+        $('#uploadify').uploadify({
+            'swf'      : 'uploadify.swf',
+            'uploader' : 'image_uploadfy?from=product',
+            'checkScript': '/upload/exists',
+            'checkExisting': '/upload/exists',
+            'multi': false,
+            'auto': 'true',
+            'buttonText': '上传专题主图',
+            fileSizeLimit:'200KB',
+            formData: { 'imgSize': '18000' },
+            'buttonClass': '',
+            'queueSizeLimit' : 1,
+            'successTimeout' : 10,
+            'onSelect' : function(file) {
+            },
+            'onUploadStart' : function(file) {
+            },
+            'onUploadSuccess' : function(file, data, response) {
+                uploading = false;
+                eval("data=" + data);
+                if(data.status) {
+                    $("#masterImgFile").attr("src", data.imageUrl);
+                    $("#masterImg").attr("value",data.imageUrl);
+                }
+            },
+            'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+                alert('The file ' + file.name + ' could not be uploaded: ' + errorString);
+            }
+        });
+    })(jQuery)
+
+
+
+</script>
+</body>
+</html>
