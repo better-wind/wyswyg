@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom Selector</title>
+</head>
+<body>
+<div id="a"><a>id_a</a></div>
+<div class="b">class_b</div>
+<div class="b">class_b</div>
+<div>tag_c</div>
+<div>tag_c</div>
+
+<script>
+    (function(){
+        var div_a = document.querySelectorAll('div');
+        console.log(div_a);
+    })()
+</script>
+</body>
+</html>

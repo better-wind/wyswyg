@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for循环时间对比</title>
+</head>
+<body>
+
+</body>
+<script src="../../../build/pc/common/js/jquery/jquery183.min.js"></script>
+<script>
+    (function(){
+        function makArr(num){
+            var arr = [];
+            for(var i =0;i<num;i++){
+                arr.push('abc');
+            }
+            return arr;
+        }
+        function forA(){
+            var arr = makArr(50000000);
+            var count = 0;
+            var start = (new Date()).valueOf();
+            for(var i =0;i<arr.length;i++){
+                count++;
+            }
+            var end = (new Date()).valueOf();
+            console.log('A:'+(end-start));
+        }
+        function forB(){
+            var arr = makArr(50000000);
+            var count = 0;
+            var start = (new Date()).valueOf();
+            for(var i = 0,len = arr.length;i<len;i++){
+                count++;
+            }
+            var end = (new Date()).valueOf();
+            console.log('B:'+(end-start));
+        }
+        function foreach(){
+            var arr = makArr(50000000);
+            var count = 0;
+            var start = (new Date()).valueOf();
+            $.each(arr,function(){
+                count++;
+            })
+            var end = (new Date()).valueOf();
+            console.log('C:'+(end-start));
+        }
+        forA();
+        forB();
+        foreach();
+    })()
+</script>
+</html>

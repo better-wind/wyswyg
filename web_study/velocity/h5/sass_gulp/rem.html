@@ -29,8 +29,10 @@
                 scale = 1 / dpr;
                 metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
                 docEl.setAttribute('data-dpr', dpr);
+
                 window.dpr = dpr;
                 window.rem = rem;
+
             }
             RemInit();
         })()
