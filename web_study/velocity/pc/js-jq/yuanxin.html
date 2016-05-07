@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+<script>
+    (function(){
+        var anmate = function(){}
+        var dog = function(){}
+        anmate.price = 2000;
+        dog.prototype = anmate;
+        console.log(anmate.prototype)
+        console.log(dog.price)
+        var title = new dog();
+        console.log(title.price);
+    })()
+</script>
+</body>
+</html>
