@@ -1,0 +1,1092 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>想去吃货节</title>
+    <meta name="Keywords" content="想去,吃货节">
+    <meta name="Description" content="想去吃货节">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script src='$commonUtil.getResource("/build/activity/common/js/jquery/jquery183.min.js")'></script>
+    <script src="$!jsapiUrl"></script>
+    <script>
+        userId='$!loginContext.userId';
+        SHAREURL = location.href;
+        SHARETITLE = '这里的美食品味不一般。';
+        SHAREMSG = '517！属于吃货的节日，全场包邮的限量手工美食，满减优惠中，行动起来~';
+        SHAREIMG = 'http://xqproduct.xiangqu.com/Frbhpn2pfrbYRw3rGpQa49Ln5t81?imageView2/2/w/300/q/90/format/jpg/300x300/';
+    </script>
+    <style type="text/css">
+        /*正式文本*/
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        li{
+            list-style: none;
+        }
+        html{
+            width: 100%;
+            font-size: 62.5%;
+            line-height: 0;
+            background-color: #f0f0f0;
+        }
+        body{
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+        .wrap{
+            width: 100%;
+        }
+        .top-banner{
+            width: 100%;
+        }
+        .top-banner img{
+            width: 100%;
+        }
+        .banner-wrap{
+            position: relative;
+            width:100%;
+            min-height: 250px;
+        }
+        .banner-wrap img{
+            width: 100%;
+        }
+        .banner-wrap .blt-wrap{
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            left: 0;
+            bottom: 30%;
+            text-align: center;
+        }
+        .banner-wrap .blt-wrap .time_wrap{
+            padding: 0 20px;
+            height: 20px;
+            background-color: #FFF;
+            display: inline-block;
+            color:#f9a64a;
+            font-weight: bold;
+            overflow: hidden;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+
+        }
+        .product-wrap{
+            width: 100%;
+        }
+        .product-wrap .sign-title{
+            width: 100%;
+            line-height: 40px;
+            font-size: 18px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+        .product-wrap .sign-title span{
+            line-height: 40px;
+            font-size: 0px;
+            background-color: #FFF;
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform-origin: 3px 3px;
+            -webkit-transform-origin: 3px 3px;
+            position: relative;
+            top:-3px;
+        }
+        .product-wrap .sign-title .span-left{
+            margin-right: 5px;
+
+        }
+        .product-wrap .sign-title .span-right{
+            margin-left: 5px;
+        }
+        .product-wrap .sign-title-bg0{
+            background-color: #f9a64a;
+        }
+        .product-wrap .sign-title-bg1{
+            background-color: #ba662e;
+        }
+        .product-wrap .sign-title-bg2{
+            background-color: #d89e4d;
+        }
+        .product-wrap .sign-title-bg3{
+            background-color: #d1b262;
+        }
+        .product-wrap ul{
+            width: 100%;
+            list-style: none;
+        }
+        .product-wrap ul li{
+            margin-top:10px;
+            padding:10px 3.125% 20px 3.125%;
+            background-color: #FFF;
+        }
+        .product-wrap ul li .p-img-w{
+            width: 100%;
+            min-height: 100px;
+        }
+        .product-wrap ul li .p-img-w img{
+            width: 100%;
+        }
+        .product-wrap ul li .p-p-w{
+            width: 100%;
+        }
+        .product-wrap ul li .p-p-w p{
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            /*white-space:nowrap;*/
+            /*overflow:hidden;*/
+            /*text-overflow:ellipsis;*/
+            color: #2e2e2e;
+            line-height: 1rem;
+        }
+        .product-wrap ul li .p-p-w p.p-title{
+            font-size: 18px;
+            line-height: 18px;
+            margin-top: 20px;
+        }
+        .product-wrap ul li .p-p-w p.p-msg{
+            font-size: 12px;
+            line-height: 18px;
+            margin-top: 10px;
+        }
+        .product-wrap ul li .p-bt-wrap{
+            position: relative;
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .product-wrap ul li .p-bt-wrap div{
+            float:left;
+            height: 40px;
+        }
+        .product-wrap ul li .p-bt-wrap .price-wrap{
+            position: relative;
+            width: 60%;
+            background-color: #2e2e2e;
+            line-height: 40px;
+            z-index: 8;
+        }
+        .product-wrap ul li .p-bt-wrap .price-wrap .now-price{
+            float: left;
+            color: #fff;
+            margin: 0 0 0 10px;
+            font-size: 17px;
+
+        }
+        .product-wrap ul li .p-bt-wrap .price-wrap .ori-price{
+            position:absolute;
+            right:10px;
+            top:2px;
+            font-size: 10px;
+            color: #ccc;
+        }
+        .product-wrap ul li .p-bt-wrap .split-wrap{
+            position: absolute;
+            box-sizing: border-box;
+            width: 3.7%;
+            left: 59.8%;
+            top: -2px;
+            height: 44px;
+            z-index: 9;
+        }
+        .product-wrap ul li .p-bt-wrap .split-wrap-bg0{
+            border-top:22px solid #f9a64a;
+            border-bottom:22px solid #f9a64a;
+            border-left:10px solid #2e2e2e;
+        }
+        .product-wrap ul li .p-bt-wrap .split-wrap-bg1{
+            border-top:22px solid #ba662e;
+            border-bottom:22px solid #ba662e;
+            border-left:10px solid #2e2e2e;
+        }
+        .product-wrap ul li .p-bt-wrap .split-wrap-bg2{
+            border-top:22px solid #d89e4d;
+            border-bottom:22px solid #d89e4d;
+            border-left:10px solid #2e2e2e;
+        }
+        .product-wrap ul li .p-bt-wrap .split-wrap-bg3{
+            border-top:22px solid #d1b262;
+            border-bottom:22px solid #d1b262;
+            border-left:10px solid #2e2e2e;
+        }
+        .product-wrap ul li .p-bt-wrap .tuanbuy-wrap{
+            margin-left: 3.5%;
+            width: 36%;
+            line-height: 40px;
+            text-align: center;
+            font-size: 17px;
+            color: #FFF;
+            font-weight: bold;
+
+        }
+        .product-wrap ul li .p-bt-wrap-bg0{
+            background-color: #f9a64a;
+        }
+        .product-wrap ul li .p-bt-wrap-bg1{
+            background-color: #ba662e;
+        }
+        .product-wrap ul li .p-bt-wrap-bg2{
+            background-color: #d89e4d;
+        }
+        .product-wrap ul li .p-bt-wrap-bg3{
+            background-color: #d1b262;
+        }
+        .product-wrap ul li:nth-child(1){
+            margin-top: 0;
+        }
+        .more-product{
+            text-align: center;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 11px;
+            color:#a0a0a0;
+        }
+        .btm-wrap{
+            width: 100%;
+            margin-top: 10px;
+            min-height: 50px;
+            font-size: 0;
+        }
+        .btm-wrap img{
+            width: 100%;
+        }
+        .backTopWrap{
+            position: fixed;
+            display: none;
+            bottom: 2rem;
+            right: 3.125%;
+            z-index: 99;
+            opacity: .8;
+        }
+        .backTopWrap img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .share_wrap{
+            position:relative;
+            width: 100%;
+            left: 0;
+            z-index: 101;
+            text-align: center;
+            /*margin-bottom: 6rem;*/
+        }
+        .show_sign{
+            width: 80%;
+            margin: 2rem 0;
+        }
+        .sub_share_center{
+            text-align:center;
+            width:80%;
+            margin: 0 auto 2rem;
+        }
+        .sub_share_center a img{
+            width: 15%;
+            padding: 1rem 2%;
+        }
+    </style>
+</head>
+
+<body data-urlHeader="$!{productDetailUrl}">
+<section class="wrap">
+    #if($isApp)
+    #elseif($isWeixin)
+    #else
+    <section class="top-banner">
+        <img src="http://xqproduct.xiangqu.com/FjRI3TUz1GEgMWu9I_kbXDWyfQy4?imageView2/2/w/640/q/90/format/jpg/640x40/"
+             alt=""/>
+    </section>
+    #end
+    <section class="banner-wrap">
+        <img src="http://xqproduct.xiangqu.com/Ftq82qgaH3xGSzIaFTzAVaodYP87?imageView2/2/w/640/q/90/format/jpg/640x299/" alt="想去吃货节"/>
+        <img src="http://xqproduct.xiangqu.com/FmKkdjBgXclnEVLrGJw3b_fB6MZ6?imageView2/2/w/640/q/90/format/jpg/640x270/" alt="想去吃货节"/>
+        <section class="blt-wrap J_blt_wrap">
+            <div class="time_wrap">
+                满99减10  全场包邮
+            </div>
+        </section>
+    </section>
+
+    <section class="product-wrap">
+        <ul class="J_productList">
+            <!--<li>-->
+
+            <!--<div class="p-img-w">-->
+            <!--<img src="http://xqproduct.xiangqu.com/FslOS-0qwrnlszw9jIVG7jhn242o?imageView2/2/w/601/q/90/format/jpg/601x410/" alt="想去福利社"/>-->
+            <!--</div>-->
+            <!--<div class="p-p-w">-->
+            <!--<p class="p-title">天然海草收纳袋</p>-->
+            <!--<p class="p-msg">包含大号、中号、小号/3个为一组</p>-->
+            <!--</div>-->
+
+            <!--<div class="p-bt-wrap">-->
+            <!--<div class="price-wrap">-->
+            <!--<span class="now-price">最低价￥<span>15</span></span>-->
+            <!--<span class="ori-price">原价￥<span>28</span></span>-->
+
+            <!--</div>-->
+            <!--<div class="split-wrap">-->
+
+            <!--</div>-->
+            <!--<div class="tuanbuy-wrap">-->
+            <!--<span>找人组团</span>-->
+            <!--</div>-->
+
+            <!--</div>-->
+
+            <!--</li>-->
+
+        </ul>
+    </section>
+    <section class="more-product J_more_product">
+        想去君拼命加载中^_^
+    </section>
+
+
+
+
+    #if($isApp)
+    #else
+    <!--<section class="btm-wrap J_btm_wrap">-->
+    <!--<img src="http://xqproduct.xiangqu.com/Fu4xQeZsOQEbRpxMZOMqCJHndnc0?imageView2/2/w/960/q/90/format/jpg/960x450/"-->
+    <!--alt=""/>-->
+    <!--</section>-->
+    #end
+    <a class="backTopWrap"><img class="backTop" src="http://xqproduct.xiangqu.com/Fqahe2b0dQKIwh0wXdNothSOs-Mg" /></a>
+    #if($isApp)
+    #elseif($isWeixin)
+    #else
+    <section class="share_wrap J_share_wrap">
+        <img src="http://xqproduct.xiangqu.com/FvRvhKR5qE4o6yh_dxE_zRwAUD7R" alt="" class="show_sign"/>
+        <div class="sub_share_center bdsharebuttonbox">
+            <a data-cmd="tsina"><img src="http://xqproduct.xiangqu.com/Fv0JcaTBUA7iqUww3bPSUhKYOnKe" alt="sharetsina" data-cmd="tsina"></a>
+            <a data-cmd="weixin"><img src="http://xqproduct.xiangqu.com/Fumw-cC3q0mSe0OV8GVWcN-5MOYF" alt="shareweixin" data-cmd="weixin"></a>
+            <a data-cmd="sqq"><img src="http://xqproduct.xiangqu.com/Fi9577y9PdjclHywKcoWI1QRi3Bi" alt="sharesqq" data-cmd="sqq"></a>
+            <a data-cmd="qzone"><img src="http://xqproduct.xiangqu.com/FhKEf-oDOE3L8omAHpxtUyH-1jn5" alt="shareweixin" data-cmd="qzone"></a>
+        </div>
+    </section>
+    #end
+</section>
+<script>
+    (function($){
+        var sday,shour,sminu,ssecn;
+        var timeRepeatS = null;
+        var product_img = {
+            init:function(){
+                document.body.scrollTop=0;
+                var self  = this;
+                self.J_time_wrap= $('.J_time_wrap');
+                self.J_time = $('.time');
+                self.J_blt_wrap = $('.J_blt_wrap');
+                self.J_img = $('.J_img_wrap img');
+                self.J_sign_share = $('.J_sign_share');
+                self.J_getMB = $('.J_getMB');
+                self.J_share_wrap = $('.J_share_wrap');
+                self.J_share_close = $('.J_share_close');
+                self.J_more_product = $('.J_more_product');
+
+                self.J_btm_wrap = $('.J_btm_wrap');
+
+                self.baseProductUrl = $('body').attr('data-urlHeader');
+
+                self.J_productList = $('.J_productList');
+                self.productList = [];
+                self.J_size = 5;
+                self.J_page = 0;
+                self.isLasted = false;
+                self.isOver = true;
+//                self.timelimit();
+                self.productInit();
+                self.productGetData(self.J_page,self.J_size);
+                self.ScrollProduct();
+
+                self.eventing();
+            },
+            eventing:function(){
+                var self = this;
+                self.J_productList.on('click','.J_product_link',function(){
+                    var ua = window.navigator.userAgent;
+                    var _href = '';
+                    if(ua.indexOf('xiangqu') > -1){
+                        _href = self.baseProductUrl+$(this).attr('data-id')+'&spm=100.0504.0.0&isApp=1'
+                    }
+                    else{
+                        _href = self.baseProductUrl+$(this).attr('data-id')+'&spm=100.0505.0.0'
+                    }
+                    location.href = _href;
+
+                })
+                self.J_productList.on('click','.J_getPeople_share',function(){
+//                    SHAREURL = 'http://www.xiangqu.com/activity/freetuan/share/view/'+$(this).attr('data-id')+'?leaderId='+userId;
+//                    SHARETITLE = $(this).attr('data-id');
+//                    SHAREMSG = $(this).attr('data-id');
+                })
+                self.J_btm_wrap.on('click',function(){
+                    var ua = window.navigator.userAgent;
+                    if(ua.indexOf('xiangqu') > -1){
+                        location.href = 'xiangqu://skip#{"destinationPage":"0","rootPageTabIndex":"3"}';
+                    }
+                    else{
+                        location.href = 'http://www.xiangqu.com';
+                    }
+                })
+                self.toTop();
+            },
+            productInit:function(){
+                var self = this;
+                self.productList = [
+                    {
+                        id:'2360328',
+                        picSrc:'http://xqproduct.xiangqu.com/FsaSHcMiWeDdeHisxgus5H2Xj4oc?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'农家自制香脆红薯干',
+                        oldprice:'32',
+                        nowprice:'28.8',
+                        msg:'嘎嘣脆，红薯还能这么吃。',
+                        tag:'馋嘴零食',
+                        subid:'0',
+                        tagbg:'2',
+                        btbg:'2',
+                    },
+                    {
+                        id:'2221422',
+                        picSrc:'http://xqproduct.xiangqu.com/FiFCzzojUOLeKfKyOAeHnekYenAX?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'富含天然花青素农家紫薯干',
+                        oldprice:'32',
+                        nowprice:'28.8',
+                        msg:'浓郁紫薯味，追剧好伴侣。',
+                        tag:'馋嘴零食',
+                        subid:'1',
+                        tagbg:'2',
+                        btbg:'2',
+                    },
+                    {
+                        id:'2221402',
+                        picSrc:'http://xqproduct.xiangqu.com/FlBuWbnbswiUO7F7R5nNXWe6l3-3?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'古法手工玉米芝麻松糕',
+                        oldprice:'32',
+                        nowprice:'28.8',
+                        msg:'粗粮玉米面，地道健康小零食。',
+                        tag:'馋嘴零食',
+                        subid:'2',
+                        tagbg:'2',
+                        btbg:'2',
+                    },
+                    {
+                        id:'2279117',
+                        picSrc:'http://xqproduct.xiangqu.com/Fv4xLC-cufTlAiLX6QhyoTCi-58I?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'义乌蜜枣',
+                        oldprice:'32',
+                        nowprice:'24',
+                        msg:'一颗蜜枣，勾起在外婆家的回忆',
+                        tag:'馋嘴零食',
+                        subid:'3',
+                        tagbg:'2',
+                        btbg:'2',
+                    },
+                    {
+                        id:'2355357',
+                        picSrc:'http://xqproduct.xiangqu.com/Ftkt-WagPna3JLpnd6onzVvXtB9v?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'绿豆糕',
+                        oldprice:'39.9',
+                        nowprice:'25',
+                        msg:'不含防腐剂， 纯绿豆手作',
+                        tag:'馋嘴零食',
+                        subid:'4',
+                        tagbg:'2',
+                        btbg:'2',
+                    },
+                    {
+                        id:'2340105',
+                        picSrc:'http://xqproduct.xiangqu.com/FgHVukrRIniIHHZZayE8W8nUTBQy?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'传统手作芋圆',
+                        oldprice:'46',
+                        nowprice:'45.8',
+                        msg:'用家里的食材和奶奶的番薯粉手工制作而成。',
+                        tag:'夏日糖水',
+                        subid:'0',
+                        tagbg:'0',
+                        btbg:'0',
+                    },
+                    {
+                        id:'2190088',
+                        picSrc:'http://xqproduct.xiangqu.com/FggnXnSSTU_gefYMd4zKf7SkV8Wr?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'养颜圣品雪耳',
+                        oldprice:'60',
+                        nowprice:'57',
+                        msg:'室内栽培，零农药、零虫害。',
+                        tag:'夏日糖水',
+                        subid:'1',
+                        tagbg:'0',
+                        btbg:'0',
+                    },
+                    {
+                        id:'2200174',
+                        picSrc:'http://xqproduct.xiangqu.com/FvSwI-UwTpDXe2ggRmqcGKBmrfLv?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'农家自产绿豆',
+                        oldprice:'12',
+                        nowprice:'11.6',
+                        msg:'农家小绿豆颗粒饱满，个头大小均匀，色泽自然，闻起来有股淡淡的自然清香。',
+                        tag:'夏日糖水',
+                        subid:'2',
+                        tagbg:'0',
+                        btbg:'0',
+                    },
+                    {
+                        id:'2200176',
+                        picSrc:'http://xqproduct.xiangqu.com/Fj5IFIbq0HkIQQ70g995PLpku5Wi?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'高原山地小薏米',
+                        oldprice:'16',
+                        nowprice:'15.2',
+                        msg:'来自云南高原山地，水源未受污染，较长成熟周期培育的小薏米品质和口感都更佳，很香糯。',
+                        tag:'夏日糖水',
+                        subid:'3',
+                        tagbg:'0',
+                        btbg:'0',
+                    },
+                    {
+                        id:'2200179',
+                        picSrc:'http://xqproduct.xiangqu.com/FhPeYB2NXMg804tGFCMh2RXMTw22?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'补血赤小豆',
+                        oldprice:'15',
+                        nowprice:'14.25',
+                        msg:'小赤豆颗粒比市场上的红豆小，但粒粒饱满，品质更高。',
+                        tag:'夏日糖水',
+                        subid:'4',
+                        tagbg:'0',
+                        btbg:'0',
+                    },
+                    {
+                        id:'2200175',
+                        picSrc:'http://xqproduct.xiangqu.com/FoaWthSBUzx5LVIsRqr5NRyi38kx?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'无芯湘莲子-水上人参',
+                        oldprice:'30',
+                        nowprice:'28.5',
+                        msg:'中国三大名莲子之一，营养成分和矿物质都很高，是历来进贡皇室的珍品，故又称“贡莲”。',
+                        tag:'夏日糖水',
+                        subid:'5',
+                        tagbg:'0',
+                        btbg:'0',
+                    },
+                    {
+                        id:'2359467',
+                        picSrc:'http://xqproduct.xiangqu.com/Fj2C8fPVoXrFU2b7LESs3DsBl91w?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'野生明前春笋衣',
+                        oldprice:'33',
+                        nowprice:'29.7',
+                        msg:'山之馈赠，愿一同品鉴。',
+                        tag:'菜单主料',
+                        subid:'0',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2327298',
+                        picSrc:'http://xqproduct.xiangqu.com/FlFoBtAVLaY_VC90DHGf8IdEvOmr?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'山芋番薯纯山粉',
+                        oldprice:'22.5',
+                        nowprice:'20.2',
+                        msg:'深山的味道，熟悉的味道。',
+                        tag:'菜单主料',
+                        subid:'1',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2221384',
+                        picSrc:'http://xqproduct.xiangqu.com/FiatpedAzx7CDsW4pYgLckgXcfzS?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'野生干货马蹄笋',
+                        oldprice:'44.5',
+                        nowprice:'40',
+                        msg:'皖南农人从未吃腻的山珍。',
+                        tag:'菜单主料',
+                        subid:'2',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2221401',
+                        picSrc:'http://xqproduct.xiangqu.com/FpAqAgi244wWjZE8zTB_mMWOxq0F?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'蒸肉绝配农家梅干菜',
+                        oldprice:'26.8',
+                        nowprice:'24.1',
+                        msg:'传统手工制的古法食材。',
+                        tag:'菜单主料',
+                        subid:'3',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2221405',
+                        picSrc:'http://xqproduct.xiangqu.com/FtcQYWLCiJmHvqJHxf1c2D5UydHc?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'农家野生嫩笋干 ',
+                        oldprice:'44.8',
+                        nowprice:'40.3',
+                        msg:'肉厚鲜嫩，天赐山珍。',
+                        tag:'菜单主料',
+                        subid:'4',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2360291',
+                        picSrc:'http://xqproduct.xiangqu.com/FuMeG8IJzE1WdDE8DjpTMZO_pcS0?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'纯手工番薯山芋粉丝',
+                        oldprice:'24.8',
+                        nowprice:'22.32',
+                        msg:'这就是你苦苦寻找的安心食材。',
+                        tag:'菜单主料',
+                        subid:'5',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2291305',
+                        picSrc:'http://xqproduct.xiangqu.com/FnTHXG0aAVyhTg3w45JtyTUcjjXd?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'磐安土面',
+                        oldprice:'39',
+                        nowprice:'29.3',
+                        msg:'饱含深情的一碗土面，对味！',
+                        tag:'菜单主料',
+                        subid:'6',
+                        tagbg:'1',
+                        btbg:'1',
+                    },
+                    {
+                        id:'2276207',
+                        picSrc:'http://xqproduct.xiangqu.com/FnOfU32qXJkEqF5Cp1GvXDdGEQUD?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'佛手茶',
+                        oldprice:'32',
+                        nowprice:'24',
+                        msg:'理气和胃，止咳护嗓，天然清霾',
+                        tag:'山茶滋味',
+                        subid:'0',
+                        tagbg:'3',
+                        btbg:'3',
+                    },
+                    {
+                        id:'2279099',
+                        picSrc:'http://xqproduct.xiangqu.com/FpLgWvVTLFzv8jUmPniH4ZjdhGSn?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'红枣姜茶',
+                        oldprice:'39',
+                        nowprice:'25',
+                        msg:'早上一杯姜茶，有太多好处啦！',
+                        tag:'山茶滋味',
+                        subid:'1',
+                        tagbg:'3',
+                        btbg:'3',
+                    },
+                    {
+                        id:'2291309',
+                        picSrc:'http://xqproduct.xiangqu.com/FrJPeB9dCLPLB4dgR-wxXA2MhRjG?imageView2/2/w/600/q/90/format/jpg/600x410/',
+                        title:'玳玳花',
+                        oldprice:'28',
+                        nowprice:'21',
+                        msg:'回甘香郁，午后提神必备',
+                        tag:'山茶滋味',
+                        subid:'2',
+                        tagbg:'3',
+                        btbg:'3',
+                    },
+
+                ]
+
+            },
+            ScrollProduct:function(){
+                var self = this;
+                $(window).bind('scroll',function(){
+                    var bot = 370;
+                    if(self.J_page * self.J_size >= self.productList.length){
+                        self.J_more_product.html('没有更多了^_^');
+                        var a = setTimeout(function(){
+                            self.J_more_product.animate({height:"0px"},500);
+                        },1000)
+                        return false;
+                    }
+                    if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                        if(self.isOver){
+                            self.productGetData(self.J_page,self.J_size);
+                        }
+
+                        else if(!self.isOver){
+                            console.log(self.J_page * self.J_size);
+                            $(window).unbind('scroll');
+                        }
+                    }
+                })
+            },
+            productGetData:function(page,size){
+                var self = this;
+                var _html = '';
+                if(self.isOver){
+                    self.isOver=false;
+                    for(var i =page * size;i<((page+1) * size>self.productList.length ? self.productList.length : (page+1) * size);i++){
+                        if(self.productList[i].subid==0){
+                            _html += '<div class="sign-title sign-title-bg'+self.productList[i].tagbg+'"> <span class="span-left"></span>'+self.productList[i].tag+'<span class="span-right"></span> </div>'
+                        }
+                        _html += '<li>' +
+                                '<a class="J_product_link" data-id="'+self.productList[i].id+'">' +
+                                '<div class="p-img-w"> ' +
+                                '<img src="'+self.productList[i].picSrc+'" alt="想去吃货节"/> ' +
+                                '</div> ' +
+                                '<div class="p-p-w"> ' +
+                                '<p class="p-title">'+self.productList[i].title+'</p> ' +
+                                '<p class="p-msg">'+self.productList[i].msg+'</p> ' +
+                                '</div>' +
+                                '</a> ' +
+                                '<a class="J_product_link" data-id="'+self.productList[i].id+'">' +
+                                '<div class="p-bt-wrap p-bt-wrap-bg'+self.productList[i].btbg+'"> ' +
+                                '<div class="price-wrap"> ' +
+                                '<span class="now-price">美食价￥<span>'+self.productList[i].nowprice+'</span></span> ' +
+                                '</div> ' +
+                                '<div class="split-wrap split-wrap-bg'+self.productList[i].btbg+'"> ' +
+                                '</div> ' +
+                                '<div class="tuanbuy-wrap p-bt-wrap-bg'+self.productList[i].btbg+'"> <span class="J_getPeople_share" data-id="'+self.productList[i].id+'">立即购买</span> ' +
+                                '</div> ' +
+                                '</div> ' +
+                                '</a>' +
+                                '</li>'
+                    }
+                    self.J_productList.append(_html);
+                    self.J_page++;
+                    self.isOver=true;
+                    self.ScrollProduct();
+
+                }
+
+
+
+
+
+            },
+            toTop:function(){
+                var self = this;
+                $(window).bind('scroll',function(){
+                    if($(window).scrollTop()>$(window).height()){
+                        $('.backTopWrap').show();
+                    }
+                    else{
+                        $('.backTopWrap').hide();
+                    }
+                });
+                $('.backTopWrap').on('touchend',function(e){
+                    e.preventDefault();
+                    self.scrollTop(0,200);
+                })
+                $("body").on("touchstart touchend",function(e){
+                    if(e.type=='touchstart'){
+                        $('.backTop').parent().css('opacity','0.2');
+                    }else{
+                        $('.backTop').parent().css('opacity','0.8');
+                    }
+                });
+            },
+            scrollTop:function(scrollTo,time){
+                var self = this;
+                var scrollFrom = parseInt(document.body.scrollTop),
+                        i = 0,
+                        runEvery = 5;
+                scrollTo = parseInt(scrollTo);
+                time /= runEvery;
+
+                var interval = setInterval(function(){
+                    i++;
+                    document.body.scrollTop = (scrollTo - scrollFrom)/time * i + scrollFrom;
+                    if(i >= time){
+                        clearInterval(interval);
+                    }
+                },runEvery);
+
+            },
+            timelimit:function(){
+                var self = this;
+                var timeshow = setTimeout(function(){
+                    self.J_blt_wrap.show();
+                    clearTimeout(timeshow);
+                },1000);
+                var ts = (new Date('2016/5/12 23:59:59')) - (new Date());
+                sday = Math.floor(ts / 1000 / 60 / 60 / 24);
+                shour = Math.floor(ts /1000 / 60 / 60);
+                sminu = Math.floor(ts /1000 / 60 % 60);
+                ssecn = Math.floor(ts /1000 % 60);
+                if(ts<0){
+                    self.J_time.html('0');
+                }
+                else{
+                    timeRepeatS = setInterval(function(){
+                        self.countDownS();
+                    },1000);
+                }
+            },
+            countDownS:function(){
+                var self = this;
+                if(sday == 0) {
+                    if(ssecn == 0 && sminu == 0 && shour == 0){
+                        clearInterval(timeRepeatS);
+                        return false;
+                    }
+                    ssecn -= 1;
+                    if(ssecn == -1) {
+                        sminu -= 1;
+                        ssecn = 59;
+                        if (sminu == -1) {
+                            sminu = 59;
+                            shour -= 1;
+                        }
+                    }
+                }else{
+                    if(ssecn == 0 && sminu == 0 && shour == 0 && sday == 0){
+                        clearInterval(timeRepeatS);
+                        return false;
+                    }
+                    ssecn -= 1;
+                    if(ssecn == -1) {
+                        sminu -= 1;
+                        ssecn = 59;
+                        if (sminu == -1) {
+                            sminu = 59;
+                            shour -= 1;
+                            if (shour == -1) {
+                                shour = 23;
+                                sday -= 1;
+                            }
+                        }
+
+                    }
+                }
+
+                if(parseInt(sday,10).toString().length == 1){
+                    sday = '0' + parseInt(sday, 10).toString();
+                }
+                if(parseInt(shour,10).toString().length == 1){
+                    shour = '0' + parseInt(shour, 10).toString();
+                }
+                if (parseInt(sminu, 10).toString().length == 1) {
+                    sminu = "0" + parseInt(sminu, 10).toString();
+                };
+                if (parseInt(ssecn, 10).toString().length == 1) {
+                    ssecn = "0" + parseInt(ssecn, 10).toString();
+                };
+
+                self.timeGoes(Math.floor(shour / 10),self.J_time_wrap.find(".hour0"));
+                self.timeGoes(Math.floor(shour % 10),self.J_time_wrap.find(".hour1"));
+                self.timeGoes(Math.floor(sminu / 10),self.J_time_wrap.find(".minu0"));
+                self.timeGoes(Math.floor(sminu % 10),self.J_time_wrap.find(".minu1"));
+                self.timeGoes(Math.floor(ssecn / 10),self.J_time_wrap.find(".secn0"));
+                self.timeGoes(Math.floor(ssecn % 10),self.J_time_wrap.find(".secn1"));
+//                console.log(Math.floor(shour / 10)+','+Math.floor(shour % 10)+','+Math.floor(sminu / 10)+','+Math.floor(sminu % 10)+','+Math.floor(ssecn / 10)+','+Math.floor(ssecn % 10))
+            },
+            timeGoes:function(otime,obj){
+                var self = this;
+                self.clockurl
+                if(otime == 0){
+                    obj.html('0');
+                    return false;
+                }
+                if(otime != 0 && otime){
+                    obj.html(otime);
+                }
+            }
+
+        }
+        $(function(){
+            product_img.init();
+        })
+
+    })(jQuery)
+</script>
+#if($isWeixin)
+<script>
+    $.getJSON("/common/getWxJsConfig", {url: location.href}, function (data) {
+        if (data && data.code == 200) {
+            obj = data.data;
+            wx.config({
+                debug: obj.debug,
+                appId: obj.appId,
+                timestamp: obj.timestamp,
+                nonceStr: obj.nonceStr,
+                signature: obj.signature,
+                jsApiList: obj.jsApiList.split(',')
+            });
+            wx.ready(function () {
+                wx.onMenuShareTimeline({
+                    title: SHARETITLE,
+                    link: SHAREURL,
+                    imgUrl: SHAREIMG,
+                    success: function () {
+                        //alert('succ');
+                    },
+                    cancel: function () {
+                        //alert('cancel');
+                    }
+                });
+
+                wx.onMenuShareAppMessage({
+                    title: SHARETITLE,
+                    link: SHAREURL,
+                    imgUrl: SHAREIMG,
+                    desc: SHAREMSG,
+                    success: function () {
+                        //alert('succ');
+                    },
+                    cancel: function () {
+                        //alert('cancel');
+                    }
+                });
+            });
+        }
+    });
+</script>
+#end
+##底部分享
+<script>
+
+
+
+    function shareContent(obj) {
+        if (obj) {
+            obj = obj
+        } else {
+            obj = {
+                "imgUrl": "http://www.xiangqu.com/images/core/logo.png",
+                "title": "想去网-买得起的好设计！",
+                "content": "想去-买得起的好设计！",
+                "targetUrl": "wwww.xiangqu.com"
+            }
+        }
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": obj.title,
+                "bdDesc": obj.content,
+                "bdUrl": obj.targetUrl,
+                "bdPic": obj.imgUrl,
+                "bdStyle": "0",
+                "bdSize": "32",
+                "bdCustomStyle": " "
+            },
+            "share": {},
+            "image": {"viewList": ['sqq', 'weixin', 'tsina', 'qzone'], "viewText": "分享到：", "viewSize": "32"},
+            "selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["sqq", "weixin", "tsina", "qzone"]}
+        }
+        with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    }
+
+    /*需要修改*/
+    var shareData = {
+        "imgUrl": SHAREIMG,
+        "title": SHARETITLE,
+        "content": SHAREMSG,
+        "targetUrl": SHAREURL
+    }
+    shareContent(shareData);
+    //app 端代码
+    function getShareContent() {
+        window.ShareObj.sendShareContent(JSON.stringify(shareData));
+    }
+
+    //ios 端代码
+    function iosShareContent() {
+        return JSON.stringify(shareData);
+    }
+
+
+</script>
+##底部分享结束
+##微信分享
+##微信分享End
+
+<script type="text/javascript">
+    var xiangquNick = "$!{loginContext.nick}";
+    function login() {
+        if (loginURL != '') {
+            //有登录接口
+            if( loginURL.indexOf('http://') >= 0 ){
+                location.href = loginURL + '?redirectUrl='+location.href;
+            }else{
+                location.href = loginURL;
+            }
+        } else {
+            alert('请重新登录～');
+        }
+    }
+    var jumphref = '$!{productDetailUrl}';
+    var loginURL = '$!{loginUrl}';
+    var hasApp;
+    if(jumphref.indexOf("${id}") == -1){
+        hasApp = 1;
+    }else{
+        hasApp = 0;
+    }
+</script>
+##埋点
+<script>
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date()
+        exdate.setDate(exdate.getDate()+expiredays)
+        document.cookie = c_name+ "=" +escape(value)+
+                ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    }
+
+    function getCookie(name) {
+        var prefix = name + "=";
+        var cookieStartIndex = document.cookie.indexOf(prefix);
+        if(cookieStartIndex == -1) {
+            return null;
+        }
+        var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length);
+        if(cookieEndIndex == -1) {
+            cookieEndIndex = document.cookie.length
+        }
+        return unescape(document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+    }
+
+    function deleteCookie(name, path, domain) {
+        if(getCookie(name)) {
+            document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT"
+        }
+    }
+
+    function fixDate(date) {
+        var base = new Date(0)
+        var skew = base.getTime()
+        if(skew > 0) date.setTime(date.getTime() - skew)
+    }
+    var now = new Date()
+    fixDate(now)
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000)
+    function qcck(){
+        setCookie('isclicked100.826.0.0',isclicked,-1);
+        alert("cookie已清除");
+    }
+    /*埋点逻辑代码*/
+    function detect(str){
+        var hold = new Date(),
+                img = window[hold] = new Image;
+        img.src = location.href  + "?t=" + Math.floor(Math.random()*10000000) + '&SPMFLag=zhudong' + '&spm=' + str;
+        img.onload = (img.onerror = function(){
+            window[hold] = null;
+        });
+        img = null;
+    }
+</script>
+##埋点end
+##百度统计
+#parse("./common/foot_wap.vm")
+##百度统计end
+</body>
+</html>
