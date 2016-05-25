@@ -1,4 +1,7 @@
 @import "config";
+body{
+  position: relative;
+}
 .banner-wrap{
   position: relative;
   width: 100%;
@@ -250,4 +253,74 @@
     }
   }
 
+}
+.edit_wrap{
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #000;
+  .edit-wrap{
+    width: 7.1rem;
+    margin:.2rem auto 0;
+    background-color: #FFF;
+    border:1px solid #c6c6c6;
+    border-radius: 0.05rem;
+    ul{
+      width: 6.7rem;
+      margin:0 auto;
+      padding-top: .2rem;
+      li{
+        width: 100%;
+        @include remsize(font-size,28);
+        @include remsize(line-height,28);
+        padding: .2rem 0;
+        overflow: hidden;
+        border-top: 1px solid #c6c6c6;
+        .msg{
+          float: left;
+          width: 1.5rem;
+        }
+        .input-wrap{
+          float:left;
+          width: 5rem;
+          input{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            border:none;
+            @include remsize(font-size,28);
+            @include remsize(line-height,28);
+            outline: none;
+          }
+          textarea{
+            width: 100%;
+            padding: 0;
+            border:none;
+            @include remsize(font-size,28);
+            @include remsize(line-height,28);
+            outline: none;
+          }
+          select{
+            padding: 0;
+            border:none;
+            height: .28rem;
+            @include remsize(font-size,28);
+            @include remsize(line-height,28);
+            outline: none;
+            option{
+              display: inline-block;
+              padding: 0;
+              min-height: 0;
+            }
+          }
+        }
+
+      }
+      li:nth-child(1){
+        border-top:none;
+      }
+    }
+  }
 }

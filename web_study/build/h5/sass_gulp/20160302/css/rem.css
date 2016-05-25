@@ -15,6 +15,10 @@ body {
   font-size: 12px;
 }
 
+body {
+  position: relative;
+}
+
 .banner-wrap {
   position: relative;
   width: 100%;
@@ -688,4 +692,268 @@ body {
 
 .topic-wrap .sub-topic-wrap ul li:nth-child(2n) {
   float: right;
+}
+
+.edit_wrap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #000;
+}
+
+.edit_wrap .edit-wrap {
+  width: 7.1rem;
+  margin: .2rem auto 0;
+  background-color: #FFF;
+  border: 1px solid #c6c6c6;
+  border-radius: 0.05rem;
+}
+
+.edit_wrap .edit-wrap ul {
+  width: 6.7rem;
+  margin: 0 auto;
+  padding-top: .2rem;
+}
+
+.edit_wrap .edit-wrap ul li {
+  width: 100%;
+  padding: .2rem 0;
+  overflow: hidden;
+  border-top: 1px solid #c6c6c6;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li {
+  font-size: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li {
+  font-size: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li {
+  font-size: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li {
+  font-size: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li {
+  font-size: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li {
+  font-size: 56px;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li {
+  line-height: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li {
+  line-height: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li {
+  line-height: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li {
+  line-height: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li {
+  line-height: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li {
+  line-height: 56px;
+}
+
+.edit_wrap .edit-wrap ul li .msg {
+  float: left;
+  width: 1.5rem;
+}
+
+.edit_wrap .edit-wrap ul li .input-wrap {
+  float: left;
+  width: 5rem;
+}
+
+.edit_wrap .edit-wrap ul li .input-wrap input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  font-size: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  font-size: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  font-size: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  font-size: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  font-size: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  font-size: 56px;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  line-height: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  line-height: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  line-height: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  line-height: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  line-height: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li .input-wrap input {
+  line-height: 56px;
+}
+
+.edit_wrap .edit-wrap ul li .input-wrap textarea {
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  font-size: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  font-size: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  font-size: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  font-size: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  font-size: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  font-size: 56px;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  line-height: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  line-height: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  line-height: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  line-height: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  line-height: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li .input-wrap textarea {
+  line-height: 56px;
+}
+
+.edit_wrap .edit-wrap ul li .input-wrap select {
+  padding: 0;
+  border: none;
+  height: .28rem;
+  outline: none;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  font-size: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  font-size: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  font-size: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  font-size: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  font-size: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  font-size: 56px;
+}
+
+[data-dpr="2"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  line-height: 28px;
+}
+
+[data-dpr="2.5"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  line-height: 35px;
+}
+
+[data-dpr="2.75"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  line-height: 38.5px;
+}
+
+[data-dpr="3"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  line-height: 42px;
+}
+
+[data-dpr="3.5"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  line-height: 49px;
+}
+
+[data-dpr="4"] .edit_wrap .edit-wrap ul li .input-wrap select {
+  line-height: 56px;
+}
+
+.edit_wrap .edit-wrap ul li .input-wrap select option {
+  display: inline-block;
+  padding: 0;
+  min-height: 0;
+}
+
+.edit_wrap .edit-wrap ul li:nth-child(1) {
+  border-top: none;
 }

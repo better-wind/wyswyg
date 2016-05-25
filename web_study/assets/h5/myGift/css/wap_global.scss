@@ -1,0 +1,95 @@
+@charset "UTF-8";
+@import "config.scss";
+body, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+/* 字体+抗锯齿 */
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+html * {
+  box-sizing: border-box;
+  -webit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+}
+li {
+  list-style: none;
+}
+/* 去除安卓链接点击高亮颜色 */
+a,
+button,
+input {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a{
+  text-decoration: none;
+}
+textarea {
+  resize: none;
+  overflow: auto;
+}
+img {
+  border: 0;
+}
+em {
+  font-style: normal;
+}
+:focus {
+  outline: 0;
+}
+/* table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 特殊调用，目前class以'oer(偶尔)-' + 属性首尾字母命名 */
+
+/* 去除select等标签原有样式 */
+
+.oer-ae {
+  -webkit-appearance: none;
+}
+
+/* 禁止用户进行复制.选择 */
+.oer-st {
+  -webkit-user-select: none;
+}
+
+/* 浮动相关 */
+.fn-clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.fn-left {
+  float: left;
+}
+
+.fn-right {
+  float: right;
+}
+.fn-hide {
+  display: none;
+}
+input,a,span{
+  outline : mediumblue;
+}
+.return-top-box {
+  display: block;
+  position: fixed;
+  @include remsize(bottom,120);
+  @include remsize(right,36);
+  background: url("http://xqproduct.xiangqu.com/Fu1M50kYTYnQkfe3DDsDJSjNgubc") no-repeat center center;
+  background-size: cover;
+  @include remsize(width,70);
+  @include remsize(height,70);
+  overflow: hidden;
+  z-index: 88888;
+}
+

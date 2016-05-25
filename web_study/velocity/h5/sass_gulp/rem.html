@@ -29,8 +29,10 @@
                 scale = 1 / dpr;
                 metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
                 docEl.setAttribute('data-dpr', dpr);
+
                 window.dpr = dpr;
                 window.rem = rem;
+
             }
             RemInit();
         })()
@@ -214,6 +216,63 @@
         </ul>
 
     </section>
+
+</section>
+
+<section class="edit_wrap">
+    <section class="edit-wrap">
+        <ul>
+            <li>
+                <div class="msg">收货人</div>
+                <div class="input-wrap">
+                    <input type="text" placeholder="名字"/>
+                </div>
+            </li>
+            <li>
+                <div class="msg">省</div>
+                <div class="input-wrap">
+                    <select>
+                        <option value="0">--省--</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="msg">市</div>
+                <div class="input-wrap">
+                    <select>
+                        <option value="0">--市--</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="msg">区</div>
+                <div class="input-wrap">
+                    <select>
+                        <option value="0">--区--</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="msg">手机号</div>
+                <div class="input-wrap">
+                    <input type="text" placeholder="11位手机号"/>
+                </div>
+            </li>
+            <li>
+                <div class="msg">详细地址</div>
+                <div class="input-wrap">
+                    <textarea placeholder="街道门牌信息"></textarea>
+                </div>
+            </li>
+            <li>
+                <div class="msg">邮政编码</div>
+                <div class="input-wrap">
+                    <input type="text" placeholder="邮政编码"/>
+                </div>
+            </li>
+        </ul>
+    </section>
+
 
 </section>
 <script type="text/javascript" src="../../../build/h5/common/js/zepto/zepto.min.js"></script>

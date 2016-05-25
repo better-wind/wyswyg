@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="1a68ae11-a6c9-4eeb-b5de-8bdd1e866311" name="Default" comment="" />
+=======
+    <list default="true" id="1a68ae11-a6c9-4eeb-b5de-8bdd1e866311" name="Default" comment="">
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web_study/velocity/h5/h5_study/rotate_page.html" afterPath="$PROJECT_DIR$/web_study/velocity/h5/h5_study/rotate_page.html" />
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
+    </list>
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
     <ignored path="WebTry.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +30,27 @@
     <favorites_list name="WebTry" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf />
+=======
+    <leaf>
+      <file leaf-file-name="rotate_page.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/h5_study/rotate_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="1.884058">
+              <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
+=======
+            <state vertical-scroll-proportion="0.55130434">
+              <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -89,7 +119,10 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
       <pane id="Scratches" />
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,6 +215,10 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+      <pane id="Scratches" />
+=======
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
       <pane id="Scope" />
     </panes>
   </component>
@@ -255,7 +292,15 @@
     <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26427525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+<<<<<<< HEAD
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25297618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -292,7 +337,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/web_study/velocity/pc/js-jq/yuanxin.html">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/h5_study/rotate_page.html">
+=======
+    <entry file="file://$PROJECT_DIR$/web_study/velocity/pc/js-jq/bibao.html">
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -300,6 +353,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/web_study/assets/pc/Citywest/dev/css/nav.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -308,12 +362,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web_study/assets/pc/Citywest/dev/js/nav.js">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/web_study/assets/h5/h5_study/dev/css/christmas.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="40" selection-start-line="161" selection-start-column="3" selection-end-line="162" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/assets/h5/sass_gulp/dev/css/feedback.scss">
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/sass_gulp/bottom-shadow.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -335,10 +402,29 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/sass_gulp/feedback.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="14" selection-start-line="44" selection-start-column="4" selection-end-line="86" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/assets/h5/sass_gulp/dev/js/feedback.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
     <entry file="file://$PROJECT_DIR$/web_study/velocity/pc/js-jq/call-apply.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
         </state>
       </provider>
     </entry>
@@ -590,11 +676,54 @@
     <entry file="file://$PROJECT_DIR$/web_study/velocity/pc/js-jq/call-apply.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/velocity/pc/js-jq/bibao.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05244123">
+          <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/sass_gulp/feedback.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.516129">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/assets/h5/sass_gulp/dev/js/feedback.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/assets/h5/sass_gulp/dev/css/feedback.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34666666">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/h5_study/djs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_study/assets/h5/h5_study/dev/css/christmas.css">
+=======
           <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web_study/velocity/pc/js-jq/bibao.html">
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41217393">
           <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
@@ -603,6 +732,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web_study/velocity/h5/h5_study/rotate_page.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-0.0">
           <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
         </state>
@@ -647,6 +777,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5478261">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="1.884058">
+          <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
+=======
+        <state vertical-scroll-proportion="0.55130434">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+>>>>>>> 39859eb25931612fe357c75584d081062646dbad
+>>>>>>> aedf158f0e36d5ec9421f99509f6addf0edbd8d0
           <folding />
         </state>
       </provider>

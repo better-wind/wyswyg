@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .wrap{
+            position: relative;
+            margin: 50px 0px 0px 50px;
+            width: 100px;
+            height: 100px;
+            border:1px solid #000;
+        }
+        span.show{
+            display: block;
+            width: 100px;
+            height: 30px;
+            border-radius: 25%;
+            background-color: #000;
+            transition: transform 2s ease;
+        }
+        span.show:after,span.show:before{
+            content:'';
+            position: absolute;
+            top:35px;
+            width: 100px;
+            height: 30px;
+            border-radius: 25%;
+            background-color: #000;
+            transform: rotate(0deg);
+            transition: transform 2s ease;
+        }
+        span.show:before{
+            top:70px;
+        }
+        span.hide{
+            display: block;
+            width: 100px;
+            height: 30px;
+            border-radius: 25%;
+            background-color: #000;
+            transform: rotate(45deg);
+            transform-origin: 10px 30px;
+            transition: transform 2s ease;
+        }
+        span.hide:before{
+            content:'';
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            border-radius: 25%;
+            background-color: #000;
+            transform: rotate(90deg);
+            transition: transform 2s ease;
+        }
+
+    </style>
+</head>
+<body>
+<section class="wrap">
+    <span class="show"></span>
+</section>
+<section class="wrap">
+    <span class="hide"></span>
+</section>
+<script >
+    (function(win){
+        var doc = win.document;
+        var ele = win.document.documentElement;
+        var _span_show = doc.getElementsByClassName('show');
+        var _span_hide = doc.getElementsByClassName('hide');
+
+            _span_show[0].onclick = function(){
+                _span_show[0].setAttribute('class','hide');
+            }
+
+
+           _span_hide[0].onclick = function(){
+               _span_hide[0].setAttribute('class','show');
+           }
+
+
+
+
+
+
+    })(window)
+</script>
+</body>
+</html>
