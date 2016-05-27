@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阴影特效</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script>
+        (function(){
+            function RemInit(){
+                var dpr, rem, scale;
+                var docEl = window.document.documentElement;
+                var bodyEl = window.document.body;
+                var metaEl = window.document.querySelector('meta[name="viewport"]');
+                var psdWidth = 750/100;
+                var isAndroid = navigator.userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+                dpr = window.devicePixelRatio || 1;
+                if(isAndroid){
+                    dpr= 2;
+                }
+                rem = docEl.clientWidth * dpr / psdWidth;
+                docEl.style.fontSize = rem +'px'
+                scale = 1 / dpr;
+                metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+                docEl.setAttribute('data-dpr', dpr);
+                window.dpr = dpr;
+                window.rem = rem;
+            }
+            RemInit();
+        })()
+    </script>
+    <style>
+        body,ul,li,p{
+            padding: 0;
+            margin: 0;
+        }
+        .wrap{
+            width: 100%;
+        }
+        .wrap ul{
+            width: 7.1rem;
+            margin:0 auto;
+            padding-bottom: .2rem;
+            overflow: hidden;
+        }
+        .wrap ul li{
+            position: relative;
+            width: 3.5rem;
+            height: 4rem;
+            background-color: rgba(255,255,0,1);
+            margin-top: .5rem;
+            list-style: none;
+            z-index: 10;
+            transition: height 2s ease;
+
+        }
+        .wrap ul li:nth-child(2n){
+            float: right;
+        }
+        .wrap ul li:nth-child(2n+1){
+            float: left;
+        }
+        .wrap ul li:before{
+            position: absolute;
+            display: block;
+            content: '';
+            width: 3.5rem;
+            height: .15rem;
+            border:1px solid #000;
+            bottom:-.15rem;
+            transition: height 2s ease;
+        }
+        .wrap ul li:hover{
+            height: .15rem;
+        }
+    </style>
+
+</head>
+<body>
+<section class="wrap">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+
+</body>
+</html>
