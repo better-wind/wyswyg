@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drop-Shadow</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 30px auto;
+            border: 10px dashed #beceeb;
+            text-align: center;
+            line-height: 100px;
+            font-size: 28px;
+        }
+        .box-shadow{
+            box-shadow: 5px 5px 10px black;
+        }
+        .drop-shadow{
+            -webkit-filter: drop-shadow(5px 5px 10px black);
+            filter: drop-shadow(5px 5px 10px black);
+        }
+    </style>
+</head>
+<body>
+  <div class="box-shadow"></div>
+  <div class="drop-shadow"></div>
+</body>
+</html>

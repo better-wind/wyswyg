@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js重载！</title>
+</head>
+<body>
+
+<script>
+    (function(){
+        function addMethod(object,name,fn){
+            var old = object[name];
+            object[name] = function(){
+                if(arguments.length == fn.length){
+                    return fn.apply(this,arguments);
+                }else{
+                    if(typeof old == 'function'){
+                        return old.apply(this,arguments);
+                    }
+                }
+            }
+
+
+        }
+        var people = {
+            values: ["Dean Edwards", "Alex Russell", "Dean Tom"]
+        };
+        addMethod(people,'find',function(){
+            console.log('no');
+        });
+        addMethod(people,'find',function(a){
+            console.log(a);
+        });
+        addMethod(people,'find',function(a,b){
+            console.log(a+','+b);
+        });
+        people.find('a','b');
+        people.find('a');
+        people.find();
+
+    })()
+</script>
+</body>
+</html>

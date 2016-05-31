@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apply巧用</title>
+</head>
+<body>
+
+<script>
+    (function(){
+        //apply 在传递参数时，会将数组转变成 列表集合 在一些只能处理列表的方法中可以巧妙地处理
+        var arr = [1,4,6,8,0,23,5];
+        console.log(Math.max(1,4,6,8,0,23,5));
+        console.log(Math.max.apply(null,arr));
+
+        var arr2 = [2,3];
+        Array.prototype.push.apply(arr,arr2)
+       console.log(arr);
+    })()
+</script>
+</body>
+</html>

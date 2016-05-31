@@ -30,7 +30,7 @@ gulp.task('clean',function(){
     return gulp.src([srcSass.dist,srcJs.dist],{read:false}).pipe(clean({force:true}));
 });
 gulp.task('sass',function(){
-   return gulp.src([srcSass.src+'/rem.scss',srcSass.src+'/feedback.scss',srcSass.src+'/wx_index.scss'])
+   return gulp.src([srcSass.src+'/rem.scss',srcSass.src+'/feedback.scss',srcSass.src+'/wx_index.scss',srcSass.src+'/cssyasuo.scss'])
        .pipe(sass({outputStyle:'expanded'}))
        .pipe(gulp.dest(srcSass.dist))
        .pipe(minify())
@@ -38,7 +38,7 @@ gulp.task('sass',function(){
        .pipe(gulp.dest(srcSass.dist))
 });
 gulp.task('js',function(){
-   return gulp.src([srcJs.src+'/rem.js',srcJs.src+'/feedback.js',path.src+'/common/js/tool.js'])
+   return gulp.src([srcJs.src+'/rem.js',srcJs.src+'/feedback.js',path.src+'/common/js/tool.js',srcJs.src+'/jsyasuo.js'])
          .pipe(gulp.dest(srcJs.dist))
          .pipe(uglify())
        .pipe(rename({extname:'.min.js'}))

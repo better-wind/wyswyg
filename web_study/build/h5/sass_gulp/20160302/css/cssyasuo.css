@@ -1,0 +1,109 @@
+botton {
+  box-sizing: border-box;
+}
+
+.common-top-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.common-top-wrap img {
+  width: 100%;
+}
+
+.close-common-top-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 100%;
+}
+
+.login-common-top-wrap {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 30%;
+  height: 100%;
+}
+
+.common-coupon-wrap {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.common-sign-msg {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 10%;
+  padding: 60px 0 40px;
+  background-color: #FFF;
+  border-radius: 4px;
+}
+
+.ccw-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  display: block;
+  background: url("http://xqproduct.xiangqu.com/FiTZ_Vxj4sqaaVb6OlN1oDtsAh3l?imageView2/2/w/32/q/90/format/jpg/32x32/");
+  background-size: 32px 32px;
+}
+
+.common-msg {
+  width: 100%;
+  text-align: center;
+}
+
+.ccw-title {
+  font-size: 30px;
+  line-height: 30px;
+  color: #666;
+  font-weight: bold;
+}
+
+.ccw-img {
+  width: 100%;
+  min-height: 200px;
+}
+
+.ccw-img img {
+  width: 100%;
+}
+
+.ccw-context {
+  font-size: 36px;
+  line-height: 36px;
+  margin: 20px 0 30px;
+  color: #ff4d2c;
+  font-weight: bold;
+}
+
+.commin-bt-wrap {
+  width: 100%;
+}
+
+.commin-bt-wrap button {
+  width: 40%;
+  height: 65px;
+  float: left;
+  margin-left: 6.667%;
+  background-color: transparent;
+  border: 2px solid #666;
+  color: #666;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 65px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0;
+}

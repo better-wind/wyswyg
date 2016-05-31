@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+//        N = win M = winlib J = doc I = docEL H = viewportEl G = flexibleEl D =winflex a = winwidth d = winrem
+        ! function(win, winlib) {
+            function L() {
+                var winwidth = docEL.getBoundingClientRect().width;
+                winwidth / F > 540 && (winwidth = 540 * F);
+                var winrem = winwidth / 10;
+                docEL.style.fontSize = winrem + "px", winflex.rem = win.rem = winrem
+            }
+            var K, doc = win.document,
+                    docEL = doc.documentElement,
+                    viewportEl = doc.querySelector('meta[name="viewport"]'),
+                    flexibleEl = doc.querySelector('meta[name="flexible"]'),
+                    F = 0,
+                    E = 0,
+                    winflex = winlib.flexible || (winlib.flexible = {});
+            if (viewportEl) {
+                console.warn("将根据已有的meta标签来设置缩放比例");
+                var C = viewportEl.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+                C && (E = parseFloat(C[1]), F = parseInt(1 / E))
+            }
+            else {
+                if (flexibleEl) {
+                    var B = flexibleEl.getAttribute("content");
+                    if (B) {
+                        var A = B.match(/initial\-dpr=([\d\.]+)/),
+                                z = B.match(/maximum\-dpr=([\d\.]+)/);
+                        A && (F = parseFloat(A[1]), E = parseFloat((1 / F).toFixed(2))), z && (F = parseFloat(z[1]), E = parseFloat((1 / F).toFixed(2)))
+                    }
+                }
+            }
+            if (!F && !E) {
+                var y = win.navigator.userAgent,
+                        x = (!!y.match(/android/gi), !!y.match(/iphone/gi)),
+                        w = x && !!y.match(/OS 9_3/),
+                        v = win.devicePixelRatio;
+                F = x && !w ? v >= 3 && (!F || F >= 3) ? 3 : v >= 2 && (!F || F >= 2) ? 2 : 1 : 1, E = 1 / F
+            }
+            if (docEL.setAttribute("data-dpr", F), !viewportEl) {
+                if (viewportEl = doc.createElement("meta"), viewportEl.setAttribute("name", "viewport"), viewportEl.setAttribute("content", "initial-scale=" + E + ", maximum-scale=" + E + ", minimum-scale=" + E + ", user-scalable=no"), docEL.firstElementChild) {
+                    docEL.firstElementChild.appendChild(viewportEl)
+                } else {
+                    var u = doc.createElement("div");
+                    u.appendChild(viewportEl), doc.write(u.innerHTML)
+                }
+            }
+
+            win.addEventListener("resize", function() {
+                        clearTimeout(K), K = setTimeout(L, 300)
+                        }, !1),
+            win.addEventListener("pageshow", function(b) {
+                        b.persisted && (clearTimeout(K), K = setTimeout(L, 300))
+                        }, !1),
+            "complete" === doc.readyState ? doc.body.style.fontSize = 12 * F + "px" : doc.addEventListener("DOMContentLoaded", function() {doc.body.style.fontSize = 12 * F + "px"}, !1),
+            L(),
+            winflex.dpr = win.dpr = F,
+            winflex.refreshRem = L,
+            winflex.rem2px = function(d) {
+                var c = parseFloat(d) * this.rem;
+                return "string" == typeof d && d.match(/rem$/) && (c += "px"), c},
+            winflex.px2rem = function(d) {
+                var c = parseFloat(d) / this.rem;
+                return "string" == typeof d && d.match(/px$/) && (c += "rem"), c}
+        }(window, window.lib || (window.lib = {}));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
