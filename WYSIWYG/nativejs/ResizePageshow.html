@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        (function(win){
+            var K;
+            function abc(){
+                console.log(!1);
+            }
+            win.addEventListener("resize", function() {
+//                clearTimeout(K), K = setTimeout(abc, 300)
+            }, !1)
+            win.addEventListener("pageshow", function(b) {
+                console.log(b)
+                b.persisted && (clearTimeout(K), K = setTimeout(abc, 300))
+            }, !1)
+        })(window)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

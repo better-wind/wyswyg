@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transform-origin</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+        body {
+            transform-style: preserve-3d;
+            height:100vh;
+            width: 100vw;
+            margin: 0;
+            background: radial-gradient(circle at 50% 50%,#fff 0%, #7EC0EE 200%);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        h1{
+            position:relative;
+            width: 70%;
+            margin: 0 15%;
+            font-family: 'Montserrat';
+            text-align:center;
+            color:#fff;
+            font-size: 50px;
+            letter-spacing: -5px;
+            text-shadow: 0 2px 5px rgba(0,0,0,.25)
+        }
+
+        h1::before {
+            content:'';
+            width:10px;
+            height:10px;
+            background: #80f040;
+            border-radius: 50%;
+            position:absolute;
+            top:50%;
+            left:0%;
+            margin: -5px 0 0 -5px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        }
+
+        .container {
+            perspective: 500px;
+            width:100px;
+            height:100px;
+            margin: 0 10%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+        }
+
+        .item {
+            width:100%;
+            height:100%;
+            background: #50a0f0;
+            animation: origin 10s linear infinite;
+        }
+
+        #i2 {
+            background: #a050f0;
+            animation: origin-i2 10s linear infinite
+        }
+
+        #i3 {
+            background: #a0f050;
+            animation: none;
+            transform-origin: 0% 100%;
+            transform: rotate(-270deg);
+            animation: origin-i3 10s linear infinite;
+        }
+
+        #i4 {
+            width:50%;
+            height:50%;
+            background: #f0a050;
+            animation: origin-i4 10s linear infinite;
+        }
+
+        #i5 {
+            width: 50%;
+            height:50%;
+            background: #f0f050;
+            animation: origin-i5 10s linear infinite;
+        }
+
+        #i6 {
+            width: 50%;
+            height: 50%;
+            background: #5050f0;
+            animation: origin-i6 10s linear infinite;
+        }
+
+        .item::after {
+            content:'';
+            width:10px;
+            height:10px;
+            background: #80f040;
+            border-radius: 50%;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin: -5px 0 0 -5px;
+            animation: origin-point 10s linear infinite;
+        }
+
+        #i3::after {
+            animation: origin-point-i3 10s linear infinite;
+        }
+
+        #i4::after {
+            animation: origin-point-i4 10s linear infinite;
+        }
+
+        #i6::after {
+            animation: origin-point-i6 10s linear infinite;
+        }
+
+        @keyframes origin {
+            0% {transform-origin:0% 0%;
+                transform: rotate(0deg)}
+            25% {transform-origin:0% 100%}
+            50% {transform-origin:100% 100%}
+            75% {transform-origin:100% 0%}
+            100% {transform-origin:0% 0%;
+                transform: rotate(360deg)}
+        }
+
+        @keyframes origin-i2 {
+            0% {transform-origin:0% 0%;
+                transform: rotateY(0deg)}
+            25% {transform-origin:0% 100%}
+            50% {transform-origin:100% 100%}
+            75% {transform-origin:100% 0%}
+            100% {transform-origin:0% 0%;
+                transform: rotateY(360deg)}
+        }
+
+        @keyframes origin-i3 {
+            0% {transform-origin:0% 0%;
+                transform: rotateZ(-90deg)}
+            25% {transform-origin:0% 0%;
+                transform: rotateZ(-270deg)}
+            25.01% {transform-origin:0% 100%;
+                transform: rotateZ(-90deg)}
+            50% {transform-origin:0% 100%;
+                transform: rotateZ(-270deg)}
+            50.01% {transform-origin:100% 100%;
+                transform: rotateZ(-90deg)}
+            75% {transform-origin:100% 100%;
+                transform: rotateZ(-270deg)}
+            75.01% {transform-origin:100% 0%;
+                transform: rotateZ(-90deg)}
+            100% {transform-origin:100% 0%;
+                transform: rotateZ(-270deg)}
+        }
+
+        @keyframes origin-i4 {
+            0% {
+                transform-origin:0% 100%;
+                transform: translate(0%, 0%) rotateZ(0deg)
+            }
+            25% {
+                transform-origin:0% 100%;
+                transform: translate(0%, 0%) rotateZ(90deg)
+            }
+            25.01% {
+                transform-origin:100% 100%;
+                transform: translate(0%, 100%) rotateZ(0deg)
+            }
+            50% {
+                transform-origin:100% 100%;
+                transform: translate(0%, 100%) rotateZ(90deg)
+            }
+            50.01% {
+                transform-origin:100% 0%;
+                transform: translate(100%, 100%) rotateZ(0deg)
+            }
+            75% {
+                transform-origin:100% 0%;
+                transform: translate(100%, 100%) rotateZ(90deg)
+            }
+            75.01% {
+                transform-origin:0% 0%;
+                transform: translate(100%, 0%) rotateZ(0deg)
+            }
+            100% {
+                transform-origin:0% 0%;
+                transform: translate(100%, 0%) rotateZ(90deg)
+            }
+        }
+
+        @keyframes origin-i5 {
+            0% {
+                transform-origin: 0% 0%;
+                transform: translate(0%; 0%)
+            }
+            25% {
+                transform-origin: 0% 100%;
+                transform: translate(0%, 100%)
+            }
+            50% {
+                transform-origin: 100% 100%;
+                transform: translate(100%, 100%)
+            }
+            75% {
+                transform-origin: 100% 0%;
+                transform: translate(100%, 0%)
+            }
+            100% {
+                transform-origin: 0% 0%;
+                transform: translate(0%, 0%)
+            }
+        }
+
+        @keyframes origin-i6 {
+            0%,100% {
+                transform-origin: 0% 50%;
+                transform: translate(0%, 50%) rotateX(0deg) rotateY(0deg)
+            }
+            25% {
+                transform-origin: 100% 50%;
+                transform: translate(0%, 50%) rotateX(0deg) rotateY(180deg)
+            }
+            50% {
+                transform-origin: 50% 0%;
+                transform: translate(50%, 100%) rotateX(180deg) rotateY(180deg)
+            }
+            75% {
+                transform-origin: 50% 0%;
+                transform: translate(50%, 100%) rotateX(360deg) rotateY(180deg)
+            }
+        }
+
+        @keyframes origin-point {
+            0% {left:0%; top:0%}
+            25% {left:0%; top:100%}
+            50% {left:100%; top:100%}
+            75% {left:100%; top:0%}
+            100% {left:0%; top:0%}
+        }
+
+        @keyframes origin-point-i3 {
+            0% {left:0%; top:0%}
+            25% {left:0%; top:0%}
+            25.01% {left:0%; top:100%}
+            50% {left:0%; top:100%}
+            50.01% {left:100%; top:100%}
+            75% {left:100%; top:100%}
+            75.01% {left:100%; top:0%}
+            100% {left:100%; top:0%}
+        }
+
+        @keyframes origin-point-i4 {
+            0% {left:0%; top:100%}
+            25% {left:0%; top:100%}
+            25.01% {left:100%; top:100%}
+            50% {left:100%; top:100%}
+            50.01% {left:100%; top:0%}
+            75% {left:100%; top:0%}
+            75.01% {left:0%; top:0%}
+            100% {left:0%; top:0%}
+        }
+
+        @keyframes origin-point-i6 {
+            0%,100%{left:0%; top:50%}
+            25%{left:100%; top: 50%}
+            50%{left:50%; top:0%}
+            75%{left:50%; top:0%}
+        }
+    </style>
+</head>
+<body>
+<h1>TRANSFORM-ORIGIN POINT</h1>
+<div class="container" id="c1">
+    <div class="item" id="i1"></div>
+</div>
+<div class="container" id="c3">
+    <div class="item" id="i3"></div>
+</div>
+<div class="container" id="c2">
+    <div class="item" id="i2"></div>
+</div>
+<div class="container" id="c4">
+    <div class="item" id="i4"></div>
+</div>
+<div class="container" id="c5">
+    <div class="item" id="i5"></div>
+</div>
+<div class="container" id="c6">
+    <div class="item" id="i6"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function(){
+        var Class = {
+            create:function(){
+                return function(){
+                    this.abc.apply(this,arguments) // apply 将上下文传入调用的方法 ，此时的this是 var A = Class.create() 的上下文 所以是 object 对象
+//                    this.abc.apply(window,arguments)
+                }
+            }
+        }
+        var A = Class.create();
+        A.prototype = {
+            abc:function(s){
+                console.log(this) //
+                this.v = s;
+            },
+            def:function(){
+                console.log(this.v)
+//                console.log(window.v)
+            }
+        }
+        var a = new A('aaa');
+//        a.def();
+
+
+
+        var B = {
+            applydemo:function(){
+                console.log(this);
+            }
+        }
+        var b = B;
+        b.applydemo(); // Object
+        b.applydemo.apply(window) // Window
+    })()
+</script>
+</body>
+</html>

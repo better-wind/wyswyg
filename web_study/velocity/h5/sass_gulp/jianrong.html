@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .refund-box {
+            width: 5.92rem;
+            padding-bottom: 2rem;
+            margin: 0 auto;
+        }
+
+        .refund-box ul.refund-msg {
+            width: 5.92rem;
+            margin: 0 auto;
+            padding-top: .2rem;
+        }
+
+        .refund-box ul.refund-msg li {
+            width: 100%;
+            overflow: hidden;
+            margin: .2rem 0 0 0;
+            background-color: #F0F0F0;
+            border-radius: 0.05rem;
+            overflow: hidden;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li {
+            font-size: 14px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li {
+            font-size: 28px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li {
+            font-size: 35px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li {
+            font-size: 42px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li {
+            font-size: 49px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li {
+            font-size: 56px;
+        }
+
+        .refund-box ul.refund-msg li .msg {
+            float: left;
+            margin-left: .2rem;
+            width: 1.75rem;
+            color: #AAA;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .msg {
+            font-size: 14px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .msg {
+            font-size: 28px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .msg {
+            font-size: 35px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .msg {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .msg {
+            font-size: 42px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .msg {
+            font-size: 49px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .msg {
+            font-size: 56px;
+        }
+
+        .refund-box ul.refund-msg li .msg .five-sign {
+            color: #C20000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 12px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 24px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 30px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 33px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 36px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 42px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 48px;
+        }
+
+        .refund-box ul.refund-msg li .msg-padding {
+            padding: .2rem 0;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap {
+            position: relative;
+            float: left;
+            width: 3.75rem;
+            color: #2E2E2E;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap input {
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            border: none;
+            outline: none;
+            -webkit-appearance: none;
+            margin-bottom: 0;
+            text-indent: 0;
+            padding: .2rem 0;
+            background-color: #F0F0F0;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 12px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 24px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 30px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 33px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 36px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 42px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 48px;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 20px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 40px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 50px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 55px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 60px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 70px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 80px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap .refund-money {
+            color: #C20000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 20px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 40px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 50px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 55px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 60px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 70px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 80px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap textarea {
+            width: 100%;
+            padding: 0;
+            border: none;
+            outline: none;
+            padding: .2rem 0;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 14px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 28px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 35px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 42px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 49px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 56px;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 18px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 36px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 45px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 49.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 54px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 63px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 72px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap select {
+            min-width: 2rem;
+            max-width: 3.75rem;
+            width: 3.75rem;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            padding: 0;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            padding: .2rem 0;
+            color: #000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 12px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 24px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 30px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 33px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 36px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 42px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 48px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap .select-updown {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: .26rem;
+            height: 100%;
+            line-height: .8rem;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap .select-updown i {
+            display: inline-block;
+            width: 11.5px;
+            height: 6.5px;
+            background: url("http://xqproduct.xiangqu.com/FgY4-DpzdOh4glue15ola6tavjUP") no-repeat;
+            background-size: 100%;
+        }
+
+        .refund-box ul.refund-msg li.coupon-msg {
+            margin: 0;
+            background-color: transparent;
+            color: #AAA;
+            line-height: .44rem;
+            display: none;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 11px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 22px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 27.5px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 30.25px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 33px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 44px;
+        }
+
+        .refund-box ul.refund-msg li.coupon-msg .msg-wrap {
+            margin-left: .2rem;
+        }
+
+        .refund-box ul.refund-msg li.li-no-margin {
+            margin: 0;
+        }
+
+    </style>
+    <style>
+        .refund-box {
+            width: 5.92rem;
+            padding-bottom: 2rem;
+            margin: 0 auto;
+        }
+
+        .refund-box ul.refund-msg {
+            width: 5.92rem;
+            margin: 0 auto;
+            padding-top: .2rem;
+        }
+
+        .refund-box ul.refund-msg li {
+            width: 100%;
+            overflow: hidden;
+            margin: .2rem 0 0 0;
+            background-color: #F0F0F0;
+            border-radius: 0.05rem;
+            height: .8rem;
+            line-height: .8rem;
+            overflow: hidden;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li {
+            font-size: 14px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li {
+            font-size: 28px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li {
+            font-size: 35px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li {
+            font-size: 42px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li {
+            font-size: 49px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li {
+            font-size: 56px;
+        }
+
+        .refund-box ul.refund-msg li .msg {
+            float: left;
+            margin-left: .2rem;
+            width: 1.75rem;
+            color: #AAA;
+            height: .8rem;
+            border: 1px solid #000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .msg {
+            font-size: 14px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .msg {
+            font-size: 28px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .msg {
+            font-size: 35px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .msg {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .msg {
+            font-size: 42px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .msg {
+            font-size: 49px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .msg {
+            font-size: 56px;
+        }
+
+        .refund-box ul.refund-msg li .msg .five-sign {
+            color: #C20000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 12px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 24px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 30px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 33px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 36px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 42px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .msg .five-sign {
+            font-size: 48px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap {
+            position: relative;
+            float: left;
+            width: 3.75rem;
+            color: #2E2E2E;
+            border: 1px solid #000;
+            height: .8rem;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap input {
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            border: none;
+            outline: none;
+            -webkit-appearance: none;
+            margin-bottom: 0;
+            text-indent: 0;
+            background-color: #F0F0F0;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 12px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 24px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 30px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 33px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 36px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 42px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap input {
+            font-size: 48px;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 20px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 40px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 50px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 55px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 60px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 70px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap input {
+            line-height: 80px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap .refund-money {
+            color: #C20000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 20px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 40px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 50px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 55px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 60px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 70px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap input::-webkit-input-placeholder {
+            line-height: 80px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap textarea {
+            width: 100%;
+            padding: 0;
+            border: none;
+            outline: none;
+            padding: .2rem 0;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 14px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 28px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 35px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 42px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 49px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap textarea {
+            font-size: 56px;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 18px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 36px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 45px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 49.5px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 54px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 63px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap textarea::-webkit-input-placeholder {
+            line-height: 72px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap select {
+            min-width: 2rem;
+            max-width: 3.75rem;
+            width: 3.75rem;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            padding: 0;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            padding: .2rem 0;
+            color: #000;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 12px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 24px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 30px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 33px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 36px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 42px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li .input-wrap select {
+            font-size: 48px;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap .select-updown {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: .26rem;
+            height: 100%;
+            line-height: .8rem;
+        }
+
+        .refund-box ul.refund-msg li .input-wrap .select-updown i {
+            display: inline-block;
+            width: 11.5px;
+            height: 6.5px;
+            background: url("http://xqproduct.xiangqu.com/FgY4-DpzdOh4glue15ola6tavjUP") no-repeat;
+            background-size: 100%;
+        }
+
+        .refund-box ul.refund-msg li.coupon-msg {
+            margin: 0;
+            background-color: transparent;
+            color: #AAA;
+            line-height: .44rem;
+            display: none;
+        }
+
+        [data-dpr="1"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 11px;
+        }
+
+        [data-dpr="2"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 22px;
+        }
+
+        [data-dpr="2.5"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 27.5px;
+        }
+
+        [data-dpr="2.75"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 30.25px;
+        }
+
+        [data-dpr="3"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 33px;
+        }
+
+        [data-dpr="3.5"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 38.5px;
+        }
+
+        [data-dpr="4"] .refund-box ul.refund-msg li.coupon-msg {
+            font-size: 44px;
+        }
+
+        .refund-box ul.refund-msg li.coupon-msg .msg-wrap {
+            margin-left: .2rem;
+        }
+
+        .refund-box ul.refund-msg li.li-no-margin {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="refund-msg">
+    <li class="have-padding">
+        <div class="msg msg-padding"><span class="five-sign">＊</span>申请服务</div>
+        <div class="input-wrap">
+            <select class="J_editApply">
+                <option value="0">请选择服务</option>
+                <option value="JUST_REFUND">仅退款</option>
+                <option value="REFUND_RETURN">退款退货</option>
+            </select>
+            <div class="select-updown">
+                <i></i>
+            </div>
+        </div>
+    </li>
+    <li class="have-padding">
+        <div class="msg msg-padding"><span class="five-sign">＊</span>货物状态</div>
+        <div class="input-wrap">
+            <select class="J_editWareStatus">
+                <option value="0">请选择货物状态</option>
+                <option value="true">已收到货</option>
+                <option value="false">未收到货</option>
+            </select>
+            <div class="select-updown">
+                <i></i>
+            </div>
+        </div>
+    </li>
+    <li class="have-padding">
+        <div class="msg msg-padding"><span class="five-sign">＊</span>退款原因</div>
+        <div class="input-wrap">
+            <select class="J_editRefundReason">
+                <option value="0">请选择退款原因</option>
+                <option value="LESS_GOODS_DAMAGED_OR_STAINED">收到商品少件/破损/污渍等</option>
+                <option value="WRONG_SHIPPED">卖家发错货</option>
+                <option value="DESCRIBED_DISCREPANT">商品信息描述不符</option>
+                <option value="DEFECTIVE_PRODUCTS">质量问题</option>
+                <option value="OTHER">其他</option>
+            </select>
+            <div class="select-updown">
+                <i></i>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="msg msg-padding"><span class="five-sign">＊</span>退款金额</div>
+        <div class="input-wrap">
+            <input class="refund-money J_refund_money" type="text" disabled="disabled" placeholder="退款金额" value="">
+        </div>
+    </li>
+    <li>
+        <div class="msg msg-padding"><span class="five-sign">＊</span>运费金额</div>
+        <div class="input-wrap">
+            <input class="J_logistic_fee" type="text" disabled="disabled" placeholder="运费金额" value="">
+        </div>
+    </li>
+    <li class="coupon-msg J_coupon_msg">
+        <span class="msg-wrap">(由于您使用了红包或者优惠券，只能得到￥<span class="J_fee">9.00</span>)</span>
+
+    </li>
+
+    <!--<li class="li-no-margin">-->
+    <li class="">
+        <div class="msg msg-padding"><span class="five-sign">＊</span>退款说明</div>
+        <div class="input-wrap">
+            <input type="text" disabled="disabled" class="J_refund_msg" placeholder="最多200个字" value="">
+        </div>
+    </li>
+
+</ul>
+</body>
+</html>

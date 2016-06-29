@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thinging....</title>
+</head>
+<body>
+
+<script>
+    (function(){
+        var ThinkMore = {
+            init:function(){
+                var self = this;
+//                console.log(self.isPowerOfFour1(16));
+//                console.log(self.isPowerOfFour2(16));
+                self.isMostBiger(8);
+            },
+            //判断是否是4的幂
+            isPowerOfFour1:function(num){
+                while(!(num % 4)){
+                    num /= 4
+                }
+                return num === 1;
+            },
+            isPowerOfFour2:function(num){
+                return num > 0 && (num & (num - 1)) === 0 && (num & 0xAAAAAA) === 0;
+            },
+            //一个数拆分为2个数，相乘最大
+            isMostBiger:function(num){
+                var num_a,num_b,sum1= 0,sum2=0;
+                var t1,t2,t3,t4;
+                t1 = new Date().getTime();
+                for(var i = parseInt(num/2);i>=0;i--){
+                    if(sum1 < i * (num-i)){
+                        sum1 = i * (num-i);
+//                        num_a = i;
+//                        num_b = num -i;
+                    }
+                }
+                t2 = new Date().getTime();
+                console.log(t2-t1);
+                console.log(sum1);
+                t3 = new Date().getTime();
+                for(var i = 0,j=num/2;i<=j;i++){
+                    if(sum2 < i * (num-i)){
+                        sum2 = i * (num-i);
+//                        num_a = i;
+//                        num_b = num -i;
+                    }
+                }
+                t4 = new Date().getTime();
+                console.log(t4-t3);
+                console.log(sum2);
+
+            },
+            //一个数拆分为多个数，相乘最大
+            isMoreMostBiger:function(num){
+
+
+            }
+        }
+        ThinkMore.init();
+    })()
+</script>
+</body>
+</html>

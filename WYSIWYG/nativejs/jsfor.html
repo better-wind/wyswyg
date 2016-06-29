@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    (function(){
+        var Main = {
+            init:function(){
+                for(var i = 0 ; i<10;i++){
+                    console.log(i); // 1 2 3 4 5 6 7 8 9
+                }
+                console.log('js 没有块级作用域:'+i); // 10 由于js没有块级作用域，因此for循环中的i跳出for循环后，没有被消除。
+            }
+        }
+        Main.init();
+    })()
+
+</script>
+</body>
+</html>

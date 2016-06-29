@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFS Fractals</title>
+    <style>
+        body {
+            color: #222;
+            background: #ededed;
+            font-family: 'Lato', Calibri, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.3;
+            text-align: justify;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        a {
+            color: #FF2948;
+            font-weight: 700;
+        }
+
+        canvas {
+            border: 1px solid silver;
+            background: white;
+        }
+
+        .method {
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+<h1>IFS Fractals</h1>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+    colors = [
+        '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+        '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+        '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
+        '#FF5722'
+    ];
+
+    canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    W = canvas.width = 700;
+    H = canvas.height = 500;
+
+    rulesStock = [
+        [{
+            a: 0.85,
+            b: 0.04,
+            c: -0.04,
+            d: 0.85,
+            tx: 0,
+            ty: 1.6,
+            weight: 0.85
+        }, {
+            a: -0.15,
+            b: 0.28,
+            c: 0.26,
+            d: 0.24,
+            tx: 0,
+            ty: 1.44,
+            weight: 0.07
+        }, {
+            a: 0.2,
+            b: -0.26,
+            c: 0.23,
+            d: 0.22,
+            tx: 0,
+            ty: 1.6,
+            weight: 0.07
+        }, {
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0.16,
+            tx: 0,
+            ty: 0,
+            weight: 0.01
+        }],
+
+        [{
+            a: 0.05,
+            b: 0.0,
+            c: 0.0,
+            d: 0.6,
+            tx: 0,
+            ty: 0,
+            weight: 0.17
+        }, {
+            a: 0.05,
+            b: 0.0,
+            c: 0.0,
+            d: -0.5,
+            tx: 0,
+            ty: 1,
+            weight: 0.17
+        }, {
+            a: 0.46,
+            b: -0.321,
+            c: 0.386,
+            d: 0.383,
+            tx: 0,
+            ty: 0.6,
+            weight: 0.17
+        },
+
+            {
+                a: 0.47,
+                b: -0.154,
+                c: 0.171,
+                d: 0.423,
+                tx: 0,
+                ty: 1.1,
+                weight: 0.17
+            },
+
+            {
+                a: 0.433,
+                b: 0.275,
+                c: -0.25,
+                d: 0.476,
+                tx: 0,
+                ty: 1,
+                weight: 0.16
+            }, {
+            a: 0.421,
+            b: 0.257,
+            c: -0.353,
+            d: 0.306,
+            tx: 0,
+            ty: 0.7,
+            weight: 0.16
+        }
+
+        ]
+
+    ];
+
+    function fractal(rules, limit) {
+
+        this.x = Math.random();
+        this.y = Math.random();
+        this.rules = rules;
+        this.resolution = .1;
+
+        this.time = 0;
+        this.limit = limit;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+
+        this.getRule = function() {
+            var rand = Math.random();
+
+            for (var i = 0; i < this.rules.length; i++) {
+
+                var rule = this.rules[i];
+                if (rand < rule.weight) {
+                    return rule;
+
+                }
+
+                rand -= rule.weight;
+            }
+
+        }
+
+        this.draw = function(x, y) {
+
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+
+            ctx.globalAlpha = .8;
+            ctx.beginPath();
+            ctx.arc(x * 50, -y * 50, this.resolution, 0, 2 * Math.PI, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+
+        }
+
+        this.calcul = function() {
+            var rule = this.getRule();
+
+            var x1 = this.x * rule.a + this.y * rule.b + rule.tx;
+            var y1 = this.x * rule.c + this.y * rule.d + rule.ty;
+
+            this.x = x1;
+            this.y = y1;
+
+            this.draw(this.x, this.y);
+        }
+
+        this.iterate = function(speed) {
+            if (this.time < this.limit) {
+                for (var i = 0; i < speed; i++) {
+                    this.calcul();
+                }
+                this.time += 1;
+            }
+
+
+        }
+
+
+        this.computing = function(x,y) {      ctx.textAlign = 'center';
+
+            ctx.globalAlpha=1;
+            ctx.fillStyle ="silver";
+            ctx.fillRect(x,y,100,20);
+            ctx.fillStyle ="#888";
+            ctx.fillRect(x,y,(this.time*100)/this.limit,20);
+            ctx.fillStyle ="#222";
+
+            ctx.font="12px arial";
+            ctx.fillText(Math.round((this.time*100)/this.limit)+ " %",x+50,y+14);
+
+
+
+        }
+
+    }
+
+    var fern = new fractal(rulesStock[1], 1000);
+    var fern2 = new fractal(rulesStock[0], 100);
+
+    fern2.resolution = .5;
+    fern.resolution = .01;
+
+    update();
+    //ctx.scale(2, 2);
+
+    function update() {
+
+        fern.computing(10,10);
+        fern2.computing(10,50);
+
+        ctx.save();
+        ctx.translate(W / 2 - 100, H+200);
+
+        ctx.scale(7, 7);
+        fern.iterate(1000);
+        ctx.restore();
+
+
+        ctx.save();
+        ctx.translate(W / 2 + 180, H+10);
+        fern2.iterate(1000);
+        ctx.restore();
+
+        requestAnimationFrame(update);
+    }
+</script>
+</body>
+</html>

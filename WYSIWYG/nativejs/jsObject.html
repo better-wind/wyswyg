@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    (function(){
+        var Main = {
+            init:function(){
+                var obj_a = {
+                    name:'obj_a',
+                    age:12
+                }
+                var obj_b = obj_a;
+                obj_a.age = 14;
+                console.log(obj_a.age);//14
+                console.log(obj_b.age);// 14 object引用赋值 指向同一个内存地址。因此a中值改变则 b中值也跟着改变。
+
+                var a = 16;
+                var b = a;
+                a = 17;
+                console.log(a); //17
+                console.log(b); //16 number引用赋值 创建新的存储空间 a 和 b 相互独立。
+            }
+        }
+
+            Main.init();
+
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="b" style="width: 200px;height: 200px;background-color: #000;">
+    <button class="a" id="a">hah</button>
+</div>
+<script>
+    (function(win){
+        var EventDemo = {
+            init:function(){
+                var self = this;
+                self.eventHanding();
+            },
+            eventHanding:function(){
+                var self = this;
+                console.log(document);
+                document.addEventListener('click',function(evt){
+                    switch (evt.target.id){
+                        case 'a':self.hha();
+                                 break;
+                        case 'b':self.hhb();
+                                 break;
+                    }
+
+                })
+            },
+            hha:function(){
+              console.log('aaa');
+            }
+        }
+        EventDemo.init();
+    })(window)
+</script>
+</body>
+</html>
