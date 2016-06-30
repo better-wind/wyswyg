@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,ul,p{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #fff;
+            background-image:
+            linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+            linear-gradient(#eee .1em, transparent .1em);
+            background-size: 100% 1.2em;
+        }
+        .wrap{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .nav-wrap{
+            width: 980px;
+            /*height: 200px;*/
+            margin: 0 auto;
+            text-align: center;
+        }
+        .nav-wrap h1 {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 28px;
+            color: #8699A0;
+            text-shadow: 0 0 1px #758890;
+            margin: 50px auto;
+            font-family: arial, verdana;
+            outline: none;
+            padding: 14px 30px;
+            position: relative;
+            text-transform: uppercase;
+
+            box-shadow:
+            0 0 30px 0 rgba(0, 0, 0, 0.1),
+            0 36px 0 -18px rgba(255,255,255,1);
+        }
+        .nav-wrap h1:before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: -15%;
+            z-index: -1;
+            width: 130%;
+            height: 0;
+            border: 28px solid rgba(0, 0, 0, 0);
+            border-left: 28px solid rgba(255,255,255,.9);
+            border-right: 28px solid rgba(255,255,255,.9);
+
+        }
+        .nav-wrap h1:after {
+            content: '';
+            width: 100%;
+            height: 0;
+            position: absolute;
+            top: 100%; left: 0;
+            z-index: -1;
+            /*The height of the top border is same as width of the left/right borders for the smoothest effect. The height of the top border is also the same as the offset the :before element has from the top*/
+            border-top: 18px solid #99acb2;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+        }
+        .nav-wrap h1, .nav-wrap h1:before {
+
+            background-image:
+
+            linear-gradient(
+                    transparent 8%,
+                    rgba(0, 0, 0, 0.1) 8%,
+                    rgba(0, 0, 0, 0.1) 14%,
+                    transparent 14%,
+                    transparent 86%,
+                    rgba(0, 0, 0, 0.1) 86%,
+                    rgba(0, 0, 0, 0.1) 92%,
+                    transparent 92%
+            ),
+
+            linear-gradient(
+                    rgba(255, 255, 255, 0.75),
+                    rgba(255, 255, 255, 0)
+            ),
+
+            linear-gradient(
+                    45deg,
+                    transparent 40%,
+                    rgba(0, 0, 0, 0.1) 40%,
+                    rgba(0, 0, 0, 0.1) 60%,
+                    transparent 60%
+            ),
+
+            linear-gradient(white, white);
+            background-size:
+            cover,
+            cover,
+            4px 4px,
+            cover;
+        }
+        .nav-wrap h1, .nav-wrap h1:before, .nav-wrap h1:after {
+            box-sizing: border-box;
+            background-origin: border-box;
+        }
+        .view-wrap{
+            width: 980px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<section class="wrap">
+    <section class="nav-wrap">
+        <h1>Hello!Good Afternoon!</h1>
+    </section>
+
+    <section class="view-wrap">
+
+    </section>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js面向对象的实现方式</title>
+</head>
+<body>
+
+<script>
+    (function(){
+        //工厂模式
+        function createOO(name,msg){
+            var o = {
+                name :name,
+                msg :msg,
+                say :function(){
+                    console.log(o.msg);
+                }
+            }
+            return o;
+        }
+
+        var OO = createOO('fh','fhfhf');
+        OO.say();//此模式 实现简单，但是无法识别对象类型  都为object
+        console.log(typeof OO);
+
+        //构造函数模式
+
+        function CreateO(name,msg){
+            this.name = name;
+            this.msg = msg;
+            this.say = function(){
+                console.log(this.msg);
+            }
+        }
+        var OO2 = new CreateO('fh2','构造函数模式');
+        var OO3 = new CreateO('fh3','构造函数模式');
+        console.log(OO2 instanceof CreateO); // 此模式 能识别对象类型
+        OO2.say();
+        OO3.say();// 但是 相同的方法 每次新建对象都会重新构建一次，这是不必要的
+        // 可以把 方法 拿到外面进行单独写 但这样又会有一个问题。 这个方法是属于该对象的，却没有封装在该对象中。
+
+        //原型模式
+
+        function CreateOOO(){
+
+        }
+        CreateOOO.prototype.name = 'fh';
+        CreateOOO.prototype.msg = '原型模式';
+        CreateOOO.prototype.friend = ['fr1', 'fr2', 'fr3', 'fr4'];
+        CreateOOO.prototype.say = function(){
+            console.log(this.friend);
+        }
+
+        var OO4 = new CreateOOO();
+        var OO5 = new CreateOOO();
+        OO4.say();//["fr1", "fr2", "fr3", "fr4"]
+        OO5.say();//["fr1", "fr2", "fr3", "fr4"] 此模式好处，让其所有对象实例共享其包含的属性和方法
+        OO4.friend.pop();
+        OO4.say(); // ["fr1", "fr2", "fr3"]
+        OO5.say();//  ["fr1", "fr2", "fr3"]但是 却会失去其属性的私有性
+
+
+        //混合模式
+
+        function CreateOOOO(name,msg,friend){
+            this.name = name;
+            this.msg = msg;
+            this.friend = friend
+        }
+        CreateOOOO.prototype.say = function(){
+            console.log(this.msg+''+this.friend);
+        }
+
+        var OO6 = new CreateOOOO('fh','混合模式',['1','2']);
+        var OO7 = new CreateOOOO('fh','混合模式',['1','2','3']);
+        OO6.say();
+        OO7.say();//此模式集 众模式之所长，避众模式之所短。
+
+    })()
+</script>
+
+</body>
+</html>

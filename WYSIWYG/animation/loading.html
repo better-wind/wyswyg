@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>想去-我的礼物</title>
+    <meta name="baidu-site-verification" content="vwQwlikFnE" />
+    <meta name="Keywords" content="想去,想去网,设计师,原创手工,独立设计,生活美学,手工饰品,文艺,创意,淘宝,木与石,造物者,理想国,手作,设计品,买手,独特,小清新,高逼格,iphone,想去看看,世界那么大,礼物">
+    <meta name="Description" content="想去网，国内首个汇集全球高品质、原创设计的电商应用。很多独立设计师、手工匠人、时尚买手汇聚于此。为追求美、独特、设计甚至灵感的用户去挖掘全世界的原创设计、暖心手作，包括vintage、森系、文艺、清新、朋克、唐装、汉服、创意家居、独立设计师、纯手工手作、手工饰品、手工皮具、时尚设计大牌、小众奢侈品牌、孤品、古着、收藏品，艺术商品等。想去网更汇聚国内外设计师，可为你量身定制出世界上专属于你的作品。">
+    <meta name="robots" content="all"/>
+    <meta name="author" content="想去，xiangqu.com"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <script>
+        function RemInit(){
+            var dpr, rem, scale;
+            var docEl = window.document.documentElement;
+            var bodyEl = window.document.body;
+            var metaEl = window.document.querySelector('meta[name="viewport"]');
+            var psdWidth = 750/100;
+            var isAndroid = navigator.userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+            dpr = window.devicePixelRatio || 1;
+            if(isAndroid){
+                dpr= 2;
+            }
+            dpr = 1;
+            rem = docEl.clientWidth * dpr / psdWidth;
+            docEl.style.fontSize = rem +'px';
+            scale = 1 / dpr;
+            metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+            docEl.setAttribute('data-dpr', dpr);
+            window.dpr = dpr;
+            window.rem = rem;
+        }
+        RemInit();
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        .spinner{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20% auto;
+            border:1px solid #FFF;
+        }
+        .bar{
+            position: absolute;
+            left:60px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #AAA;
+            animation: 500ms change linear infinite alternate;
+            transform-origin: 20px 100px;
+        }
+        .bar2{
+            transform: rotate(60deg);
+            animation-delay: 100ms;
+        }
+        .bar3{
+            transform: rotate(120deg);
+            animation-delay: 200ms;
+
+        }
+        .bar4{
+            transform: rotate(180deg);
+            animation-delay: 300ms;
+
+        }
+        .bar5{
+            transform: rotate(240deg);
+            animation-delay: 400ms;
+
+        }
+        .bar6{
+            transform: rotate(300deg);
+            animation-delay: 500ms;
+
+        }
+        @-webkit-keyframes change {
+            0%{
+                width: 80px;
+                height: 80px;
+                top:0;
+                left: 80px;
+                opacity: 1;
+            }
+            100%{
+                top:10px;
+                left: 90px;
+                width: 20px;
+                height: 20px;
+                opacity: .5;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="spinner">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+    <div class="bar bar4"></div>
+    <div class="bar bar5"></div>
+    <div class="bar bar6"></div>
+</div>
+
+
+
+</body>
+</html>
