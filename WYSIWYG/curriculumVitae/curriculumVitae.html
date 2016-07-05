@@ -111,19 +111,87 @@
             width: 980px;
             margin: 20px auto;
         }
+        #showImage i{
+            display: block;
+            width: 1px;
+            height: 1px;
+            margin: -1px 0 0 -1px;
+        }
     </style>
 </head>
 <body>
 <section class="wrap">
     <section class="nav-wrap">
-        <h1>Hello!Good Afternoon!</h1>
+        <h1 id="HelloWord">Loading now</h1>
     </section>
 
     <section class="view-wrap">
-
+        <p id="showImage"><i></i></p>
     </section>
 </section>
 
+<script>
+    (function(){
+        var Curriculum = {
+            init:function(){
+                var self = this;
+                self.helloword();
+                self.picShadow();
+            },
+            helloword:function(){
+                var self = this,
+                        hour = new Date().getHours(),
+                        J_HelloWord = document.querySelector('#HelloWord');
+                J_HelloWord.innerHTML = (hour<12&&hour>=6 ? 'Hello!Good morning!' : (hour<18 && hour>=12 ? 'Hello!Good afternoom!' : 'Hello!Good evening!'));
+            },
+            picShadow:function(){
+                var canvas = document.createElement("canvas");
+                var context = canvas.getContext("2d");
+                var eleShow = document.querySelector('#showImage')
+                var image = new Image();
+                image.onload = function() {
+                    var width = this.width, height = this.height;
+                    canvas.width = width;
+                    canvas.height = height;
 
+                    context.drawImage(this, 0, 0, width, height);
+                    var imageData = context.getImageData(0, 0, width, height);
+                    var arrBoxShadow = [], length = imageData.data.length;
+                    // 遍历颜色参数值
+                    for (var index = 0; index < length; index++) {
+                        if (index % 4 === 0) {
+                            var x = index / 4 % width + 1, y = Math.floor(index / 4 / width) + 1, alpha = Math.round(imageData.data[index + 3] / 255 * 100) / 100;
+                            if (imageData.data[index + 3] == 255) {
+                                var hex1 = imageData.data[index].toString(16), hex2 = imageData.data[index + 1].toString(16), hex3 = imageData.data[index + 2].toString(16);
+                                if (hex1.length == 1) hex1 = "0" + hex1;
+                                if (hex2.length == 1) hex2 = "0" + hex2;
+                                if (hex3.length == 1) hex3 = "0" + hex3;
+
+                                var hex = hex1 + hex2 + hex3;
+                                if (hex1.slice(0,1) == hex1.slice(-1) && hex2.slice(0,1) == hex2.slice(-1) && hex3.slice(0,1) == hex3.slice(-1)) {
+                                    hex = hex1.slice(-1) + hex2.slice(-1) + hex3.slice(-1);
+                                }
+
+                                arrBoxShadow.push(x + "px " + y + "px #" + hex);
+                            } else if (alpha > 0) {
+                                arrBoxShadow.push(x + "px " + y + "px rgba(" +
+                                        [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], alpha].join() +
+                                        ")");
+                            }
+                        }
+                    };
+
+                    eleShow.style.width = width + "px";
+                    eleShow.style.height = height + "px";
+
+                    // 盒阴影图片显示
+                    eleShow.querySelector("i").style.boxShadow = arrBoxShadow.join();
+            }
+                image.src = 'new.jpg'
+            }
+        }
+        Curriculum.init();
+    })()
+</script>
 </body>
 </html>
