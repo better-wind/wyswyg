@@ -117,8 +117,6 @@
         }
         .arrpic-wrap div{
             position: absolute;
-            width: 1px;
-            height: 1px;
         }
     </style>
 </head>
@@ -193,7 +191,7 @@
 
                     self.Mypic(width,height,arrBoxColor);
             }
-                image.src = 'new.jpg'
+                image.src = 'ercode2.png'
             },
             Mypic:function(_w,_h,arr){
                 console.log(_w)
@@ -203,10 +201,10 @@
                 for(var i = 0;i<_h;i++){
                     for(var j = 0;j<_w;j++){
                         if(j%2 == 0){
-                            _html += '<div style="top:'+i*1+'px;left:'+j*1+'px;background-color: '+arr[i*_h+j]+'"></div>'
+                            _html += '<div style="top:'+i*5+'px;left:'+j*5+'px; width: 5px;height: 5px;background-color: '+arr[i*_h+j]+'"></div>'
                         }
                         else{
-//                            _html += '<div style="top:'+i*1.4+'px;left:'+j*1.5+'px;background-color: '+arr[i*_h+j]+'"></div>'
+                            _html += '<div style="top:'+i*5+'px;left:'+j*5+'px; width: 5px;height: 5px;background-color: '+arr[i*_h+j]+'"></div>'
                         }
                        }
                 }
