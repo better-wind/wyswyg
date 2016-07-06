@@ -111,11 +111,14 @@
             width: 980px;
             margin: 20px auto;
         }
-        #showImage i{
-            display: block;
+        .arrpic-wrap{
+            position: relative;
+            margin-left: 100px;
+        }
+        .arrpic-wrap div{
+            position: absolute;
             width: 1px;
             height: 1px;
-            margin: -1px 0 0 -1px;
         }
     </style>
 </head>
@@ -126,7 +129,10 @@
     </section>
 
     <section class="view-wrap">
-        <p id="showImage"><i></i></p>
+        <div class="arrpic-wrap J_arrpic_wrap">
+            <span></span><span></span><span></span>
+        </div>
+
     </section>
 </section>
 
@@ -135,6 +141,7 @@
         var Curriculum = {
             init:function(){
                 var self = this;
+                self.J_arrpic_wrap = document.querySelector('.J_arrpic_wrap');
                 self.helloword();
                 self.picShadow();
             },
@@ -145,18 +152,17 @@
                 J_HelloWord.innerHTML = (hour<12&&hour>=6 ? 'Hello!Good morning!' : (hour<18 && hour>=12 ? 'Hello!Good afternoom!' : 'Hello!Good evening!'));
             },
             picShadow:function(){
+                var self = this;
                 var canvas = document.createElement("canvas");
                 var context = canvas.getContext("2d");
-                var eleShow = document.querySelector('#showImage')
                 var image = new Image();
                 image.onload = function() {
                     var width = this.width, height = this.height;
                     canvas.width = width;
                     canvas.height = height;
-
                     context.drawImage(this, 0, 0, width, height);
                     var imageData = context.getImageData(0, 0, width, height);
-                    var arrBoxShadow = [], length = imageData.data.length;
+                    var arrBoxShadow = [], arrBoxColor = [],length = imageData.data.length;
                     // 遍历颜色参数值
                     for (var index = 0; index < length; index++) {
                         if (index % 4 === 0) {
@@ -171,24 +177,43 @@
                                 if (hex1.slice(0,1) == hex1.slice(-1) && hex2.slice(0,1) == hex2.slice(-1) && hex3.slice(0,1) == hex3.slice(-1)) {
                                     hex = hex1.slice(-1) + hex2.slice(-1) + hex3.slice(-1);
                                 }
-
+                                arrBoxColor.push("#" + hex);
                                 arrBoxShadow.push(x + "px " + y + "px #" + hex);
                             } else if (alpha > 0) {
                                 arrBoxShadow.push(x + "px " + y + "px rgba(" +
+                                        [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], alpha].join() +
+                                        ")");
+                                arrBoxColor.push("rgba(" +
                                         [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], alpha].join() +
                                         ")");
                             }
                         }
                     };
 
-                    eleShow.style.width = width + "px";
-                    eleShow.style.height = height + "px";
 
-                    // 盒阴影图片显示
-                    eleShow.querySelector("i").style.boxShadow = arrBoxShadow.join();
+                    self.Mypic(width,height,arrBoxColor);
             }
                 image.src = 'new.jpg'
-            }
+            },
+            Mypic:function(_w,_h,arr){
+                console.log(_w)
+                console.log(_h);
+                var self = this;
+                var _html = '';
+                for(var i = 0;i<_h;i++){
+                    for(var j = 0;j<_w;j++){
+                        if(j%2 == 0){
+                            _html += '<div style="top:'+i*1+'px;left:'+j*1+'px;background-color: '+arr[i*_h+j]+'"></div>'
+                        }
+                        else{
+//                            _html += '<div style="top:'+i*1.4+'px;left:'+j*1.5+'px;background-color: '+arr[i*_h+j]+'"></div>'
+                        }
+                       }
+                }
+//                self.J_arrpic_wrap.style.width = _w +'px';
+//                self.J_arrpic_wrap.style.height = _h +'px';
+                self.J_arrpic_wrap.innerHTML = _html;
+            },
         }
         Curriculum.init();
     })()
