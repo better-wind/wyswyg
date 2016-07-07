@@ -111,20 +111,111 @@
             width: 980px;
             margin: 20px auto;
         }
+        .arrpic-wrap{
+            position: relative;
+            margin-left: 100px;
+        }
+        .arrpic-wrap div{
+            position: absolute;
+        }
     </style>
 </head>
 <body>
 <section class="wrap">
     <section class="nav-wrap">
-        <h1>Hello!Good Afternoon!</h1>
+        <h1 id="HelloWord">Loading now</h1>
     </section>
 
     <section class="view-wrap">
+        <div class="arrpic-wrap J_arrpic_wrap">
+            <span></span><span></span><span></span>
+        </div>
 
 
     </section>
 </section>
 
+<script>
+    (function(){
+        var Curriculum = {
+            init:function(){
+                var self = this;
+                self.J_arrpic_wrap = document.querySelector('.J_arrpic_wrap');
+                self.helloword();
+                self.picShadow();
+            },
+            helloword:function(){
+                var self = this,
+                        hour = new Date().getHours(),
+                        J_HelloWord = document.querySelector('#HelloWord');
+                J_HelloWord.innerHTML = (hour<12&&hour>=6 ? 'Hello!Good morning!' : (hour<18 && hour>=12 ? 'Hello!Good afternoom!' : 'Hello!Good evening!'));
+            },
+            picShadow:function(){
+                var self = this;
+                var canvas = document.createElement("canvas");
+                var context = canvas.getContext("2d");
+                var image = new Image();
+                image.onload = function() {
+                    var width = this.width, height = this.height;
+                    canvas.width = width;
+                    canvas.height = height;
+                    context.drawImage(this, 0, 0, width, height);
+                    var imageData = context.getImageData(0, 0, width, height);
+                    var arrBoxShadow = [], arrBoxColor = [],length = imageData.data.length;
+                    // 遍历颜色参数值
+                    for (var index = 0; index < length; index++) {
+                        if (index % 4 === 0) {
+                            var x = index / 4 % width + 1, y = Math.floor(index / 4 / width) + 1, alpha = Math.round(imageData.data[index + 3] / 255 * 100) / 100;
+                            if (imageData.data[index + 3] == 255) {
+                                var hex1 = imageData.data[index].toString(16), hex2 = imageData.data[index + 1].toString(16), hex3 = imageData.data[index + 2].toString(16);
+                                if (hex1.length == 1) hex1 = "0" + hex1;
+                                if (hex2.length == 1) hex2 = "0" + hex2;
+                                if (hex3.length == 1) hex3 = "0" + hex3;
 
+                                var hex = hex1 + hex2 + hex3;
+                                if (hex1.slice(0,1) == hex1.slice(-1) && hex2.slice(0,1) == hex2.slice(-1) && hex3.slice(0,1) == hex3.slice(-1)) {
+                                    hex = hex1.slice(-1) + hex2.slice(-1) + hex3.slice(-1);
+                                }
+                                arrBoxColor.push("#" + hex);
+                                arrBoxShadow.push(x + "px " + y + "px #" + hex);
+                            } else if (alpha > 0) {
+                                arrBoxShadow.push(x + "px " + y + "px rgba(" +
+                                        [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], alpha].join() +
+                                        ")");
+                                arrBoxColor.push("rgba(" +
+                                        [imageData.data[index], imageData.data[index + 1], imageData.data[index + 2], alpha].join() +
+                                        ")");
+                            }
+                        }
+                    };
+
+
+                    self.Mypic(width,height,arrBoxColor);
+            }
+                image.src = 'ercode2.png'
+            },
+            Mypic:function(_w,_h,arr){
+                console.log(_w)
+                console.log(_h);
+                var self = this;
+                var _html = '';
+                for(var i = 0;i<_h;i++){
+                    for(var j = 0;j<_w;j++){
+                        if(j%2 == 0){
+                            _html += '<div style="top:'+i*5+'px;left:'+j*5+'px; width: 5px;height: 5px;background-color: '+arr[i*_h+j]+'"></div>'
+                        }
+                        else{
+                            _html += '<div style="top:'+i*5+'px;left:'+j*5+'px; width: 5px;height: 5px;background-color: '+arr[i*_h+j]+'"></div>'
+                        }
+                       }
+                }
+//                self.J_arrpic_wrap.style.width = _w +'px';
+//                self.J_arrpic_wrap.style.height = _h +'px';
+                self.J_arrpic_wrap.innerHTML = _html;
+            },
+        }
+        Curriculum.init();
+    })()
+</script>
 </body>
 </html>
