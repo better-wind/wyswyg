@@ -127,9 +127,10 @@
     </section>
 
     <section class="view-wrap">
-        <div class="arrpic-wrap J_arrpic_wrap">
-            <span></span><span></span><span></span>
-        </div>
+        <canvas id="Mycanvas"></canvas>
+        <!--<div class="arrpic-wrap J_arrpic_wrap">-->
+            <!--<span></span><span></span><span></span>-->
+        <!--</div>-->
 
 
     </section>
@@ -192,26 +193,31 @@
 
                     self.Mypic(width,height,arrBoxColor);
             }
-                image.src = 'ercode2.png'
+                image.src = 'mine.jpg'
             },
             Mypic:function(_w,_h,arr){
-                console.log(_w)
-                console.log(_h);
                 var self = this;
-                var _html = '';
+                var Mycanvas = document.getElementById('Mycanvas');
+                var ctx = Mycanvas.getContext('2d');
+                var color = '';
+                Mycanvas.width = _w*2;
+                Mycanvas.height = _h*2;
+//                var _html = '';
                 for(var i = 0;i<_h;i++){
                     for(var j = 0;j<_w;j++){
-                        if(j%2 == 0){
-                            _html += '<div style="top:'+i*5+'px;left:'+j*5+'px; width: 5px;height: 5px;background-color: '+arr[i*_h+j]+'"></div>'
-                        }
-                        else{
-                            _html += '<div style="top:'+i*5+'px;left:'+j*5+'px; width: 5px;height: 5px;background-color: '+arr[i*_h+j]+'"></div>'
-                        }
+                        ctx.fillStyle = ''+arr[j*_h+i];
+                        ctx.fillRect(i*2,j*2,2,2);
+//                        if(j%2 == 0){
+//                            _html += '<div style="top:'+i*2*1+'px;left:'+j*2*1+'px; width: 2px;height: 2px;background-color: '+arr[i*_h+j]+'"></div>'
+//                        }
+//                        else{
+//                            _html += '<div style="top:'+i*2*1+'px;left:'+j*2*1+'px; width: 2px;height: 2px;background-color: '+arr[i*_h+j]+'"></div>'
+//                        }
                        }
                 }
 //                self.J_arrpic_wrap.style.width = _w +'px';
 //                self.J_arrpic_wrap.style.height = _h +'px';
-                self.J_arrpic_wrap.innerHTML = _html;
+//                self.J_arrpic_wrap.innerHTML = _html;
             },
         }
         Curriculum.init();

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+</body>
+<script>
+    (function(){
+        var Mycanvas = document.getElementById('canvas');
+        Mycanvas.width = 400;
+        Mycanvas.height = 400;
+        var ctx = Mycanvas.getContext('2d');
+        ctx.fillStyle='rgb(0,0,255)';
+        ctx.fillRect(0,0,50,50);
+        ctx.fillStyle='rgb(0,0,0)';
+        ctx.fillRect(50,50,50,50);
+
+    })()
+</script>
+</html>
