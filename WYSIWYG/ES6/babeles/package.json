@@ -1,0 +1,15 @@
+{
+  "name": "fh",
+  "version": "1.0.0",
+  "description": "babel test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}

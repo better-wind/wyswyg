@@ -52,3 +52,4 @@ function onlazyImg(){
     }());
     window.onscroll();
 }
+onlazyImg();

@@ -190,7 +190,7 @@
                         }
                     };
 
-
+                    console.log(width+','+height)
                     self.Mypic(width,height,arrBoxColor);
             }
                 image.src = 'mine.jpg'
@@ -200,13 +200,13 @@
                 var Mycanvas = document.getElementById('Mycanvas');
                 var ctx = Mycanvas.getContext('2d');
                 var color = '';
-                Mycanvas.width = _w*2;
-                Mycanvas.height = _h*2;
+                Mycanvas.width = _w;
+                Mycanvas.height = _h;
 //                var _html = '';
                 for(var i = 0;i<_h;i++){
                     for(var j = 0;j<_w;j++){
                         ctx.fillStyle = ''+arr[j*_h+i];
-                        ctx.fillRect(i*2,j*2,2,2);
+                        ctx.fillRect(i,j,1,1);
 //                        if(j%2 == 0){
 //                            _html += '<div style="top:'+i*2*1+'px;left:'+j*2*1+'px; width: 2px;height: 2px;background-color: '+arr[i*_h+j]+'"></div>'
 //                        }
