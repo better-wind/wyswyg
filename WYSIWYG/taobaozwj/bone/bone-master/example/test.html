@@ -1,0 +1,81 @@
+<html>
+<head>
+    <script src="../bone.js"></script>
+
+    <script>
+        var cls1 = Bone.extend({}, Bone.Events, {
+            fun1:function(){
+                console.log('cls1 fun1');
+            },
+            fun2:function(){
+                console.log('cls1 fun2');
+            }
+        });
+
+        var cls2 = Bone.extend({}, Bone.Events, {
+            fun1:function(){
+                console.log('cls2 fun1');
+            },
+            fun2:function(){
+                console.log('cls2 fun2');
+            }
+        });
+
+        cls1.once('aaa',function(){
+            console.log('cls1 lalal');
+        });
+
+        cls2.listenTo(cls1,'aaa',function(){
+            console.log('cls2 lalal');
+        });
+
+        cls1.trigger('aaa');
+        cls1.trigger('aaa');
+
+        var Workspace = Bone.Router.extend({
+
+            routes: {
+                "help":                 "help",    // #help
+                "search/:query":        "search",  // #search/kiwis
+                "search/:query/p:page": "search"   // #search/kiwis/p7
+            },
+
+            help: function() {
+                console.log('help');
+            },
+
+            search: function(query, page) {
+                console.log('search', query, page);
+            }
+
+        });
+
+        var r = new Workspace();
+
+        var Page = Bone.Class.extend({
+            fun1:function(){
+                this.trigger('ddd');
+            }
+        });
+        var p1 = new Page();
+        var p2 = new Page();
+
+        p1.listenToOnce(p2,'ddd',fun1);
+        function fun1(){
+            console.log('fun111111');
+        }
+        p1.listenTo(p2,'ddd',fun2);
+        function fun2(){
+            console.log('fun2222222');
+        }
+
+        p2.trigger('ddd',{data:'data'});
+
+        Bone.history.start();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
