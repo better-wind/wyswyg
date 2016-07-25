@@ -18,7 +18,8 @@
             scale = parseFloat(match[1]);
             dpr = parseInt(1 / scale);
         }
-    } else if (flexibleEl) {
+    }
+    else if (flexibleEl) {
         var content = flexibleEl.getAttribute('content');
         if (content) {
             var initialDpr = content.match(/initial\-dpr=([\d\.]+)/);
