@@ -23,8 +23,7 @@
  * cancel   取消触摸
  * resize   窗口改变大小
  * */
-(function()
-{
+(function() {
     "use strict";
     var $that=this,
         $d,

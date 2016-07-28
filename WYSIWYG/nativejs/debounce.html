@@ -22,11 +22,7 @@
             if (callNow) func.apply(context, args);
         };
     }
-
-
-    window.addEventListener('resize', debounce(function(event) {
-        console.log(1);
-    }, 300));
+    window.addEventListener('resize', debounce(function(event) {console.log(1);}, 300));
 </script>
 </body>
 </html>
