@@ -1,0 +1,521 @@
+@mixin top-left {
+  #hand-1 {
+    transform: rotate(0deg);
+  }
+  #hand-2 {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin top-right {
+  #hand-1 {
+    transform: rotate(180deg);
+  }
+  #hand-2 {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin bottom-left {
+  #hand-1 {
+    transform: rotate(270deg);
+  }
+  #hand-2 {
+    transform: rotate(0deg);
+  }
+}
+
+@mixin bottom-right {
+  #hand-1 {
+    transform: rotate(270deg);
+  }
+  #hand-2 {
+    transform: rotate(180deg);
+  }
+}
+
+@mixin vert {
+  #hand-1 {
+    transform: rotate(270deg);
+  }
+  #hand-2 {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin hor {
+  #hand-1 {
+    transform: rotate(0deg);
+  }
+  #hand-2 {
+    transform: rotate(180deg);
+  }
+}
+
+@mixin top-hole {
+  #hand-1 {
+    transform: rotate(60deg);
+  }
+  #hand-2 {
+    transform: rotate(120deg);
+  }
+}
+
+@mixin bottom-hole {
+  #hand-1 {
+    transform: rotate(240deg);
+  }
+  #hand-2 {
+    transform: rotate(300deg);
+  }
+}
+
+@keyframes spin-one{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-two{
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(540deg);
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #dedede;
+  background: linear-gradient(45deg, #dedede 0%, #efefef 100%);
+}
+
+.wrapper {
+  width:100%;
+  min-width:840px;
+  height:100%;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.digit {
+  max-width: calc((60px + 4px) * 3);
+  float:left;
+}
+
+.sep {
+  max-width: calc((60px + 4px) * 1);
+  float:left;
+  .clock {
+    #hand-1 {
+      animation: spin-one 10s linear infinite;
+    }
+    #hand-2 {
+      animation: spin-two 10s linear infinite alternate;
+    }
+  }
+}
+
+.clock {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(270deg, #eee 0%, #fff 100%);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 100%;
+  position: relative;
+  margin:2px;
+  float:left;
+
+  span {
+    position: absolute;
+    top:calc(50% - 1px);
+    left: 50%;
+    width:49%;
+    height: 2px;
+    background: #323232;
+    transform-origin: 0% 50%;
+    transform: rotate(270deg);
+
+    transition: all ease 2s;
+
+    &:before {
+      content:'';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 2px;
+      height: 2px;
+      display: block;
+      background: inherit;
+      border-radius: 100%;
+    }
+  }
+}
+
+
+#clock {
+  &-1, &-9 {
+    #hand {
+      &-1{
+        transition: all ease-in 1.5s;
+      }
+      &-2{
+        transition: all ease 2s;
+      }
+    }
+  }
+
+  &-2, &-10 {
+    #hand {
+      &-1{
+        transition: all ease-out 4s;
+      }
+      &-2{
+        transition: all ease-in 1.75s;
+      }
+    }
+  }
+
+  &-3, &-11 {
+    #hand {
+      &-1{
+        transition: all linear 3s;
+      }
+      &-2{
+        transition: all ease-in 1s;
+      }
+    }
+  }
+
+  &-4, &-12 {
+    #hand {
+      &-1{
+        transition: all ease-out 2.3s;
+      }
+      &-2{
+        transition: all ease 2.15s;
+      }
+    }
+  }
+
+  &-5, &-13 {
+    #hand {
+      &-1{
+        transition: all ease-in 4s;
+      }
+      &-2{
+        transition: all ease-out 3s;
+      }
+    }
+  }
+
+  &-6, &-14, &-18 {
+    #hand {
+      &-1{
+        transition: all linear 2.3s;
+      }
+      &-2{
+        transition: all ease-out 1.2s;
+      }
+    }
+  }
+
+  &-7, &-15 {
+    #hand {
+      &-1{
+        transition: all ease-in 4s;
+      }
+      &-2{
+        transition: all ease 1.5s;
+      }
+    }
+  }
+
+  &-8, &-16 {
+    #hand {
+      &-1{
+        transition: all ease 2s;
+      }
+      &-2{
+        transition: all ease 2.6s;
+      }
+    }
+  }
+
+  &-9, &-17 {
+    #hand {
+      &-1{
+        transition: all linear 1.3s;
+      }
+      &-2{
+        transition: all ease 2.4s;
+      }
+    }
+  }
+}
+
+
+.t-1 {
+  #clock {
+    &-2 {
+      @include top-left;
+    }
+    &-3 {
+      @include top-right;
+    }
+    &-5, &-6, &-8, &-9, &-11, &-12, &-14, &-15 {
+      @include vert;
+    }
+    &-17 {
+      @include bottom-left;
+    }
+    &-18 {
+      @include bottom-right;
+    }
+  }
+}
+
+.t-2 {
+  #clock {
+    &-1, &-7, &-11 {
+      @include top-left;
+    }
+    &-2, &-17 {
+      @include hor;
+    }
+    &-3, &-15 {
+      @include top-right;
+    }
+    &-4, &-14, &-16 {
+      @include bottom-left;
+    }
+    &-5 {
+      @include top-right;
+    }
+    &-6, &-9, &-10, &-13 {
+      @include vert;
+    }
+    &-8, &-12, &-18 {
+      @include bottom-right;
+    }
+  }
+}
+
+.t-3 {
+  #clock {
+    &-1, &-7, &-13 {
+      @include top-left;
+    }
+    &-2, &-17 {
+      @include hor;
+    }
+    &-3, &-11 {
+      @include top-right;
+    }
+    &-4, &-10, &-16 {
+      @include bottom-left;
+    }
+    &-5 {
+      @include top-right;
+    }
+    &-6, &-9, &-12, &-15 {
+      @include vert;
+    }
+    &-8,&-14, &-18 {
+      @include bottom-right;
+    }
+  }
+}
+
+.t-4 {
+  #clock {
+    &-1 {
+      @include top-left;
+    }
+    &-3, &-11 {
+      @include top-right;
+    }
+    &-10, &-17 {
+      @include bottom-left;
+    }
+    &-2  {
+      @include top-right;
+    }
+    &-4, &-5, &-6, &-7, &-8, &-9, &-12, &-14, &-15 {
+      @include vert;
+    }
+    &-18 {
+      @include bottom-right;
+    }
+  }
+}
+
+.t-5 {
+  #clock {
+    &-1, &-5, &-13 {
+      @include top-left;
+    }
+    &-2, &-17 {
+      @include hor;
+    }
+    &-3, &-9, &-11 {
+      @include top-right;
+    }
+    &-8, &-10, &-16 {
+      @include bottom-left;
+    }
+    &-4, &-7, &-12, &-15 {
+      @include vert;
+    }
+    &-6, &-14, &-18 {
+      @include bottom-right;
+    }
+  }
+}
+
+.t-6 {
+  #clock {
+    &-1, &-5 {
+      @include top-left;
+    }
+    &-3, &-9 {
+      @include top-right;
+    }
+    &-8, &-16 {
+      @include bottom-left;
+    }
+    &-6, &-18 {
+      @include bottom-right;
+    }
+    &-2, &-17 {
+      @include hor;
+    }
+    &-4, &-7, &-10, &-12, &-13, &-15 {
+      @include vert;
+    }
+    &-11 {
+      @include top-hole;
+    }
+    &-14 {
+      @include bottom-hole;
+    }
+  }
+}
+
+.t-7 {
+  #clock {
+    &-1 {
+      @include top-left;
+    }
+    &-2 {
+      @include hor;
+    }
+    &-3, &-5 {
+      @include top-right;
+    }
+    &-6, &-8, &-9, &-11, &-12, &-14, &-15 {
+      @include vert;
+    }
+    &-4, &-17 {
+      @include bottom-left;
+    }
+    &-18 {
+      @include bottom-right;
+    }
+  }
+}
+
+.t-8 {
+  #clock {
+    &-1 {
+      @include top-left;
+    }
+    &-3 {
+      @include top-right;
+    }
+    &-16 {
+      @include bottom-left;
+    }
+    &-18 {
+      @include bottom-right;
+    }
+    &-2, &-17 {
+      @include hor;
+    }
+    &-4, &-6, &-7, &-9, &-10, &-12, &-13, &-15 {
+      @include vert;
+    }
+    &-5,&-11 {
+      @include top-hole;
+    }
+    &-8, &-14 {
+      @include bottom-hole;
+    }
+  }
+}
+
+.t-9 {
+  #clock {
+    &-1 {
+      @include top-left;
+    }
+    &-3, &-11 {
+      @include top-right;
+    }
+    &-10, &-17 {
+      @include bottom-left;
+    }
+    &-18 {
+      @include bottom-right;
+    }
+    &-2 {
+      @include hor;
+    }
+    &-4, &-6, &-7, &-9, &-12, &-14, &-15 {
+      @include vert;
+    }
+    &-5 {
+      @include top-hole;
+    }
+    &-8 {
+      @include bottom-hole;
+    }
+  }
+}
+
+.t-0 {
+  #clock {
+    &-1 {
+      @include top-left;
+    }
+    &-3 {
+      @include top-right;
+    }
+    &-16 {
+      @include bottom-left;
+    }
+    &-18 {
+      @include bottom-right;
+    }
+    &-2, &-17 {
+      @include hor;
+    }
+    &-4, &-6, &-7, &-8, &-9, &-10, &-12, &-13,&-11, &-15 {
+      @include vert;
+    }
+    &-5 {
+      @include top-hole;
+    }
+    &-14 {
+      @include bottom-hole;
+    }
+  }
+}

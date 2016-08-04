@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function(){
+        var COUNT = 10000;
+        var NUM = 1000;
+        Array.prototype.shuffle = function(n){
+            var len = this.length,num = n ? Math.min(n,len) : len,index,
+                    arr = this.slice(0),temp,
+                    lib = {};
+            lib.range = function(min,max){
+                return min + Math.floor(Math.random()*(max-min+1))
+            }
+            for(var i =0;i<len;i++){
+                index = lib.range(i,len-1);
+                temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
+            }
+            return arr.slice(0,num);
+        }
+        var arr = [];
+        for(var i=0;i<NUM;i++){
+            arr[arr.length] = i;
+        }
+        var t1 = new Date().getTime();
+        console.log(arr.shuffle());
+        for(var i =0 ;i<COUNT;i++){
+            arr.shuffle()
+        }
+        var t2 = new Date().getTime();
+        console.log(NUM+'个数据数组随机打乱原数组执行'+COUNT+'次:'+(t2-t1));
+
+        Array.prototype.shufflesec = function(n){
+            var len = this.length, arr = this.slice(0),num = n ? Math.min(n,len) : len,
+                    lib={},
+                    index,res=[];
+            lib.range = function(min,max){
+                return min + Math.floor(Math.random()*(max-min+1));
+            }
+            for(var i = 0;i< num ;i++){
+                index = lib.range(0,len-1-i);
+                res[res.length] = arr.splice(index,1)[0];
+            }
+            return res;
+
+        }
+        var arrv = [];
+        for(var i=0;i<NUM;i++){
+            arrv[arrv.length] = i;
+        }
+        var t3 = new Date().getTime();
+        for(var i =0 ;i<COUNT;i++){
+            arrv.shufflesec()
+        }
+        var t4 = new Date().getTime();
+        console.log(NUM+'个数据数组随机抽取原数组插入新数组执行'+COUNT+'次:'+(t4-t3))
+
+        Array.prototype.shuffletri = function(n){
+            var len = this.length,arr = this.slice(0),num = n ? Math.min(n.len) : len;
+            arr.sort(function(a,b){
+                return Math.random() - 0.5;
+            })
+            return arr.slice(0,num);
+        }
+        var arrt = [];
+        for(var i=0;i<NUM;i++){
+            arrt[arrt.length] = i;
+        }
+        var t5 = new Date().getTime();
+        for(var i =0 ;i<COUNT;i++){
+            arrt.shuffletri()
+        }
+        var t6 = new Date().getTime();
+        console.log(NUM+'个数据数组自带sort方法执行'+COUNT+'次:'+(t6-t5))
+    })()
+</script>
+</body>
+</html>
