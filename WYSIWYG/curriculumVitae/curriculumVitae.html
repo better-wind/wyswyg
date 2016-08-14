@@ -148,8 +148,18 @@
             helloword:function(){
                 var self = this,
                         hour = new Date().getHours(),
-                        J_HelloWord = document.querySelector('#HelloWord');
-                J_HelloWord.innerHTML = (hour<12&&hour>=6 ? 'Hello!Good morning!' : (hour<18 && hour>=12 ? 'Hello!Good afternoom!' : 'Hello!Good evening!'));
+                        J_HelloWord = document.querySelector('#HelloWord'),
+                        str = (hour<12&&hour>=6 ? 'Hello! Good morning!' : (hour<18 && hour>=12 ? 'Hello! Good afternoom!' : 'Hello! Good evening!')),
+                        i= 0,
+                setTime = setInterval(function(){
+                    if(i>=str.length){
+                        J_HelloWord.innerHTML = str.slice(0,i)
+                        clearInterval(setTime)
+                    }else{
+                        J_HelloWord.innerHTML = str.slice(0,i)
+                        i++;
+                    }
+                },150)
             },
             picShadow:function(){
                 var self = this;
@@ -193,20 +203,22 @@
                     console.log(width+','+height)
                     self.Mypic(width,height,arrBoxColor);
             }
-                image.src = 'mine.jpg'
+                image.src = 'ercode.png'
             },
             Mypic:function(_w,_h,arr){
                 var self = this;
                 var Mycanvas = document.getElementById('Mycanvas');
                 var ctx = Mycanvas.getContext('2d');
                 var color = '';
-                Mycanvas.width = _w;
-                Mycanvas.height = _h;
+                var w_pix = _w/200;
+                var h_pix = _h/200;
+                Mycanvas.width = 200;
+                Mycanvas.height = 200;
 //                var _html = '';
                 for(var i = 0;i<_h;i++){
                     for(var j = 0;j<_w;j++){
                         ctx.fillStyle = ''+arr[j*_h+i];
-                        ctx.fillRect(i,j,1,1);
+                        ctx.fillRect(i/h_pix,j/w_pix,1,1);
 //                        if(j%2 == 0){
 //                            _html += '<div style="top:'+i*2*1+'px;left:'+j*2*1+'px; width: 2px;height: 2px;background-color: '+arr[i*_h+j]+'"></div>'
 //                        }
