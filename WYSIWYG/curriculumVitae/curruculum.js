@@ -8,6 +8,25 @@
             self.helloWord();
             self.loopCanvas();
             self.initClock();
+            self.initMenu();
+        },
+        initMenu:function(){
+            var self = this;
+            self.J_menuContain = document.querySelector('#menuContain');
+            self.J_menuItems = document.querySelectorAll('#menuContain div');
+            self.J_menuContain.addEventListener('mouseover',function(){
+                this.style.animationPlayState = 'paused';
+            })
+            self.J_menuContain.addEventListener('mouseleave',function(){
+                this.style.animationPlayState = 'running';
+            })
+            for(var i = 0,j=self.J_menuItems.length;i<j;i++){
+                self.J_menuItems[i].style.borderColor = self.randomColor();
+                self.J_menuItems[i].style.color = self.randomColor();
+                self.J_menuItems[i].addEventListener('click',function(){
+                    console.log(this.innerText);
+                })
+            }
         },
         initClock:function(){
             var self = this,
@@ -21,6 +40,10 @@
                 _hdeg = 0,
                 setClockInterval;
             self.setClockTime(_s*6,_m*6,_h*30);
+            self.J_clock.style.borderColor = self.randomColor();
+            self.J_sec.style.backgroundColor = self.randomColor();
+            self.J_min.style.backgroundColor = self.randomColor();
+            self.J_hour.style.backgroundColor = self.randomColor();
             setClockInterval = setInterval(function(){
                 _s++;
                 _deg++;
@@ -47,10 +70,10 @@
             self.J_sec.style.transform = 'rotate('+_sdeg+'deg)';
             self.J_min.style.transform = 'rotate('+_mdeg+'deg)';
             self.J_hour.style.transform = 'rotate('+_hdeg+'deg)';
-            self.J_clock.style.borderColor = self.randomColor();
+            //self.J_clock.style.borderColor = self.randomColor();
             self.J_sec.style.backgroundColor = self.randomColor();
-            self.J_min.style.backgroundColor = self.randomColor();
-            self.J_hour.style.backgroundColor = self.randomColor();
+            //self.J_min.style.backgroundColor = self.randomColor();
+            //self.J_hour.style.backgroundColor = self.randomColor();
         },
         loopCanvas:function(){
             var self = this,
@@ -71,6 +94,7 @@
                 ctx = fixCanvas.getContext('2d'),
                 style_color='#FFFFFF',
                 _style = Math.ceil(Math.random()*10);
+            console.log(_i+','+_j+','+_style);
             fixCanvas.width = 80;
             fixCanvas.height = clientHeight;
             for(var i=0;i<80/_style;i++){
@@ -86,7 +110,7 @@
             }
         },
         randomColor:function(){
-            return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+            return '#' + ('00000' + ((Math.random()+1) * 0xAAAAAA << 0).toString(16)).slice(-6);
         },
         helloWord:function(){
             var self = this,
