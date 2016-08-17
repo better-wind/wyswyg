@@ -6,19 +6,39 @@
 </head>
 <body>
 <canvas id="canvas"></canvas>
+<canvas id="canvas2"></canvas>
 
 </body>
 <script>
     (function(){
         var Mycanvas = document.getElementById('canvas');
-        Mycanvas.width = 400;
-        Mycanvas.height = 400;
         var ctx = Mycanvas.getContext('2d');
-        ctx.fillStyle='rgb(0,0,255)';
-        ctx.fillRect(0,0,50,50);
-        ctx.fillStyle='rgb(0,0,0)';
-        ctx.fillRect(50,50,50,50);
-
+        var Mycanvas2 = document.getElementById('canvas2');
+        var ctx2 = Mycanvas2.getContext('2d');
+        var image = new Image();
+        image.onload=function(){
+            var width = this.width,height = this.height;
+            Mycanvas.width = width;
+            Mycanvas.height = height;
+            ctx.drawImage(this,0,0,width,height);
+            var imagedata = ctx.getImageData(0,0,width,height);
+            var length = imagedata.data.length,
+                    arrimagedata = imagedata.data,
+                    arrdata = [];
+            for(var i =0;i<length;i++){
+                arrdata.push('rgb('+arrimagedata[i*4]+','+arrimagedata[i*4+1]+','+arrimagedata[i*4+2]+')');
+            }
+            Mycanvas2.width = width;
+            Mycanvas2.height = height;
+            for(var j=0;j<height;j++){
+                for(var k=0;k<width;k++){
+//                    ctx2.fillStyle=arrdata[j*height+k];
+                    ctx2.fillStyle = 'rgba(0,0,0,.4)'
+                    ctx2.fillRect(k,j,1,1);
+                }
+            }
+        }
+        image.src = 'pic.jpg';
     })()
 </script>
 </html>

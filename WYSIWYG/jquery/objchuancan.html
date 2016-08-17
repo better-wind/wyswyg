@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 200px;
+            border:1px solid #000;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="red"></div>
+<script src="common/jquery183.js"></script>
+<script>
+    (function(){
+       var module ={
+           init:function(){
+                var self = this;
+
+               self.eventHanding($('div'));
+           },
+           eventHanding:function(obj){
+               console.log(obj);
+               console.log($(obj));
+               console.log(obj.hasClass('red'));
+               console.log($(obj).hasClass('red'));
+//               obj.removeClass('red').addClass('green');
+               $(obj).removeClass('red').addClass('green');
+           }
+       }
+        $(function(){
+            module.init();
+        })
+    })(jQuery)
+</script>
+</body>
+</html>

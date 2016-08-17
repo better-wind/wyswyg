@@ -1,0 +1,248 @@
+body,ul,p{
+    padding: 0;
+    margin: 0;
+}
+/*笔记本背景*/
+body{
+    background-color: #fff;
+    background-image:
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
+    font-family: arial, verdana;
+}
+.wrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.fix-wrap{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 80px;
+    height: 100%;
+}
+.fix-cover{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 80px;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+}
+/*css3时钟*/
+.clock-wrap{
+    position: absolute;
+    top:45px;
+    left: 180px;
+    width: 80px;
+    height: 80px;
+}
+.clock-wrap .clock{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+}
+.clock-wrap .clock div{
+    position: absolute;
+    width: 1px;
+    left:39.5px;
+    transition: transform 1000ms linear;
+    transform: rotate(0deg);
+}
+.clock-wrap .clock .sec{
+    height: 38px;
+    top:2px;
+    transform-origin: 0px 38px;
+}
+.clock-wrap .clock .min{
+    height: 32px;
+    top:8px;
+    transform-origin: 0px 32px;
+}
+.clock-wrap .clock .hour{
+    height: 26px;
+    top:14px;
+    transform-origin: 0px 26px;
+}
+/*css3立方体菜单*/
+.menu-wrap{
+    position: fixed;
+    top:20px;
+    right: 180px;
+    width: 150px;
+    height: 150px;
+    perspective: 1500px;
+}
+.menu-wrap .contain{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style:preserve-3d;
+    transform-origin: 50% 50% 50px;
+    transform: rotateY(2deg);
+    animation: menurotate 15s linear infinite;
+
+}
+@keyframes menurotate {
+    0%{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    50%{
+        transform: rotateX(360deg) rotateY(180deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg)
+    }
+}
+.menu-wrap .contain div{
+    position: absolute;
+    top:25px;
+    left:25px;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border:1px solid #000;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
+    background-color: rgba(255,255,255,1);
+}
+.menu-wrap .contain .front{
+    transform:translateZ(100px);
+}
+.menu-wrap .contain .behind{
+    transform: rotateY(-180deg);
+}
+.menu-wrap .contain .left{
+    transform: rotateY(-90deg);
+    transform-origin: left;
+}
+.menu-wrap .contain .right{
+    transform: rotateY(90deg);
+    transform-origin: right;
+}
+.menu-wrap .contain .top{
+    transform: rotateX(90deg);
+    transform-origin: top;
+}
+.menu-wrap .contain .bottom{
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+}
+
+/*css3标题*/
+.nav-wrap{
+    width: 980px;
+    /*height: 200px;*/
+    margin: 0 auto;
+    text-align: center;
+}
+.nav-wrap h1 {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 28px;
+    color: #8699A0;
+    text-shadow: 0 0 1px #758890;
+    margin: 50px auto;
+    outline: none;
+    padding: 14px 30px;
+    position: relative;
+    text-transform: uppercase;
+    box-shadow:
+    0 0 30px 0 rgba(0, 0, 0, 0.1),
+    0 36px 0 -18px rgba(255,255,255,1);
+}
+.nav-wrap h1:before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: -15%;
+    z-index: -1;
+    width: 130%;
+    height: 0;
+    border: 28px solid rgba(0, 0, 0, 0);
+    border-left: 28px solid rgba(255,255,255,.9);
+    border-right: 28px solid rgba(255,255,255,.9);
+}
+.nav-wrap h1:after {
+    content: '';
+    width: 100%;
+    height: 0;
+    position: absolute;
+    top: 100%; left: 0;
+    z-index: -1;
+    border-top: 18px solid #99acb2;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+}
+.nav-wrap h1, .nav-wrap h1:before {
+
+    background-image:
+
+    linear-gradient(
+            transparent 8%,
+            rgba(0, 0, 0, 0.1) 8%,
+            rgba(0, 0, 0, 0.1) 14%,
+            transparent 14%,
+            transparent 86%,
+            rgba(0, 0, 0, 0.1) 86%,
+            rgba(0, 0, 0, 0.1) 92%,
+            transparent 92%
+    ),
+
+    linear-gradient(
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0)
+    ),
+
+    linear-gradient(
+            45deg,
+            transparent 40%,
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0.1) 60%,
+            transparent 60%
+    ),
+
+    linear-gradient(white, white);
+    background-size:
+    cover,
+    cover,
+    4px 4px,
+    cover;
+}
+.nav-wrap h1, .nav-wrap h1:before, .nav-wrap h1:after {
+    box-sizing: border-box;
+    background-origin: border-box;
+}
+.view-wrap{
+    width: 980px;
+    margin: 80px auto 20px;
+}
+.view-wrap .msg-title{
+    display: inline-block;
+    line-height: 50px;
+    padding: 5px 8px;
+    font-size: 30px;
+    /*background: -webkit-linear-gradient(left,rgb(217, 252, 79) 1%,transparent 100%);*/
+
+}
+.view-wrap .msg-wrap{
+    min-height: 500px;
+}
+.view-wrap .personal-msg{
+
+}
+
+
+
+
+
+
+
+

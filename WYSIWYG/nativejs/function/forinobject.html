@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    (function(){
+        var keys = function (obj) {
+            var keys = [];
+            for (var key in obj) {
+                keys.push(key);
+            }
+            return keys;
+        };
+        console.log(keys({a:1,b:2,c:3}));
+        var extend = function(obj){
+            console.log(obj);
+            console.log(arguments.length);
+        }
+        extend('1','2','3','4');
+    })()
+</script>
+</body>
+</html>
