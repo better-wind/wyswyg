@@ -9,11 +9,37 @@
             self.loopCanvas();
             self.initClock();
             self.initMenu();
+            self.initConsole();
+            self.initRandomBackgroundFontColor();
+
+        },
+        initRandomBackgroundFontColor:function(){
+            var self = this;
+            self.J_random_bg = document.querySelectorAll('.J_random_bg');
+            self.J_random_color = document.querySelectorAll('.J_random_color');
+            for(var i = 0,j=self.J_random_bg.length;i<j;i++){
+                self.J_random_bg[i].style.backgroundImage = '-webkit-linear-gradient('+Math.ceil(Math.random()*90)+'deg,'+self.randomColor()+' '+Math.random()*10+'%,transparent '+(60+Math.random()*30)+'%)'
+            }
+            for(var n = 0,m=self.J_random_bg.length;n<m;n++){
+                self.J_random_color[n].style.color = self.randomColor();
+            }
+
+        },
+        initConsole:function(){
+            console.log('%c       ---      ---      --- --------      ---               ---               --- ---- ---','background: #222; color: #bada55;');
+            console.log('%c      ---      ---      --- --------      ---               ---               --- ---- --- ','background: #222; color: #bada55');
+            console.log('%c     ---      ---      ---               ---               ---               ---      ---  ','background: #222; color: #bada55');
+            console.log('%c    --- ---- ---      --- --------      ---               ---               ---      ---   ','background: #222; color: #bada55');
+            console.log('%c   --- ---- ---      --- --------      ---               ---               ---      ---    ','background: #222; color: #bada55');
+            console.log('%c  ---      ---      ---               ---               ---               ---      ---     ','background: #222; color: #bada55');
+            console.log('%c ---      ---      --- --------      --- --------      --- --------      --- ---- ---      ','background: #222; color: #bada55');
+            console.log('%c---      ---      --- --------      --- --------      --- --------      --- ---- ---       ','background: #222; color: #bada55');
         },
         initMenu:function(){
-            var self = this;
+            var self = this,index,_height;
             self.J_menuContain = document.querySelector('#menuContain');
             self.J_menuItems = document.querySelectorAll('#menuContain div');
+            self.J_msg_title = document.querySelectorAll('.J_msg_title');
             self.J_menuContain.addEventListener('mouseover',function(){
                 this.style.animationPlayState = 'paused';
             })
@@ -24,7 +50,10 @@
                 self.J_menuItems[i].style.borderColor = self.randomColor();
                 self.J_menuItems[i].style.color = self.randomColor();
                 self.J_menuItems[i].addEventListener('click',function(){
-                    console.log(this.innerText);
+                    index = this.getAttribute('data-menu');
+                    console.log(self.J_msg_title[index].offsetTop);
+                    _height = self.J_msg_title[index].offsetTop;
+                    self.scrollAnimate(_height,800)
                 })
             }
         },
@@ -85,7 +114,7 @@
                     i = Math.floor(Math.random()*10);
                     j = Math.floor(Math.random()*10)
                     self.fixCanvas(i,j);
-                },5000)
+                },3000)
         },
         fixCanvas:function(_i,_j){
             var self = this,
@@ -93,13 +122,21 @@
                 fixCanvas = document.querySelector('#fixCanvas'),
                 ctx = fixCanvas.getContext('2d'),
                 style_color='#FFFFFF',
+                _width = 80,
                 _style = Math.ceil(Math.random()*10);
-            console.log(_i+','+_j+','+_style);
-            fixCanvas.width = 80;
+            //console.log(_i+','+_j+','+_style);
+            //8,2,2
+            //123
+            //463
+            //712
+            //_i = 7;
+            //_j = 1;
+            _style = 1;
+            fixCanvas.width = _width;
             fixCanvas.height = clientHeight;
-            for(var i=0;i<80/_style;i++){
+            for(var i=0;i<_width/_style;i++){
                 for(var j=0;j<clientHeight/_style;j++){
-                    if((j%10 + i%10) == _i || (j%10 + i%10) == _j ){
+                    if((j%10 + i%10) == _i || (j%10 - i%10) == _i || (i%10 - j%10) == _i || (j%10 + i%10) == _j || (j%10 - i%10) == _j || (i%10 - j%10) == _j){
                         style_color='#FFFFFF';
                     }else{
                         style_color=self.randomColor();
@@ -127,6 +164,27 @@
                         i++;
                     }
                 },150)
+        },
+        scrollAnimate:function(h,t){
+            var count = 100,
+                time = t,scroll_height = '',count_time ='',count_height='',i = 1;
+            if(h == 'last'){
+                scroll_height = document.body.scrollHeight-document.body.scrollTop;
+            }else{
+                scroll_height = h-document.body.scrollTop;
+            }
+            count_time = time /count;
+            count_height = scroll_height/count;
+            var scroll = setInterval(function(){
+                if(i>=100){
+                    clearInterval(scroll);
+                }else{
+                    document.body.scrollTop += count_height;
+                    i++;
+                }
+
+            },count_time);
+
         },
     }
     Curriculum.init();
