@@ -99,6 +99,9 @@
             self.J_sec.style.transform = 'rotate('+_sdeg+'deg)';
             self.J_min.style.transform = 'rotate('+_mdeg+'deg)';
             self.J_hour.style.transform = 'rotate('+_hdeg+'deg)';
+            self.J_sec.style.webkitTransform = 'rotate('+_sdeg+'deg)';
+            self.J_min.style.webkitTransform = 'rotate('+_mdeg+'deg)';
+            self.J_hour.style.webkitTransform = 'rotate('+_hdeg+'deg)';
             //self.J_clock.style.borderColor = self.randomColor();
             self.J_sec.style.backgroundColor = self.randomColor();
             //self.J_min.style.backgroundColor = self.randomColor();
@@ -167,16 +170,19 @@
         },
         scrollAnimate:function(h,t){
             var count = 100,
-                time = t,scroll_height = '',count_time ='',count_height='',i = 1;
+                time = t,scroll_height = '',count_time ='',count_height='',i = 0;
             if(h == 'last'){
                 scroll_height = document.body.scrollHeight-document.body.scrollTop;
             }else{
                 scroll_height = h-document.body.scrollTop;
             }
+            if(scroll_height < 0){
+                i = 1;
+            }
             count_time = time /count;
             count_height = scroll_height/count;
             var scroll = setInterval(function(){
-                if(i>=100){
+                if(i>count){
                     clearInterval(scroll);
                 }else{
                     document.body.scrollTop += count_height;

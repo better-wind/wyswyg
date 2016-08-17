@@ -49,25 +49,30 @@ body{
 }
 .clock-wrap .clock div{
     position: absolute;
-    width: 1px;
-    left:39.5px;
+    width: 2px;
+    left:39px;
     transition: transform 1000ms linear;
+    -webkit-transition: transform 1000ms linear;
     transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
 }
 .clock-wrap .clock .sec{
     height: 38px;
     top:2px;
     transform-origin: 0px 38px;
+    -webkit-transform-origin: 0px 38px;
 }
 .clock-wrap .clock .min{
     height: 32px;
     top:8px;
     transform-origin: 0px 32px;
+    -webkit-transform-origin: 0px 32px;
 }
 .clock-wrap .clock .hour{
     height: 26px;
     top:14px;
     transform-origin: 0px 26px;
+    -webkit-transform-origin: 0px 26px;
 }
 /*css3立方体菜单*/
 .menu-wrap{
