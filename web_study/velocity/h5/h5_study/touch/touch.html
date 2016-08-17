@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="Keywords" content="想去,端午节,端午,香囊,端午活动,想去设计">
+    <meta name="Description" content="免费体验古人手制香囊的乐趣，还能送TA一个自己制作的古方香囊哦！">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        .msg-div{
+            width: 100%;
+            height: 500px;
+            line-height: 500px;
+            text-align: center;
+            border:1px solid #000;
+        }
+        .msg-div img{
+            position: absolute;
+            top:0px;
+            left:0px;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="msg-div J_msg_div">
+    XY
+    <img class="J_move_img" src="http://xquser.xiangqu.com/Fq9Fsi9cnRlsIipos722XtMihYhR?imageView2/2/w/40/q/90/format/jpg/40x40/" alt=""/>
+</div>
+<script>
+    (function(){
+
+        var J_msg_div = document.querySelector('.J_msg_div');
+//        J_msg_div.ontouchstart=function(e){
+//            e = e.changedTouches[e.changedTouches.length-1]
+//            console.log(e);
+//        }
+//        J_msg_div.ontouchmove=function(e){
+//            e.preventDefault();
+//            e.stopPropagation()
+////            var event = e.changedTouches[e.changedTouches.length-1];
+//            var _str = ''
+//            for(var i=0;i<= e.changedTouches.length-1;i++)
+//            {
+//                var event = e.changedTouches[i];
+//                _str +='X:'+event.pageX+',Y='+event.pageY+'<br />';
+//            }
+//            J_msg_div.innerHTML = _str;
+////            var _str = 'X:'+event.pageX+',Y='+event.pageY;
+////            J_msg_div.innerHTML = _str;
+//        }
+//        J_msg_div.ontouchmove = function(){
+//            console.log('555555');
+//        }
+        J_msg_div.addEventListener('touchmove',function(e){
+            e.preventDefault();
+            e.stopPropagation()
+//            var event = e.changedTouches[e.changedTouches.length-1];
+            var _str = ''
+            for(var i=0;i<= e.changedTouches.length-1;i++)
+            {
+                var event = e.changedTouches[i];
+                _str +='X:'+event.pageX+',Y='+event.pageY+'<br />';
+            }
+            J_msg_div.innerHTML = _str;
+//            var _str = 'X:'+event.pageX+',Y='+event.pageY;
+//            J_msg_div.innerHTML = _str;
+        });
+        J_msg_div.addEventListener('touchmove',function(){console.log('555555');})
+        var J_move_img = document.querySelector('.J_move_img');
+        J_move_img.addEventListener('touchmove',function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var img_x = e.changedTouches[e.changedTouches.length-1].pageX;
+            var img_y = e.changedTouches[e.changedTouches.length-1].pageY;
+            J_move_img.style.top = img_y+'px';
+            J_move_img.style.left = img_x+'px';
+        },false);
+//        J_move_img.ontouchmove = function(e){
+//            e.preventDefault();
+//            var img_x = e.changedTouches[e.changedTouches.length-1].pageX;
+//            var img_y = e.changedTouches[e.changedTouches.length-1].pageY;
+//            J_move_img.style.top = img_y+'px';
+//            J_move_img.style.left = img_x+'px';
+//        }
+
+
+    })()
+
+</script>
+</body>
+</html>
