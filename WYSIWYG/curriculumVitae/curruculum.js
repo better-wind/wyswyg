@@ -5,18 +5,98 @@
     var Curriculum = {
         init:function(){
             var self = this;
+            self.J_body = document.querySelector('body');
+            self.J_random_bg = document.querySelectorAll('.J_random_bg');
+            self.J_random_color = document.querySelectorAll('.J_random_color');
+
+            self.J_menuContain = document.querySelector('#menuContain');
+            self.J_menuItems = document.querySelectorAll('#menuContain div');
+            self.J_msg_wrap = document.querySelectorAll('.J_msg_wrap');
+
+            self.J_clock = document.querySelector('.J_clock');
+            self.J_sec = document.querySelector('.J_sec');
+            self.J_min = document.querySelector('.J_min');
+            self.J_hour = document.querySelector('.J_hour');
+
+            self.J_msg_title = document.querySelectorAll('.J_msg_title');
+
+            self.eventHanding();
             self.helloWord();
             self.loopCanvas();
             self.initClock();
             self.initMenu();
             self.initConsole();
             self.initRandomBackgroundFontColor();
+            self.initMenuView();
+            self.returnMenuCurrent();
 
+        },
+        eventHanding:function(){
+            var self = this,
+                _current_top,
+                _next_top,
+                _current;
+            self.J_count = 0;
+            window.addEventListener('scroll',function(){
+                if(self.J_count == 0){
+                    _current = self.returnMenuCurrent();
+                    _current_top = document.body.scrollTop;
+                }
+                if(self.J_count == 1){
+                    _next_top = document.body.scrollTop;
+                    self.J_body.style.overflow = 'hidden';
+                    self.initMenuMove(_current_top-_next_top,_current);
+                }
+                self.J_count++;
+            })
+
+        },
+        initMenuView:function(){
+            var self = this;
+            for(var i=0;i<self.J_msg_wrap.length;i++){
+                self.J_msg_wrap[i].style.height = document.documentElement.clientHeight+'px';
+            }
+
+
+        },
+        initMenuMove:function(_num,_index){
+            var self = this;
+            self.J_body.style.overflow = 'auto';
+            if(_num<0){
+                if(_index == self.J_msg_wrap.length-1){
+                    self.J_count = 0;
+                    return false;
+                }
+                else{
+                    self.scrollAnimate(self.J_msg_wrap[_index+1].offsetTop,800,function(){
+                        self.J_count = 0;
+                    })
+                }
+            }
+            if(_num > 0){
+                if(_index == 0){
+                    self.J_count = 0;
+                    return false;
+                }
+                else{
+                    self.scrollAnimate(self.J_msg_wrap[_index-1].offsetTop,800,function(){
+                        self.J_count = 0;
+                    })
+                }
+            }
+        },
+        returnMenuCurrent:function(){
+            var self = this,_current,_offsetTop;
+            for(var i =0;i<self.J_msg_title.length;i++){
+                _offsetTop = self.J_msg_title[i].offsetTop;
+                if((_offsetTop > document.body.scrollTop) && (_offsetTop < (document.body.scrollTop +document.documentElement.clientHeight))){
+                    _current = i;
+                }
+            }
+            return _current;
         },
         initRandomBackgroundFontColor:function(){
             var self = this;
-            self.J_random_bg = document.querySelectorAll('.J_random_bg');
-            self.J_random_color = document.querySelectorAll('.J_random_color');
             for(var i = 0,j=self.J_random_bg.length;i<j;i++){
                 self.J_random_bg[i].style.backgroundImage = '-webkit-linear-gradient('+Math.ceil(Math.random()*90)+'deg,'+self.randomColor()+' '+Math.random()*10+'%,transparent '+(60+Math.random()*30)+'%)'
             }
@@ -37,9 +117,6 @@
         },
         initMenu:function(){
             var self = this,index,_height;
-            self.J_menuContain = document.querySelector('#menuContain');
-            self.J_menuItems = document.querySelectorAll('#menuContain div');
-            self.J_msg_title = document.querySelectorAll('.J_msg_title');
             self.J_menuContain.addEventListener('mouseover',function(){
                 this.style.animationPlayState = 'paused';
             })
@@ -51,8 +128,7 @@
                 self.J_menuItems[i].style.color = self.randomColor();
                 self.J_menuItems[i].addEventListener('click',function(){
                     index = this.getAttribute('data-menu');
-                    console.log(self.J_msg_title[index].offsetTop);
-                    _height = self.J_msg_title[index].offsetTop;
+                    _height = self.J_msg_wrap[index].offsetTop;
                     self.scrollAnimate(_height,800)
                 })
             }
@@ -92,10 +168,6 @@
         },
         setClockTime:function(_sdeg,_mdeg,_hdeg){
             var self = this;
-            self.J_clock = document.querySelector('.J_clock');
-            self.J_sec = document.querySelector('.J_sec');
-            self.J_min = document.querySelector('.J_min');
-            self.J_hour = document.querySelector('.J_hour');
             self.J_sec.style.transform = 'rotate('+_sdeg+'deg)';
             self.J_min.style.transform = 'rotate('+_mdeg+'deg)';
             self.J_hour.style.transform = 'rotate('+_hdeg+'deg)';
@@ -113,11 +185,11 @@
                 j= 0,
                 setCanvasinterval;
             self.fixCanvas(i,j);
-                setCanvasinterval = setInterval(function(){
-                    i = Math.floor(Math.random()*10);
-                    j = Math.floor(Math.random()*10)
-                    self.fixCanvas(i,j);
-                },3000)
+            setCanvasinterval = setInterval(function(){
+                i = Math.floor(Math.random()*10);
+                j = Math.floor(Math.random()*10)
+                self.fixCanvas(i,j);
+            },3000)
         },
         fixCanvas:function(_i,_j){
             var self = this,
@@ -168,22 +240,41 @@
                     }
                 },150)
         },
-        scrollAnimate:function(h,t){
-            var count = 100,
-                time = t,scroll_height = '',count_time ='',count_height='',i = 0;
+        scrollAnimate:function(h,t,callack){
+            var count = 100,//循环次数
+                time = t,
+                scroll_height = '',//移动距离
+                count_time ='', //每次循环时间
+                count_height='',//每次循环移动距离
+                i = 1,  //循环
+                mod_count,//小数循环次数
+                mod_height, //小数每次循环距离
+                mod_count_height='';//小数需要移动距离
             if(h == 'last'){
                 scroll_height = document.body.scrollHeight-document.body.scrollTop;
             }else{
                 scroll_height = h-document.body.scrollTop;
             }
-            if(scroll_height < 0){
-                i = 1;
-            }
             count_time = time /count;
-            count_height = scroll_height/count;
+            count_height = parseInt(scroll_height/count);
+            mod_count_height = scroll_height%100;
+            mod_count = parseInt(mod_count_height / count_height)
+            mod_height = mod_count_height % count_height;
             var scroll = setInterval(function(){
                 if(i>count){
-                    clearInterval(scroll);
+                    if(i>(count+mod_count)){
+                        document.body.scrollTop += mod_height;
+                        if(callack){
+                            callack();
+                        }
+                        clearInterval(scroll);
+
+                    }
+                    else{
+                        document.body.scrollTop += count_height;
+                        i++;
+                    }
+
                 }else{
                     document.body.scrollTop += count_height;
                     i++;

@@ -55,6 +55,7 @@ body{
     -webkit-transition: transform 1000ms linear;
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
+    border-radius: 0 0 50% 50%;
 }
 .clock-wrap .clock .sec{
     height: 38px;
@@ -115,8 +116,9 @@ body{
     border-radius: 2px;
     text-align: center;
     line-height: 100px;
-    font-size: 24px;
+    font-size: 20px;
     background-color: rgba(255,255,255,1);
+    cursor: pointer;
 }
 .menu-wrap .contain .front{
     transform:translateZ(100px);
@@ -232,6 +234,7 @@ body{
 .view-wrap .msg-title{
     display: inline-block;
     line-height: 50px;
+    margin-top: 50px;
     padding: 5px 8px;
     font-size: 30px;
     /*background: -webkit-linear-gradient(left,rgb(217, 252, 79) 1%,transparent 100%);*/
@@ -239,6 +242,7 @@ body{
 }
 .view-wrap .msg-wrap{
     min-height: 500px;
+    box-shadow: 2px 0px 5px #000;
 }
 .view-wrap .personal-msg{
 
