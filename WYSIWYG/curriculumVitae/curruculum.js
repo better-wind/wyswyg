@@ -8,16 +8,13 @@
             self.J_body = document.querySelector('body');
             self.J_random_bg = document.querySelectorAll('.J_random_bg');
             self.J_random_color = document.querySelectorAll('.J_random_color');
-
             self.J_menuContain = document.querySelector('#menuContain');
             self.J_menuItems = document.querySelectorAll('#menuContain div');
             self.J_msg_wrap = document.querySelectorAll('.J_msg_wrap');
-
             self.J_clock = document.querySelector('.J_clock');
             self.J_sec = document.querySelector('.J_sec');
             self.J_min = document.querySelector('.J_min');
             self.J_hour = document.querySelector('.J_hour');
-
             self.J_msg_title = document.querySelectorAll('.J_msg_title');
             self.J_Menu_click_move = false;
             self.eventHanding();
@@ -133,7 +130,7 @@
                     self.J_Menu_click_move = true;
                     index = this.getAttribute('data-menu');
                     _height = self.J_msg_wrap[index].offsetTop;
-                    self.scrollAnimate(_height,800,function(){
+                    self.scrollAnimate(_height,400,function(){
                         self.J_Menu_click_move = false;
                         self.J_count = 0;
                     })

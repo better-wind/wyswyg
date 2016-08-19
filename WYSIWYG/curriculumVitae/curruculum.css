@@ -242,10 +242,15 @@ body{
 }
 .view-wrap .msg-wrap{
     min-height: 500px;
-    /*box-shadow: 2px 0px 5px #000;*/
 }
 .view-wrap .personal-msg{
 
+}
+.view-wrap .context-wrap{
+    margin:25px auto 0;
+    padding-left: 20px;
+    min-height: 500px;
+    border:1px solid #000;
 }
 
 
