@@ -33,7 +33,7 @@
 
             self.eventHanding();
             self.helloWord(); //标题逐字显示
-            self.loopCanvas(); //侧边万花
+            //self.loopCanvas(); //侧边万花
             self.initClock(); //时钟初始化
             self.initMenu(); //菜单初始化
             self.initConsole(); //console hello
@@ -134,7 +134,7 @@
             for(var i = 0,j=self.J_random_bg.length;i<j;i++){
                 self.J_random_bg[i].style.backgroundImage = '-webkit-linear-gradient('+Math.ceil(Math.random()*90)+'deg,'+self.randomColor()+' '+Math.random()*10+'%,transparent '+(10+Math.random()*30)+'%)'
             }
-            for(var n = 0,m=self.J_random_bg.length;n<m;n++){
+            for(var n = 0,m=self.J_random_color.length;n<m;n++){
                 self.J_random_color[n].style.color = self.randomColor();
             }
 
