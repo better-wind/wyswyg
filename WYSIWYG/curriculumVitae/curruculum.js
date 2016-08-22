@@ -6,26 +6,39 @@
         init:function(){
             var self = this;
             self.J_body = document.querySelector('body');
+            //获取需要随机改变背景颜色或字体颜色的元素
             self.J_random_bg = document.querySelectorAll('.J_random_bg');
             self.J_random_color = document.querySelectorAll('.J_random_color');
+
+
             self.J_menuContain = document.querySelector('#menuContain');
             self.J_menuItems = document.querySelectorAll('#menuContain div');
             self.J_msg_wrap = document.querySelectorAll('.J_msg_wrap');
+
+            //获取时分秒
             self.J_clock = document.querySelector('.J_clock');
             self.J_sec = document.querySelector('.J_sec');
             self.J_min = document.querySelector('.J_min');
             self.J_hour = document.querySelector('.J_hour');
+
+
             self.J_msg_title = document.querySelectorAll('.J_msg_title');
+
+            /*
+            * self.J_Menu_click_move标志是否是点击css3立方体跳珠
+            * true 不触发全屏滚动
+            * false 触发
+            * */
             self.J_Menu_click_move = false;
+
             self.eventHanding();
-            self.helloWord();
-            self.loopCanvas();
-            self.initClock();
-            self.initMenu();
-            self.initConsole();
-            self.initRandomBackgroundFontColor();
-            self.initMenuView();
-            self.returnMenuCurrent();
+            self.helloWord(); //标题逐字显示
+            self.loopCanvas(); //侧边万花
+            self.initClock(); //时钟初始化
+            self.initMenu(); //菜单初始化
+            self.initConsole(); //console hello
+            self.initRandomBackgroundFontColor(); //随机背景颜色或字体颜色
+            self.initMenuView(); //个人信息栏初始化
 
         },
         eventHanding:function(){
@@ -33,6 +46,10 @@
                 _current_top,
                 _next_top,
                 _current;
+            /*
+            * 全局滚动计数 每次滚动结束后 设为0
+            * 每次滚动时 自++ 获取 0 和 1 状态市的scrollTop值，来判断是向上滚还是向下滚 用以实现全屏滚动
+            * */
             self.J_count = 0;
             window.addEventListener('scroll',function(){
                 if(self.J_count == 0){
@@ -50,12 +67,21 @@
             })
 
         },
+        /*
+        * 初始化 各个菜单页面高度为当前可是区域高度即全屏
+        * */
         initMenuView:function(){
             var self = this;
             for(var i=0;i<self.J_msg_wrap.length;i++){
                 self.J_msg_wrap[i].style.height = document.documentElement.clientHeight+'px';
             }
         },
+        /*
+        * 实现菜单页全屏滚动
+        * _num 用来判断滚动方向 _num >0 向上  _num <0 向下
+        * _index 当前 可视区域内 菜单页列表下表
+        * */
+
         initMenuMove:function(_num,_index){
             var self = this;
             self.J_body.style.overflow = 'auto';
@@ -85,6 +111,10 @@
                 self.J_count = 0;
             }
         },
+
+        /*
+        * 获取当前那个菜单也处于屏幕可是区域内
+        * */
         returnMenuCurrent:function(){
             var self = this,_current,_offsetTop;
             for(var i =0;i<self.J_msg_title.length;i++){
@@ -95,6 +125,10 @@
             }
             return _current;
         },
+
+        /*
+         * 设置随机背景颜色
+         * */
         initRandomBackgroundFontColor:function(){
             var self = this;
             for(var i = 0,j=self.J_random_bg.length;i<j;i++){
@@ -105,6 +139,10 @@
             }
 
         },
+
+        /*
+         * 设置console
+         * */
         initConsole:function(){
             console.log('%c       ---      ---      --- --------      ---               ---               --- ---- ---','background: #222; color: #bada55;');
             console.log('%c      ---      ---      --- --------      ---               ---               --- ---- --- ','background: #222; color: #bada55');
@@ -115,6 +153,13 @@
             console.log('%c ---      ---      --- --------      --- --------      --- --------      --- ---- ---      ','background: #222; color: #bada55');
             console.log('%c---      ---      --- --------      --- --------      --- --------      --- ---- ---       ','background: #222; color: #bada55');
         },
+
+        /*
+         * css3菜单点击跳转
+         * 点击对应面获取下标跳到对应的菜单
+         * mouseover时css3动画停止
+         * mouseleave时css开始
+         * */
         initMenu:function(){
             var self = this,index,_height;
             self.J_menuContain.addEventListener('mouseover',function(){
@@ -137,6 +182,15 @@
                 })
             }
         },
+
+        /*
+         * 时钟初始化
+         * 获取当前时分秒 转换成对应的角度值
+         * s 60 对应 360
+         * m 60 对应 360
+         * h 24 对应 360
+         * 设定定时 s++ 时分秒时钟对应转动相应角度
+         * */
         initClock:function(){
             var self = this,
                 _date = new Date(),
@@ -170,6 +224,13 @@
                 self.setClockTime(_sdeg,_mdeg,_hdeg);
             },1000)
         },
+
+        /*
+         * 时钟角度赋值
+         * _sdeg 秒数角度
+         * _mdeg 分钟角度
+         * _hdeg 时钟角度
+         * */
         setClockTime:function(_sdeg,_mdeg,_hdeg){
             var self = this;
             self.J_sec.style.transform = 'rotate('+_sdeg+'deg)';
@@ -183,6 +244,11 @@
             //self.J_min.style.backgroundColor = self.randomColor();
             //self.J_hour.style.backgroundColor = self.randomColor();
         },
+
+        /*
+         * 侧边万花canvas定时
+         * 3000ms 执行一次
+         * */
         loopCanvas:function(){
             var self = this,
                 i= 0,
@@ -195,6 +261,11 @@
                 self.fixCanvas(i,j);
             },3000)
         },
+
+        /*
+         * 侧边万花初始化
+         * _i,_j 0~10 的随机数 用来随机万花显示样式
+         * */
         fixCanvas:function(_i,_j){
             var self = this,
                 clientHeight = document.documentElement.clientHeight,
@@ -225,9 +296,17 @@
                 }
             }
         },
+
+        /*
+         * 生成随机16进制颜色值
+         * */
         randomColor:function(){
             return '#' + ('00000' + ((Math.random()+1) * 0xAAAAAA << 0).toString(16)).slice(-6);
         },
+
+        /*
+         * 逐字显示
+         * */
         helloWord:function(){
             var self = this,
                 hour = new Date().getHours(),
@@ -244,6 +323,15 @@
                     }
                 },150)
         },
+
+        /*
+         * 滚动显示动画
+         * h 需要滚动到的值
+         * t 滚动的时间
+         * callback 滚动完成后的回调
+         * 此方法 讲需要滚动的高度h和时间t都除与一个基数n（方法中为100） 设定一个定时 每 t/n 时间执行一次，每次滚动 h/n的高度
+         * 需要注意 h/n 会有小数问题 document.body.scrollTop 用小数赋值 会默认去整 需要对小数特殊处理
+         * */
         scrollAnimate:function(h,t,callack){
             var count = 100,//循环次数
                 time = t,
