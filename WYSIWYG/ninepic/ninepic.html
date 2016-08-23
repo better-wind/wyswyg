@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="baidu-site-verification" content="vwQwlikFnE" />
+    <meta name="Keywords" content="想去,想去网,设计师,原创手工,独立设计,生活美学,手工饰品,文艺,创意,淘宝,木与石,造物者,理想国,手作,设计品,买手,独特,小清新,高逼格,iphone,想去看看,世界那么大">
+    <meta name="Description" content="想去网，国内首个汇集全球高品质、原创设计的电商应用。很多独立设计师、手工匠人、时尚买手汇聚于此。为追求美、独特、设计甚至灵感的用户去挖掘全世界的原创设计、暖心手作，包括vintage、森系、文艺、清新、朋克、唐装、汉服、创意家居、独立设计师、纯手工手作、手工饰品、手工皮具、时尚设计大牌、小众奢侈品牌、孤品、古着、收藏品，艺术商品等。想去网更汇聚国内外设计师，可为你量身定制出世界上专属于你的作品。">
+    <meta name="robots" content="all"/>
+    <meta name="author" content="想去，xiangqu.com"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <script>
+        (function(){
+            function RemInit(){
+                var dpr, rem, scale;
+                var docEl = window.document.documentElement;
+                var bodyEl = window.document.body;
+                var metaEl = window.document.querySelector('meta[name="viewport"]');
+                var psdWidth = 640/100;
+                var isAndroid = navigator.userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+                dpr = window.devicePixelRatio || 1;
+                dpr = 1;
+                if(navigator.userAgent.indexOf('xiangqu')>-1 && navigator.userAgent.indexOf('Android')>-1){
+                    var setWidthTime = setInterval(function(){
+                        if(docEl.clientWidth>0){
+                            clearInterval(setWidthTime);
+                        }
+                    },100)
+                }
+                rem = docEl.clientWidth * dpr / psdWidth;
+                docEl.style.fontSize = rem +'px'
+                docEl.setAttribute('data-dpr', dpr);
+                scale = 1 / dpr;
+                metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+                window.dpr = dpr;
+                window.rem = rem;
+                window.addEventListener('resize',function(){
+                    rem = docEl.clientWidth * dpr / psdWidth;
+                    docEl.style.fontSize = rem +'px'
+                })
+            }
+            RemInit();
+        })()
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #nineWrap{
+            position: relative;
+            width: 6rem;
+            height: 6rem;
+            background-color: #EEE;
+            margin:.2rem auto;
+        }
+        #nineWrap .pic-wrap{
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            box-sizing: border-box;
+            border:1px solid #AAA;
+            transition: all 300ms linear;
+            text-align: center;
+            line-height: 2rem;
+        }
+        .pic-wrap1{
+            top:0;
+            left:2rem;
+        }
+        .pic-wrap2{
+            top:0;
+            left:4rem;
+        }
+        .pic-wrap3{
+            top:2rem;
+            left:0;
+        }
+        .pic-wrap4{
+            top:2rem;
+            left:2rem;
+        }
+        .pic-wrap5{
+            top:2rem;
+            left:4rem;
+        }
+        .pic-wrap6{
+            top:4rem;
+            left:0;
+        }
+        .pic-wrap7{
+            top:4rem;
+            left:2rem;
+        }
+        .pic-wrap8{
+            top:4rem;
+            left:4rem;
+        }
+        #countWrap{
+            width: 3rem;
+            height: 3rem;
+            margin:.3rem auto;
+            text-align: center;
+            line-height: 3rem;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <section id="nineWrap">
+        <div class="pic-wrap pic-wrap0" data-id="0">1</div>
+        <div class="pic-wrap pic-wrap1" data-id="1">2</div>
+        <div class="pic-wrap pic-wrap2" data-id="2">3</div>
+        <div class="pic-wrap pic-wrap3" data-id="3">4</div>
+        <div class="pic-wrap pic-wrap4" data-id="4">5</div>
+        <div class="pic-wrap pic-wrap5" data-id="5">6</div>
+        <div class="pic-wrap pic-wrap6" data-id="6">7</div>
+        <div class="pic-wrap pic-wrap7" data-id="7">8</div>
+    </section>
+    <section id="countWrap">
+        <span id="countMove">0</span>次
+    </section>
+
+<script>
+    (function(){
+        var NineModule = {
+            init:function(){
+                var self = this;
+                self.J_nineWrap = document.querySelector('#nineWrap');
+                self.J_pic_wrap = document.querySelectorAll('.pic-wrap');
+                self.J_countMove = document.querySelector('#countMove');
+                self.J_count = 0;
+                self.initNinePic();
+                self.initRandomBackgroundFontColor();
+                self.eventHanding();
+//                self.checkMove(4);
+            },
+            eventHanding:function(){
+                var self = this;
+                self.ninePicMove();
+
+            },
+            initRandomBackgroundFontColor:function(){
+                var self = this;
+                for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
+                    self.J_pic_wrap[i].style.background = self.randomColor();
+                    self.J_pic_wrap[i].style.color = self.randomColor();
+                }
+
+            },
+            randomColor:function(){
+                return '#' + ('00000' + ((Math.random()+1) * 0xAAAAAA << 0).toString(16)).slice(-6);
+            },
+            initNinePic:function(){
+                var self = this,
+                        arr=[1,2,3,4,5,6,7,8],
+                        shufflearr;
+                Array.prototype.shuffle = function(n){
+                    var len = this.length,num = n ? Math.min(n,len) : len,index,
+                            arr = this.slice(0),temp,
+                            lib = {};
+                    lib.range = function(min,max){
+                        return min + Math.floor(Math.random()*(max-min+1))
+                    }
+                    for(var i =0;i<len;i++){
+                        index = lib.range(i,len-1);
+                        temp = arr[i];
+                        arr[i] = arr[index];
+                        arr[index] = temp;
+                    }
+                    return arr.slice(0,num);
+                }
+                shufflearr = arr.shuffle();
+                for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
+                    self.J_pic_wrap[i].innerText = shufflearr[i];
+                }
+            },
+            ninePicMove:function(){
+                var self = this;
+                var x_start,x_end,y_start,y_end,current;
+                for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
+                    self.J_pic_wrap[i].addEventListener('touchstart',function(e){
+                        x_start = e.changedTouches[0].clientX;
+                        y_start = e.changedTouches[0].clientY;
+                        current = this.getAttribute('data-id');
+//                        console.log(x_start+','+y_start);
+                    },false)
+                    self.J_pic_wrap[i].addEventListener('touchend',function(e){
+                        x_end = e.changedTouches[0].clientX;
+                        y_end = e.changedTouches[0].clientY;
+//                        console.log(x_end+','+y_end);
+                        self.currentMove(x_end-x_start,y_end-y_start,current);
+                    },false)
+                }
+            },
+            currentMove:function(x,y,index){
+                var self = this,_move,_edge = 20;
+                var moveobj = self.checkMove(index);
+//                console.log(moveobj);
+//                console.log(x+','+y)
+                if(Math.abs(x) >= Math.abs(y)){
+                    if(x>0 && Math.abs(x) > _edge){
+                        _move = 'right';
+                    }else if(x<0 && Math.abs(x) > _edge){
+                        _move = 'left';
+                    }
+                }
+                else{
+                    if(y>0 && Math.abs(y) > _edge){
+                        _move = 'bottom';
+                    }else if(y<0 && Math.abs(y) > _edge){
+                        _move = 'top';
+                    }
+                }
+//                console.log(_move);
+//                console.log(moveobj[_move]);
+               if(moveobj[_move]){
+//                   console.log(_move);
+                   self.moveActive(_move,index);
+               }
+//                console.log(x+','+y+','+index);
+            },
+            checkMove:function(index){
+                var self = this,obj={
+                            left:true,
+                            right:true,
+                            top:true,
+                            bottom:true
+                        },
+                        setTop = self.J_pic_wrap[index].offsetTop,
+                        setLeft = self.J_pic_wrap[index].offsetLeft,
+                        setWidth = self.J_pic_wrap[index].offsetWidth,
+                        setHeight = self.J_pic_wrap[index].offsetHeight,
+                        _left,
+                        _top,
+                        _width,
+                        _height,
+                        edge_left = 0,
+                        edge_right = self.J_nineWrap.offsetWidth,
+                        edge_top = 0,
+                        edge_bottom = self.J_nineWrap.offsetHeight;
+                for(var i= 0,j=self.J_pic_wrap.length;i<j;i++){
+                    _left = self.J_pic_wrap[i].offsetLeft;
+                    _top = self.J_pic_wrap[i].offsetTop;
+                    _width = self.J_pic_wrap[i].offsetWidth;
+                    _height = self.J_pic_wrap[i].offsetHeight;
+//                    console.log(_left+','+_top+','+_width+','+_height);
+//                    console.log(setLeft+','+','+setTop+','+setWidth+','+setHeight);
+                    if(setLeft == edge_left ||( _top == setTop && _left+_width == setLeft )){
+                        obj.left = false;
+                    }
+                    if(setLeft+setWidth == edge_right ||  (_top == setTop && _left == setLeft+setWidth)){
+                        obj.right = false;
+                    }
+                    if(setTop == edge_top || (_left == setLeft && _top+_height == setTop)){
+                        obj.top = false;
+                    }
+                    if(setTop+setHeight == edge_bottom ||( _left == setLeft && _top == setTop+setHeight)){
+                        obj.bottom = false;
+                    }
+                }
+//                console.log(obj);
+                return obj;
+            },
+            moveActive:function(active,index){
+                var self = this,
+                        setTop = self.J_pic_wrap[index].offsetTop,
+                        setLeft = self.J_pic_wrap[index].offsetLeft,
+                        setWidth = self.J_pic_wrap[index].offsetWidth,
+                        setHeight = self.J_pic_wrap[index].offsetHeight;
+                if(active == 'right'){
+                    self.J_pic_wrap[index].style.left = setLeft+setWidth+'px';
+                }
+                if(active == 'left'){
+                    self.J_pic_wrap[index].style.left = setLeft-setWidth+'px';
+                }
+                if(active == 'top'){
+                    self.J_pic_wrap[index].style.top = setTop-setHeight+'px';
+                }
+                if(active == 'bottom'){
+                    self.J_pic_wrap[index].style.top = setTop+setHeight+'px';
+                }
+                self.J_countMove.innerText = ++self.J_count;
+            }
+        }
+        NineModule.init();
+    })()
+</script>
+</body>
+</html>
