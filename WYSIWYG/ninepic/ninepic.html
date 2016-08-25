@@ -32,7 +32,7 @@
                     },100)
                 }
                 rem = docEl.clientWidth * dpr / psdWidth;
-                docEl.style.fontSize = rem +'px'
+                docEl.style.fontSize = Math.round(rem) +'px'
                 docEl.setAttribute('data-dpr', dpr);
                 scale = 1 / dpr;
                 metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
@@ -62,11 +62,16 @@
             position: absolute;
             width: 2rem;
             height: 2rem;
-            box-sizing: border-box;
-            border:1px solid #AAA;
+            /*box-sizing: border-box;*/
+            /*border:1px solid #AAA;*/
             transition: all 300ms linear;
             text-align: center;
             line-height: 2rem;
+            font-size: 12px;
+        }
+        .pic-wrap0{
+            top:0;
+            left:0rem;
         }
         .pic-wrap1{
             top:0;
@@ -102,27 +107,40 @@
         }
         #countWrap{
             width: 3rem;
-            height: 3rem;
-            margin:.3rem auto;
+            margin:.3rem auto 0;
             text-align: center;
-            line-height: 3rem;
             font-size: 24px;
+        }
+        #sumbitBt{
+            width: 3rem;
+            line-height: .5rem;
+            border:1px solid #000;
+
         }
     </style>
 </head>
 <body>
     <section id="nineWrap">
-        <div class="pic-wrap pic-wrap0" data-id="0">1</div>
-        <div class="pic-wrap pic-wrap1" data-id="1">2</div>
-        <div class="pic-wrap pic-wrap2" data-id="2">3</div>
-        <div class="pic-wrap pic-wrap3" data-id="3">4</div>
-        <div class="pic-wrap pic-wrap4" data-id="4">5</div>
-        <div class="pic-wrap pic-wrap5" data-id="5">6</div>
-        <div class="pic-wrap pic-wrap6" data-id="6">7</div>
-        <div class="pic-wrap pic-wrap7" data-id="7">8</div>
+        <!--<div class="pic-wrap pic-wrap0" data-id="0">1</div>-->
+        <!--<div class="pic-wrap pic-wrap1" data-id="1">2</div>-->
+        <!--<div class="pic-wrap pic-wrap2" data-id="2">3</div>-->
+        <!--<div class="pic-wrap pic-wrap3" data-id="3">4</div>-->
+        <!--<div class="pic-wrap pic-wrap4" data-id="4">5</div>-->
+        <!--<div class="pic-wrap pic-wrap5" data-id="5">6</div>-->
+        <!--<div class="pic-wrap pic-wrap6" data-id="6">7</div>-->
+        <!--<div class="pic-wrap pic-wrap7" data-id="7">8</div>-->
+        <div class="pic-wrap pic-wrap0" data-id="0"></div>
+        <div class="pic-wrap pic-wrap1" data-id="1"></div>
+        <div class="pic-wrap pic-wrap2" data-id="2"></div>
+        <div class="pic-wrap pic-wrap3" data-id="3"></div>
+        <div class="pic-wrap pic-wrap4" data-id="4"></div>
+        <div class="pic-wrap pic-wrap5" data-id="5"></div>
+        <div class="pic-wrap pic-wrap6" data-id="6"></div>
+        <div class="pic-wrap pic-wrap7" data-id="7"></div>
     </section>
     <section id="countWrap">
         <span id="countMove">0</span>次
+        <button id="sumbitBt"> 提交 </button>
     </section>
 
 <script>
@@ -133,6 +151,7 @@
                 self.J_nineWrap = document.querySelector('#nineWrap');
                 self.J_pic_wrap = document.querySelectorAll('.pic-wrap');
                 self.J_countMove = document.querySelector('#countMove');
+                self.J_sumbitBt = document.querySelector('#sumbitBt');
                 self.J_count = 0;
                 self.initNinePic();
                 self.initRandomBackgroundFontColor();
@@ -142,13 +161,16 @@
             eventHanding:function(){
                 var self = this;
                 self.ninePicMove();
+                self.J_sumbitBt.addEventListener('click',function(){
+                    self.sumbitNinePic();
+                },false)
 
             },
             initRandomBackgroundFontColor:function(){
                 var self = this;
                 for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
-                    self.J_pic_wrap[i].style.background = self.randomColor();
-                    self.J_pic_wrap[i].style.color = self.randomColor();
+//                    self.J_pic_wrap[i].style.background = self.randomColor();
+//                    self.J_pic_wrap[i].style.color = self.randomColor();
                 }
 
             },
@@ -175,8 +197,16 @@
                     return arr.slice(0,num);
                 }
                 shufflearr = arr.shuffle();
+                self.successShuffle = shufflearr;
                 for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
-                    self.J_pic_wrap[i].innerText = shufflearr[i];
+//                    self.J_pic_wrap[i].innerText = shufflearr[i];
+//                    console.log(shufflearr[i]+','+Math.floor((shufflearr[i]-1)/3));
+//                    console.log(shufflearr[i]+','+shufflearr[i]%3+','+(shufflearr[i]%3+2)+','+Math.floor((shufflearr[i]%3+2)%3));
+                    self.J_pic_wrap[i].style.background = 'url("pic2.jpg") no-repeat -'+Math.floor((shufflearr[i]%3+2)%3)+'rem -'+Math.floor((shufflearr[i]-1)/3)*2+'rem/6rem 6rem'
+//                    background: url('pic2.jpg') no-repeat 0rem -2rem/6rem 6rem;
+//                    self.J_pic_wrap[i].innerText = self.J_pic_wrap[i].offsetTop + '<br />'+self.J_pic_wrap[i].offsetWidth
+                    self.J_pic_wrap[i].setAttribute('shuffle-id',shufflearr[i]);
+//
                 }
             },
             ninePicMove:function(){
@@ -184,12 +214,15 @@
                 var x_start,x_end,y_start,y_end,current;
                 for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
                     self.J_pic_wrap[i].addEventListener('touchstart',function(e){
+                        e.preventDefault();
                         x_start = e.changedTouches[0].clientX;
                         y_start = e.changedTouches[0].clientY;
                         current = this.getAttribute('data-id');
+//                        console.log(current)
 //                        console.log(x_start+','+y_start);
                     },false)
                     self.J_pic_wrap[i].addEventListener('touchend',function(e){
+                        e.preventDefault();
                         x_end = e.changedTouches[0].clientX;
                         y_end = e.changedTouches[0].clientY;
 //                        console.log(x_end+','+y_end);
@@ -200,7 +233,7 @@
             currentMove:function(x,y,index){
                 var self = this,_move,_edge = 20;
                 var moveobj = self.checkMove(index);
-//                console.log(moveobj);
+                console.log(moveobj.left+','+moveobj.right+','+moveobj.top+','+moveobj.bottom);
 //                console.log(x+','+y)
                 if(Math.abs(x) >= Math.abs(y)){
                     if(x>0 && Math.abs(x) > _edge){
@@ -224,7 +257,6 @@
                }
 //                console.log(x+','+y+','+index);
             },
-            //有问题
             checkMove:function(index){
                 var self = this,obj={
                             left:true,
@@ -286,7 +318,14 @@
                     self.J_pic_wrap[index].style.top = setTop+setHeight+'px';
                 }
                 self.J_countMove.innerText = ++self.J_count;
-            }
+            },
+            sumbitNinePic:function(){
+                var self = this,currentArr;
+                for(var i= 0,j=self.J_pic_wrap.length;i<j;i++){
+                    console.log(self.J_pic_wrap[i].getAttribute('shuffle-id'));
+                }
+
+            },
         }
         NineModule.init();
     })()
