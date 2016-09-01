@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简历</title>
+    <!--<link rel="stylesheet" href="curruculum2.css"/>-->
+    <style>@charset "UTF-8";body,p,ul{padding:0;margin:0}body{background-color:#fff;background-image:linear-gradient(#eee .1em,transparent .1em);background-size:100% 1.2em;font-family:arial,verdana}.wrap{position:relative;width:100%;height:100%}.fix-cover,.fix-wrap{position:fixed;top:0;left:0;height:100%}.fix-wrap{width:80px}.fix-cover{width:80px;background-color:transparent}.clock-wrap{position:absolute;top:45px;left:180px;width:80px;height:80px}.clock-wrap .clock{position:relative;width:80px;height:80px;border-width:2px;border-style:solid;border-radius:50%}.clock-wrap .clock div{position:absolute;width:2px;left:39px;transition:transform 1s linear;-webkit-transition:transform 1s linear;transform:rotate(0);-webkit-transform:rotate(0);border-radius:0 0 50% 50%}.clock-wrap .clock .sec{height:38px;top:2px;transform-origin:0 38px;-webkit-transform-origin:0 38px}.clock-wrap .clock .min{height:32px;top:8px;transform-origin:0 32px;-webkit-transform-origin:0 32px}.clock-wrap .clock .hour{height:26px;top:14px;transform-origin:0 26px;-webkit-transform-origin:0 26px}.menu-wrap{position:fixed;top:20px;right:180px;width:150px;height:150px;perspective:1500px}.menu-wrap .contain{position:relative;width:150px;height:150px;transform-style:preserve-3d;transform-origin:50% 50% 50px;transform:rotateY(2deg);animation:menurotate 15s linear infinite}@keyframes menurotate{0%{transform:rotateX(0) rotateY(0) rotateZ(0)}50%{transform:rotateX(360deg) rotateY(180deg) rotateZ(0)}100%{transform:rotateX(360deg) rotateY(360deg) rotateZ(360deg)}}.menu-wrap .contain div{position:absolute;top:25px;left:25px;width:100px;height:100px;box-sizing:border-box;border:1px solid #000;border-radius:2px;text-align:center;line-height:100px;font-size:20px;background-color:#fff;cursor:pointer}.menu-wrap .contain .front{transform:translateZ(100px)}.menu-wrap .contain .behind{transform:rotateY(-180deg)}.menu-wrap .contain .left{transform:rotateY(-90deg);transform-origin:left}.menu-wrap .contain .right{transform:rotateY(90deg);transform-origin:right}.menu-wrap .contain .top{transform:rotateX(90deg);transform-origin:top}.menu-wrap .contain .bottom{transform:rotateX(-90deg);transform-origin:bottom}.nav-wrap{width:980px;margin:0 auto;text-align:center}.nav-wrap h1{display:inline-block;font-size:14px;line-height:28px;color:#8699A0;text-shadow:0 0 1px #758890;margin:50px auto;outline:0;padding:14px 30px;position:relative;text-transform:uppercase;box-shadow:0 0 30px 0 rgba(0,0,0,.1),0 36px 0 -18px #fff}.nav-wrap h1:after,.nav-wrap h1:before{content:'';height:0;position:absolute;z-index:-1}.nav-wrap h1:before{top:18px;left:-15%;width:130%;border:28px solid transparent;border-left:28px solid rgba(255,255,255,.9);border-right:28px solid rgba(255,255,255,.9)}.nav-wrap h1:after{width:100%;top:100%;left:0;border-top:18px solid #99acb2;border-left:18px solid transparent;border-right:18px solid transparent}.nav-wrap h1,.nav-wrap h1:before{background-image:linear-gradient(transparent 8%,rgba(0,0,0,.1) 8%,rgba(0,0,0,.1) 14%,transparent 14%,transparent 86%,rgba(0,0,0,.1) 86%,rgba(0,0,0,.1) 92%,transparent 92%),linear-gradient(rgba(255,255,255,.75),rgba(255,255,255,0)),linear-gradient(45deg,transparent 40%,rgba(0,0,0,.1) 40%,rgba(0,0,0,.1) 60%,transparent 60%),linear-gradient(white,#fff);background-size:cover,cover,4px 4px,cover}.nav-wrap h1,.nav-wrap h1:after,.nav-wrap h1:before{box-sizing:border-box;background-origin:border-box}.name-wrap{width:980px;margin:0 auto;font-size:40px;font-weight:700;line-height:50px;border-bottom:5px solid #000}.view-wrap{width:980px;margin:0 auto 20px}.view-wrap .msg-title{display:inline-block;line-height:50px;margin-top:50px;padding:5px 8px;font-size:30px;border-radius:5px}.view-wrap .msg-wrap{min-height:500px}.view-wrap .context-wrap{margin:25px auto 0;padding:20px 0 0 20px}.view-wrap .context-wrap p.content-paragraph{font-size:24px;line-height:40px;text-indent:2rem;text-justify:auto}.view-wrap .context-wrap p.content-column{font-size:24px;line-height:40px}.view-wrap .context-wrap p.content-column-pm{margin:100px 0 0 50px}.view-wrap .context-wrap .clo-t span{display:inline-block;width:350px}.view-wrap .context-wrap .clo-f span{display:inline-block;width:200px}.view-wrap .context-wrap span.span-one{display:inline-block;width:500px}</style>
+</head>
+<body>
+<section class="wrap">
+    <!--canvas侧边万花-->
+    <section class="fix-wrap">
+        <canvas id="fixCanvas"></canvas>
+    </section>
+    <section class="fix-cover">
+
+    </section>
+    <!--css3时钟-->
+    <!--<section class="clock-wrap">-->
+        <!--<div class="clock J_clock">-->
+            <!--<div class="sec J_sec"></div>-->
+            <!--<div class="min J_min"></div>-->
+            <!--<div class="hour J_hour"></div>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--css3立方体菜单-->
+    <section class="menu-wrap">
+        <div class="contain" id="menuContain">
+            <div class="front" data-menu="0">基本资料</div>
+            <div class="behind" data-menu="1">教育背景</div>
+            <div class="left" data-menu="2">实习经验</div>
+            <div class="right" data-menu="3">求职意向</div>
+            <div class="top" data-menu="4">自我评价</div>
+            <div class="bottom" data-menu="5">其他技能</div>
+        </div>
+
+    </section>
+    <!--css3标题-->
+    <section class="nav-wrap">
+        <h1 id="HelloWord">Loading now</h1>
+    </section>
+    <!--个人信息-->
+    <section class="view-wrap">
+        <div class=" msg-wrap J_msg_wrap">
+            <div class="msg-title J_msg_title J_random_color J_random_bg">基本资料</div>
+            <div class="context-wrap">
+
+                <p class="content-column clo-t content-column-pm">
+                    <span>姓名：陈薇</span><br />
+                    <span>性别：女</span><span>出生年月：1993.08</span><br />
+                    <span>联系电话：135-8823-5793</span><span>E-mail：1172998431@qq.com</span>
+                </p>
+
+            </div>
+        </div>
+        <div class="msg-wrap J_msg_wrap">
+            <div class="msg-title J_msg_title J_random_color J_random_bg">教育背景</div>
+            <div class="context-wrap">
+                <p class="content-column clo-f content-column-pm">
+                    <span>2015.9-2017</span><span>杭州电子科技大学</span><span>软件工程</span><span>本科</span><br />
+                    <span>2012.9-2015.6</span><span>衢州学院</span><span>计算机应用技术</span><span>专科</span><br />
+                    <span class="span-one">▲ 英语水平： CET-4（452）</span>
+                </p>
+
+            </div>
+        </div>
+        <div class="msg-wrap J_msg_wrap">
+            <div class="msg-title J_msg_title J_random_color J_random_bg">在校经历及实习经验</div>
+            <div class="context-wrap">
+                <p class="content-column content-column-pm">
+                    <span></span>
+                    <span>1.2013年校级大学生程序设计竞赛二等奖（C语言）（衢州学院）</span><br />
+                    <span>2.多次获得奖学金。</span><br />
+                    <span>3.宁波鄞州万达左右沙发导购。</span><br />
+                </p>
+            </div>
+        </div>
+        <div class="msg-wrap J_msg_wrap">
+            <div class="msg-title J_msg_title J_random_color J_random_bg">求职意向</div>
+            <div class="context-wrap">
+                <p class="content-column content-column-pm">
+                    <span>希望找到一份前端开发实习生的工作，有一学年的实习时间。</span> <br />
+                </p>
+            </div>
+        </div>
+        <div class="msg-wrap J_msg_wrap">
+            <div class="msg-title J_msg_title J_random_color J_random_bg">自我评价</div>
+            <div class="context-wrap">
+                <p class="content-column">
+                    <span>1.17届毕业生。</span> <br />
+                    <span>2.熟悉html、html5。</span> <br />
+                    <span>3.熟悉css、css3及less和sass css预处理语言。</span> <br />
+                    <span>4.熟悉原生js、zepto和jquery。</span> <br />
+                    <span>5.了解并会运用gulp工具。</span> <br />
+                    <span>6.对node有一定了解。</span> <br />
+                    <span>7.了解git版本控制。</span> <br />
+                </p>
+            </div>
+        </div>
+        <div class="msg-wrap J_msg_wrap">
+            <div class="msg-title J_msg_title J_random_color J_random_bg">其他技能</div>
+            <div class="context-wrap">
+                <p class="content-column content-column-pm">
+                    <span>1.熟悉ios，了解一点object-c的知识。</span> <br />
+                    <span>2.熟悉ps。</span> <br />
+                </p>
+            </div>
+        </div>
+    </section>
+</section>
+<!--<script src="curruculum2.js"></script>-->
+<script>!function(){var o={init:function(){var o=this;o.J_body=document.querySelector("body"),o.J_random_bg=document.querySelectorAll(".J_random_bg"),o.J_random_color=document.querySelectorAll(".J_random_color"),o.J_random_border=document.querySelectorAll(".J_random_border"),o.J_menuContain=document.querySelector("#menuContain"),o.J_menuItems=document.querySelectorAll("#menuContain div"),o.J_msg_wrap=document.querySelectorAll(".J_msg_wrap"),o.J_clock=document.querySelector(".J_clock"),o.J_sec=document.querySelector(".J_sec"),o.J_min=document.querySelector(".J_min"),o.J_hour=document.querySelector(".J_hour"),o.J_msg_title=document.querySelectorAll(".J_msg_title"),o.J_Menu_click_move=!1,o.eventHanding(),o.helloWord(),o.initMenu(),o.initConsole(),o.initRandomBackgroundFontColor(),o.initMenuView()},eventHanding:function(){var o,e,n,t=this;t.J_count=0,window.addEventListener("scroll",function(){0==t.J_count&&(n=t.returnMenuCurrent(),o=document.body.scrollTop),1==t.J_count&&(t.J_Menu_click_move||(e=document.body.scrollTop,t.J_body.style.overflow="hidden",t.initMenuMove(o-e,n))),t.J_count++})},initMenuView:function(){for(var o=this,e=0;e<o.J_msg_wrap.length;e++)o.J_msg_wrap[e].style.height=document.documentElement.clientHeight+"px"},initMenuMove:function(o,e){var n=this;if(n.J_body.style.overflow="auto",0>o){if(e==n.J_msg_wrap.length-1)return n.J_count=0,!1;n.scrollAnimate(n.J_msg_wrap[e+1].offsetTop,400,function(){n.J_count=0})}else if(o>0){if(0==e)return n.J_count=0,!1;n.scrollAnimate(n.J_msg_wrap[e-1].offsetTop,400,function(){n.J_count=0})}else n.J_count=0},returnMenuCurrent:function(){for(var o,e,n=this,t=0;t<n.J_msg_title.length;t++)e=n.J_msg_title[t].offsetTop,e>document.body.scrollTop&&e<document.body.scrollTop+document.documentElement.clientHeight&&(o=t);return o},initRandomBackgroundFontColor:function(){for(var o=this,e=0,n=o.J_random_bg.length;n>e;e++)o.J_random_bg[e].style.backgroundImage="-webkit-linear-gradient("+Math.ceil(90*Math.random())+"deg,"+o.randomColor()+" "+10*Math.random()+"%,transparent "+(10+30*Math.random())+"%)";for(var t=0,r=o.J_random_color.length;r>t;t++)o.J_random_color[t].style.color=o.randomColor();for(var l=0,c=o.J_random_border.length;c>l;l++)o.J_random_border[l].style.borderColor=o.randomColor()},initConsole:function(){console.log("%c       ---      ---      --- --------      ---               ---               --- ---- ---","background: #222; color: #bada55;"),console.log("%c      ---      ---      --- --------      ---               ---               --- ---- --- ","background: #222; color: #bada55"),console.log("%c     ---      ---      ---               ---               ---               ---      ---  ","background: #222; color: #bada55"),console.log("%c    --- ---- ---      --- --------      ---               ---               ---      ---   ","background: #222; color: #bada55"),console.log("%c   --- ---- ---      --- --------      ---               ---               ---      ---    ","background: #222; color: #bada55"),console.log("%c  ---      ---      ---               ---               ---               ---      ---     ","background: #222; color: #bada55"),console.log("%c ---      ---      --- --------      --- --------      --- --------      --- ---- ---      ","background: #222; color: #bada55"),console.log("%c---      ---      --- --------      --- --------      --- --------      --- ---- ---       ","background: #222; color: #bada55")},initMenu:function(){var o,e,n=this;n.J_menuContain.addEventListener("mouseover",function(){this.style.animationPlayState="paused"}),n.J_menuContain.addEventListener("mouseleave",function(){this.style.animationPlayState="running"});for(var t=0,r=n.J_menuItems.length;r>t;t++)n.J_menuItems[t].style.borderColor=n.randomColor(),n.J_menuItems[t].style.color=n.randomColor(),n.J_menuItems[t].addEventListener("click",function(){n.J_Menu_click_move=!0,o=this.getAttribute("data-menu"),e=n.J_msg_wrap[o].offsetTop,n.scrollAnimate(e,400,function(){n.J_Menu_click_move=!1,n.J_count=0})})},initClock:function(){var o,e=this,n=new Date,t=n.getHours(),r=n.getMinutes(),l=n.getSeconds(),c=l,a=0,i=0,u=0;e.setClockTime(6*l,6*r,30*t),e.J_clock.style.borderColor=e.randomColor(),e.J_sec.style.backgroundColor=e.randomColor(),e.J_min.style.backgroundColor=e.randomColor(),e.J_hour.style.backgroundColor=e.randomColor(),o=setInterval(function(){l++,c++,l>59&&(l=0,r++,r>59&&(r=0,t++)),a=6*c,i=6*r+l/60*6,u=30*t+l/3600*30,e.setClockTime(a,i,u)},1e3)},setClockTime:function(o,e,n){var t=this;t.J_sec.style.transform="rotate("+o+"deg)",t.J_min.style.transform="rotate("+e+"deg)",t.J_hour.style.transform="rotate("+n+"deg)",t.J_sec.style.webkitTransform="rotate("+o+"deg)",t.J_min.style.webkitTransform="rotate("+e+"deg)",t.J_hour.style.webkitTransform="rotate("+n+"deg)",t.J_sec.style.backgroundColor=t.randomColor()},loopCanvas:function(){var o,e=this,n=0,t=0;e.fixCanvas(n,t),o=setInterval(function(){n=Math.floor(10*Math.random()),t=Math.floor(10*Math.random()),e.fixCanvas(n,t)},3e3)},fixCanvas:function(o,e){var n=this,t=document.documentElement.clientHeight,r=document.querySelector("#fixCanvas"),l=r.getContext("2d"),c="#FFFFFF",a=80,i=Math.ceil(10*Math.random());i=1,r.width=a,r.height=t;for(var u=0;a/i>u;u++)for(var d=0;t/i>d;d++)c=d%10+u%10==o||d%10-u%10==o||u%10-d%10==o||d%10+u%10==e||d%10-u%10==e||u%10-d%10==e?"#FFFFFF":n.randomColor(),l.fillStyle=c,l.fillRect(u*i,d*i,1*i,1*i)},randomColor:function(){return"#"+("00000"+(11184810*(Math.random()+1)<<0).toString(16)).slice(-6)},helloWord:function(){var o=(new Date).getHours(),e=document.querySelector("#HelloWord"),n=12>o&&o>=6?"Hello! Good morning!":18>o&&o>=12?"Hello! Good afternoom!":"Hello! Good evening!",t=0,r=setInterval(function(){t>=n.length?(e.innerHTML=n.slice(0,t),clearInterval(r)):(e.innerHTML=n.slice(0,t),t++)},150)},scrollAnimate:function(o,e,n){var t,r,l=100,c=e,a="",i="",u="",d=1,s="";a="last"==o?document.body.scrollHeight-document.body.scrollTop:o-document.body.scrollTop,i=c/l,u=parseInt(a/l),s=a%100,t=parseInt(s/u),r=s%u;var m=setInterval(function(){d>l&&d>l+t?(document.body.scrollTop+=r,n&&n(),clearInterval(m)):(document.body.scrollTop+=u,d++)},i)}};o.init()}();</script>
+</body>
+</html>

@@ -7,7 +7,7 @@ body, ul, p {
 /*�ʼǱ�����*/
 body {
   background-color: #fff;
-  background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-image: linear-gradient(#eee 0.1em, transparent 0.1em);
   background-size: 100% 1.2em;
   font-family: arial, verdana;
 }
@@ -225,10 +225,19 @@ body {
 }
 
 /*css3��������*/
+.name-wrap {
+  width: 980px;
+  margin: 0 auto;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 50px;
+  border-bottom: 5px solid #000;
+}
+
 /*������Ϣ*/
 .view-wrap {
   width: 980px;
-  margin: 80px auto 20px;
+  margin: 0 auto 20px;
 }
 
 .view-wrap .msg-title {
@@ -259,4 +268,23 @@ body {
 .view-wrap .context-wrap p.content-column {
   font-size: 24px;
   line-height: 40px;
+}
+
+.view-wrap .context-wrap p.content-column-pm {
+  margin: 100px 0 0 50px;
+}
+
+.view-wrap .context-wrap .clo-t span {
+  display: inline-block;
+  width: 350px;
+}
+
+.view-wrap .context-wrap .clo-f span {
+  display: inline-block;
+  width: 200px;
+}
+
+.view-wrap .context-wrap span.span-one {
+  display: inline-block;
+  width: 500px;
 }

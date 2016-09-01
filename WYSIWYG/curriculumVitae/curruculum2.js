@@ -1,18 +1,3 @@
-///**
-// * Created by ¼Ñ·é on 2016/3/2.
-// */
-//(function($){
-//    var Rem ={
-//        init:function(){
-//            var self = this;
-//            console.log('js is ready');
-//        }
-//    }
-//    $(function(){
-//        Rem.init();
-//    })
-//
-//})(Zepto);
 /**
  * Created by wjf55 on 2016/8/13.
  */
@@ -21,7 +6,7 @@
         init:function(){
             var self = this;
             self.J_body = document.querySelector('body');
-            //»ñÈ¡ĞèÒªËæ»ú¸Ä±ä±³¾°ÑÕÉ«»ò×ÖÌåÑÕÉ«µÄÔªËØ
+            //è·å–éœ€è¦éšæœºæ”¹å˜èƒŒæ™¯é¢œè‰²æˆ–å­—ä½“é¢œè‰²çš„å…ƒç´ 
             self.J_random_bg = document.querySelectorAll('.J_random_bg');
             self.J_random_color = document.querySelectorAll('.J_random_color');
             self.J_random_border = document.querySelectorAll('.J_random_border');
@@ -30,7 +15,7 @@
             self.J_menuItems = document.querySelectorAll('#menuContain div');
             self.J_msg_wrap = document.querySelectorAll('.J_msg_wrap');
 
-            //»ñÈ¡Ê±·ÖÃë
+            //è·å–æ—¶åˆ†ç§’
             self.J_clock = document.querySelector('.J_clock');
             self.J_sec = document.querySelector('.J_sec');
             self.J_min = document.querySelector('.J_min');
@@ -40,20 +25,20 @@
             self.J_msg_title = document.querySelectorAll('.J_msg_title');
 
             /*
-             * self.J_Menu_click_move±êÖ¾ÊÇ·ñÊÇµã»÷css3Á¢·½ÌåÌøÖé
-             * true ²»´¥·¢È«ÆÁ¹ö¶¯
-             * false ´¥·¢
-             * */
+            * self.J_Menu_click_moveæ ‡å¿—æ˜¯å¦æ˜¯ç‚¹å‡»css3ç«‹æ–¹ä½“è·³ç 
+            * true ä¸è§¦å‘å…¨å±æ»šåŠ¨
+            * false è§¦å‘
+            * */
             self.J_Menu_click_move = false;
 
             self.eventHanding();
-            self.helloWord(); //±êÌâÖğ×ÖÏÔÊ¾
-            //self.loopCanvas(); //²à±ßÍò»¨
-            //self.initClock(); //Ê±ÖÓ³õÊ¼»¯
-            self.initMenu(); //²Ëµ¥³õÊ¼»¯
+            self.helloWord(); //æ ‡é¢˜é€å­—æ˜¾ç¤º
+            //self.loopCanvas(); //ä¾§è¾¹ä¸‡èŠ±
+            //self.initClock(); //æ—¶é’Ÿåˆå§‹åŒ–
+            self.initMenu(); //èœå•åˆå§‹åŒ–
             self.initConsole(); //console hello
-            self.initRandomBackgroundFontColor(); //Ëæ»ú±³¾°ÑÕÉ«»ò×ÖÌåÑÕÉ«
-            self.initMenuView(); //¸öÈËĞÅÏ¢À¸³õÊ¼»¯
+            self.initRandomBackgroundFontColor(); //éšæœºèƒŒæ™¯é¢œè‰²æˆ–å­—ä½“é¢œè‰²
+            self.initMenuView(); //ä¸ªäººä¿¡æ¯æ åˆå§‹åŒ–
 
         },
         eventHanding:function(){
@@ -62,9 +47,9 @@
                 _next_top,
                 _current;
             /*
-             * È«¾Ö¹ö¶¯¼ÆÊı Ã¿´Î¹ö¶¯½áÊøºó ÉèÎª0
-             * Ã¿´Î¹ö¶¯Ê± ×Ô++ »ñÈ¡ 0 ºÍ 1 ×´Ì¬ÊĞµÄscrollTopÖµ£¬À´ÅĞ¶ÏÊÇÏòÉÏ¹ö»¹ÊÇÏòÏÂ¹ö ÓÃÒÔÊµÏÖÈ«ÆÁ¹ö¶¯
-             * */
+            * å…¨å±€æ»šåŠ¨è®¡æ•° æ¯æ¬¡æ»šåŠ¨ç»“æŸå è®¾ä¸º0
+            * æ¯æ¬¡æ»šåŠ¨æ—¶ è‡ª++ è·å– 0 å’Œ 1 çŠ¶æ€å¸‚çš„scrollTopå€¼ï¼Œæ¥åˆ¤æ–­æ˜¯å‘ä¸Šæ»šè¿˜æ˜¯å‘ä¸‹æ»š ç”¨ä»¥å®ç°å…¨å±æ»šåŠ¨
+            * */
             self.J_count = 0;
             window.addEventListener('scroll',function(){
                 if(self.J_count == 0){
@@ -83,8 +68,8 @@
 
         },
         /*
-         * ³õÊ¼»¯ ¸÷¸ö²Ëµ¥Ò³Ãæ¸ß¶ÈÎªµ±Ç°¿ÉÊÇÇøÓò¸ß¶È¼´È«ÆÁ
-         * */
+        * åˆå§‹åŒ– å„ä¸ªèœå•é¡µé¢é«˜åº¦ä¸ºå½“å‰å¯æ˜¯åŒºåŸŸé«˜åº¦å³å…¨å±
+        * */
         initMenuView:function(){
             var self = this;
             for(var i=0;i<self.J_msg_wrap.length;i++){
@@ -92,10 +77,10 @@
             }
         },
         /*
-         * ÊµÏÖ²Ëµ¥Ò³È«ÆÁ¹ö¶¯
-         * _num ÓÃÀ´ÅĞ¶Ï¹ö¶¯·½Ïò _num >0 ÏòÉÏ  _num <0 ÏòÏÂ
-         * _index µ±Ç° ¿ÉÊÓÇøÓòÄÚ ²Ëµ¥Ò³ÁĞ±íÏÂ±í
-         * */
+        * å®ç°èœå•é¡µå…¨å±æ»šåŠ¨
+        * _num ç”¨æ¥åˆ¤æ–­æ»šåŠ¨æ–¹å‘ _num >0 å‘ä¸Š  _num <0 å‘ä¸‹
+        * _index å½“å‰ å¯è§†åŒºåŸŸå†… èœå•é¡µåˆ—è¡¨ä¸‹è¡¨
+        * */
 
         initMenuMove:function(_num,_index){
             var self = this;
@@ -128,8 +113,8 @@
         },
 
         /*
-         * »ñÈ¡µ±Ç°ÄÇ¸ö²Ëµ¥Ò²´¦ÓÚÆÁÄ»¿ÉÊÇÇøÓòÄÚ
-         * */
+        * è·å–å½“å‰é‚£ä¸ªèœå•ä¹Ÿå¤„äºå±å¹•å¯æ˜¯åŒºåŸŸå†…
+        * */
         returnMenuCurrent:function(){
             var self = this,_current,_offsetTop;
             for(var i =0;i<self.J_msg_title.length;i++){
@@ -142,7 +127,7 @@
         },
 
         /*
-         * ÉèÖÃËæ»ú±³¾°ÑÕÉ«
+         * è®¾ç½®éšæœºèƒŒæ™¯é¢œè‰²
          * */
         initRandomBackgroundFontColor:function(){
             var self = this;
@@ -159,7 +144,7 @@
         },
 
         /*
-         * ÉèÖÃconsole
+         * è®¾ç½®console
          * */
         initConsole:function(){
             console.log('%c       ---      ---      --- --------      ---               ---               --- ---- ---','background: #222; color: #bada55;');
@@ -173,10 +158,10 @@
         },
 
         /*
-         * css3²Ëµ¥µã»÷Ìø×ª
-         * µã»÷¶ÔÓ¦Ãæ»ñÈ¡ÏÂ±êÌøµ½¶ÔÓ¦µÄ²Ëµ¥
-         * mouseoverÊ±css3¶¯»­Í£Ö¹
-         * mouseleaveÊ±css¿ªÊ¼
+         * css3èœå•ç‚¹å‡»è·³è½¬
+         * ç‚¹å‡»å¯¹åº”é¢è·å–ä¸‹æ ‡è·³åˆ°å¯¹åº”çš„èœå•
+         * mouseoveræ—¶css3åŠ¨ç”»åœæ­¢
+         * mouseleaveæ—¶csså¼€å§‹
          * */
         initMenu:function(){
             var self = this,index,_height;
@@ -202,12 +187,12 @@
         },
 
         /*
-         * Ê±ÖÓ³õÊ¼»¯
-         * »ñÈ¡µ±Ç°Ê±·ÖÃë ×ª»»³É¶ÔÓ¦µÄ½Ç¶ÈÖµ
-         * s 60 ¶ÔÓ¦ 360
-         * m 60 ¶ÔÓ¦ 360
-         * h 24 ¶ÔÓ¦ 360
-         * Éè¶¨¶¨Ê± s++ Ê±·ÖÃëÊ±ÖÓ¶ÔÓ¦×ª¶¯ÏàÓ¦½Ç¶È
+         * æ—¶é’Ÿåˆå§‹åŒ–
+         * è·å–å½“å‰æ—¶åˆ†ç§’ è½¬æ¢æˆå¯¹åº”çš„è§’åº¦å€¼
+         * s 60 å¯¹åº” 360
+         * m 60 å¯¹åº” 360
+         * h 24 å¯¹åº” 360
+         * è®¾å®šå®šæ—¶ s++ æ—¶åˆ†ç§’æ—¶é’Ÿå¯¹åº”è½¬åŠ¨ç›¸åº”è§’åº¦
          * */
         initClock:function(){
             var self = this,
@@ -244,10 +229,10 @@
         },
 
         /*
-         * Ê±ÖÓ½Ç¶È¸³Öµ
-         * _sdeg ÃëÊı½Ç¶È
-         * _mdeg ·ÖÖÓ½Ç¶È
-         * _hdeg Ê±ÖÓ½Ç¶È
+         * æ—¶é’Ÿè§’åº¦èµ‹å€¼
+         * _sdeg ç§’æ•°è§’åº¦
+         * _mdeg åˆ†é’Ÿè§’åº¦
+         * _hdeg æ—¶é’Ÿè§’åº¦
          * */
         setClockTime:function(_sdeg,_mdeg,_hdeg){
             var self = this;
@@ -264,8 +249,8 @@
         },
 
         /*
-         * ²à±ßÍò»¨canvas¶¨Ê±
-         * 3000ms Ö´ĞĞÒ»´Î
+         * ä¾§è¾¹ä¸‡èŠ±canvaså®šæ—¶
+         * 3000ms æ‰§è¡Œä¸€æ¬¡
          * */
         loopCanvas:function(){
             var self = this,
@@ -281,8 +266,8 @@
         },
 
         /*
-         * ²à±ßÍò»¨³õÊ¼»¯
-         * _i,_j 0~10 µÄËæ»úÊı ÓÃÀ´Ëæ»úÍò»¨ÏÔÊ¾ÑùÊ½
+         * ä¾§è¾¹ä¸‡èŠ±åˆå§‹åŒ–
+         * _i,_j 0~10 çš„éšæœºæ•° ç”¨æ¥éšæœºä¸‡èŠ±æ˜¾ç¤ºæ ·å¼
          * */
         fixCanvas:function(_i,_j){
             var self = this,
@@ -316,14 +301,14 @@
         },
 
         /*
-         * Éú³ÉËæ»ú16½øÖÆÑÕÉ«Öµ
+         * ç”Ÿæˆéšæœº16è¿›åˆ¶é¢œè‰²å€¼
          * */
         randomColor:function(){
             return '#' + ('00000' + ((Math.random()+1) * 0xAAAAAA << 0).toString(16)).slice(-6);
         },
 
         /*
-         * Öğ×ÖÏÔÊ¾
+         * é€å­—æ˜¾ç¤º
          * */
         helloWord:function(){
             var self = this,
@@ -343,23 +328,23 @@
         },
 
         /*
-         * ¹ö¶¯ÏÔÊ¾¶¯»­
-         * h ĞèÒª¹ö¶¯µ½µÄÖµ
-         * t ¹ö¶¯µÄÊ±¼ä
-         * callback ¹ö¶¯Íê³ÉºóµÄ»Øµ÷
-         * ´Ë·½·¨ ½²ĞèÒª¹ö¶¯µÄ¸ß¶ÈhºÍÊ±¼ät¶¼³ıÓëÒ»¸ö»ùÊın£¨·½·¨ÖĞÎª100£© Éè¶¨Ò»¸ö¶¨Ê± Ã¿ t/n Ê±¼äÖ´ĞĞÒ»´Î£¬Ã¿´Î¹ö¶¯ h/nµÄ¸ß¶È
-         * ĞèÒª×¢Òâ h/n »áÓĞĞ¡ÊıÎÊÌâ document.body.scrollTop ÓÃĞ¡Êı¸³Öµ »áÄ¬ÈÏÈ¥Õû ĞèÒª¶ÔĞ¡ÊıÌØÊâ´¦Àí
+         * æ»šåŠ¨æ˜¾ç¤ºåŠ¨ç”»
+         * h éœ€è¦æ»šåŠ¨åˆ°çš„å€¼
+         * t æ»šåŠ¨çš„æ—¶é—´
+         * callback æ»šåŠ¨å®Œæˆåçš„å›è°ƒ
+         * æ­¤æ–¹æ³• è®²éœ€è¦æ»šåŠ¨çš„é«˜åº¦hå’Œæ—¶é—´téƒ½é™¤ä¸ä¸€ä¸ªåŸºæ•°nï¼ˆæ–¹æ³•ä¸­ä¸º100ï¼‰ è®¾å®šä¸€ä¸ªå®šæ—¶ æ¯ t/n æ—¶é—´æ‰§è¡Œä¸€æ¬¡ï¼Œæ¯æ¬¡æ»šåŠ¨ h/nçš„é«˜åº¦
+         * éœ€è¦æ³¨æ„ h/n ä¼šæœ‰å°æ•°é—®é¢˜ document.body.scrollTop ç”¨å°æ•°èµ‹å€¼ ä¼šé»˜è®¤å»æ•´ éœ€è¦å¯¹å°æ•°ç‰¹æ®Šå¤„ç†
          * */
         scrollAnimate:function(h,t,callack){
-            var count = 100,//Ñ­»·´ÎÊı
+            var count = 100,//å¾ªç¯æ¬¡æ•°
                 time = t,
-                scroll_height = '',//ÒÆ¶¯¾àÀë
-                count_time ='', //Ã¿´ÎÑ­»·Ê±¼ä
-                count_height='',//Ã¿´ÎÑ­»·ÒÆ¶¯¾àÀë
-                i = 1,  //Ñ­»·
-                mod_count,//Ğ¡ÊıÑ­»·´ÎÊı
-                mod_height, //Ğ¡ÊıÃ¿´ÎÑ­»·¾àÀë
-                mod_count_height='';//Ğ¡ÊıĞèÒªÒÆ¶¯¾àÀë
+                scroll_height = '',//ç§»åŠ¨è·ç¦»
+                count_time ='', //æ¯æ¬¡å¾ªç¯æ—¶é—´
+                count_height='',//æ¯æ¬¡å¾ªç¯ç§»åŠ¨è·ç¦»
+                i = 1,  //å¾ªç¯
+                mod_count,//å°æ•°å¾ªç¯æ¬¡æ•°
+                mod_height, //å°æ•°æ¯æ¬¡å¾ªç¯è·ç¦»
+                mod_count_height='';//å°æ•°éœ€è¦ç§»åŠ¨è·ç¦»
             if(h == 'last'){
                 scroll_height = document.body.scrollHeight-document.body.scrollTop;
             }else{

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        canvas{
+            border:1px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<canvas id="Canvas"></canvas>
+<script>
+    (function(){
+        var Module = {
+            init:function(){
+                var self = this;
+                self.J_canvas = document.querySelector("#Canvas")
+                self.initCanvas();
+                self.eventHanding();
+
+            },
+            eventHanding:function(){
+                var self = this;
+                self.J_ort = new Date();
+                self.J_canvas.addEventListener('touchmove',function(e){
+                    e = e.changedTouches[e.changedTouches.length-1]
+                    self.J_t = new Date();
+                    self.J_context.beginPath();
+                    if(self.J_t-self.J_ort < 50){
+                        self.J_context.moveTo(self.J_orX,self.J_orY);
+                        self.J_context.lineTo(e.clientX,e.clientY);
+                        self.J_context.lineWidth=10;
+                        self.J_context.strokeStyle="green";
+                        self.J_context.stroke();
+                    }else{
+                        self.J_context.arc(e.clientX, e.clientY, 5, 0, Math.PI * 2);
+                        self.J_context.fillStyle="green";
+                        self.J_context.fill();
+                    }
+
+                    self.J_ort = new Date();
+                    self.J_orX = e.clientX;
+                    self.J_orY = e.clientY;
+
+                },false)
+            },
+            initCanvas:function(){
+                var self = this;
+                self.J_context = self.J_canvas.getContext("2d");
+                self.J_canvas.width = 800;
+                self.J_canvas.height = 800;
+
+            }
+        }
+        Module.init();
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+@mixin remsize($name,$px) {
+  [data-dpr="1"] &{
+    #{$name}: $px/2+px;
+  }
+  [data-dpr="2"] &{
+    #{$name}: $px*2/2+px;
+  }
+  [data-dpr="2.5"] &{
+    #{$name}: $px*2.5/2+px;
+  }
+  [data-dpr="2.75"] &{
+    #{$name}: $px*2.75/2+px;
+  }
+  [data-dpr="3"] &{
+    #{$name}: $px*3/2+px;
+  }
+  [data-dpr="3.5"] &{
+    #{$name}: $px*3.5/2+px;
+  }
+  [data-dpr="4"] &{
+    #{$name}: $px*4/2+px;
+  }
+}
+@function px2rem($rem) {
+  @return $rem/2 + rem;
+}
+@mixin remPx($name,$px){
+  [data-dpr="1"] &{
+    #{$name}: $px+px;
+  }
+  [data-dpr="2"] &{
+    #{$name}: $px*2+px;
+  }
+  [data-dpr="3"] &{
+    #{$name}: $px*3+px;
+  }
+}

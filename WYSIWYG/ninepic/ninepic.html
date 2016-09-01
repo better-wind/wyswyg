@@ -18,19 +18,10 @@
             function RemInit(){
                 var dpr, rem, scale;
                 var docEl = window.document.documentElement;
-                var bodyEl = window.document.body;
                 var metaEl = window.document.querySelector('meta[name="viewport"]');
                 var psdWidth = 640/100;
-                var isAndroid = navigator.userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
                 dpr = window.devicePixelRatio || 1;
                 dpr = 1;
-                if(navigator.userAgent.indexOf('xiangqu')>-1 && navigator.userAgent.indexOf('Android')>-1){
-                    var setWidthTime = setInterval(function(){
-                        if(docEl.clientWidth>0){
-                            clearInterval(setWidthTime);
-                        }
-                    },100)
-                }
                 rem = docEl.clientWidth * dpr / psdWidth;
                 docEl.style.fontSize = Math.round(rem) +'px'
                 docEl.setAttribute('data-dpr', dpr);
@@ -40,7 +31,7 @@
                 window.rem = rem;
                 window.addEventListener('resize',function(){
                     rem = docEl.clientWidth * dpr / psdWidth;
-                    docEl.style.fontSize = rem +'px'
+                    docEl.style.fontSize = Math.round(rem) +'px'
                 })
             }
             RemInit();
@@ -62,8 +53,6 @@
             position: absolute;
             width: 2rem;
             height: 2rem;
-            /*box-sizing: border-box;*/
-            /*border:1px solid #AAA;*/
             transition: all 300ms linear;
             text-align: center;
             line-height: 2rem;
@@ -115,7 +104,6 @@
             float: left;
             width: 3rem;
             height: 3rem;
-            /*background-color: #000;*/
         }
         #countWrap .view-wrap img{
             width: 3rem;
@@ -129,6 +117,9 @@
             display: inline-block;
             margin-top: .5rem;
         }
+        a{
+            -webkit-touch-callout:default;
+        }
         #countWrap .con-wrap button{
             display: block;
             width: 2.5rem;
@@ -137,6 +128,7 @@
             border:1px solid #000;
             border-radius: 4px;
         }
+
     </style>
 </head>
 <body>
@@ -150,6 +142,8 @@
         <!--<div class="pic-wrap pic-wrap6" data-id="6"></div>-->
         <!--<div class="pic-wrap pic-wrap7" data-id="7"></div>-->
     </section>
+
+
     <section id="countWrap">
         <div class="view-wrap">
             <img src="" id="ciewImg"/>
@@ -177,36 +171,13 @@
                 self.initNinePic();
                 self.initRandomBackgroundFontColor();
                 self.eventHanding();
-//                self.checkMove(4);
-            },
-            eventHanding:function(){
-                var self = this;
-                self.ninePicMove();
-                self.J_sumbitBt.addEventListener('click',function(){
-                    self.sumbitNinePic();
-                },false)
-                self.J_refreshBt.addEventListener('click',function(){
-                    self.initNinePic();
-                },false)
-
-            },
-            initRandomBackgroundFontColor:function(){
-                var self = this;
-                for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
-//                    self.J_pic_wrap[i].style.background = self.randomColor();
-//                    self.J_pic_wrap[i].style.color = self.randomColor();
-                }
-
-            },
-            randomColor:function(){
-                return '#' + ('00000' + ((Math.random()+1) * 0xAAAAAA << 0).toString(16)).slice(-6);
             },
             initNinePic:function(){
                 var self = this,
                         shufflearr,
                         imgrodom = Math.floor((Math.random())*5+1),
                         _html = '';
-                        self.oriArr=[1,2,3,4,5,6,7,8];
+                self.oriArr=[1,2,3,4,5,6,7,8];
                 for(var n = 0,m = self.oriArr.length;n<m;n++){
                     _html += '<div class="pic-wrap pic-wrap'+(self.oriArr[n]-1)+'" data-id="'+(self.oriArr[n]-1)+'"></div>'
                 }
@@ -244,6 +215,28 @@
                 self.J_ciewImg.setAttribute('src','image/pic'+imgrodom+'.jpg');
                 self.J_count = -1;
                 self.countAdd();
+            },
+            eventHanding:function(){
+                var self = this;
+                self.ninePicMove();
+                self.J_sumbitBt.addEventListener('click',function(){
+                    self.sumbitNinePic();
+                },false)
+                self.J_refreshBt.addEventListener('click',function(){
+                    self.initNinePic();
+                },false)
+
+            },
+            initRandomBackgroundFontColor:function(){
+                var self = this;
+                for(var i = 0,j=self.J_pic_wrap.length;i<j;i++){
+//                    self.J_pic_wrap[i].style.background = self.randomColor();
+//                    self.J_pic_wrap[i].style.color = self.randomColor();
+                }
+
+            },
+            randomColor:function(){
+                return '#' + ('00000' + ((Math.random()+1) * 0xAAAAAA << 0).toString(16)).slice(-6);
             },
             ninePicMove:function(){
                 var self = this;

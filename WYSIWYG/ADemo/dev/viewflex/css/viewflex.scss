@@ -1,0 +1,35 @@
+@import "../../common/css/reset";
+@import "../../common/css/config";
+
+body{
+  font-size: 12px;
+}
+header{
+  margin:.2rem auto;
+  line-height: .4rem;
+  text-align: center;
+  @include remsize(font-size,24);
+  background-color: #AAA;
+}
+.box-wrap{
+  width: 6rem;
+  margin:.2rem auto;
+  background-color: #AAA;
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  -webkit-box-lines: multiple;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  overflow: hidden;
+  .box-item{
+    width: 2.8rem;
+    margin-top: .2rem;
+    min-height: 1rem;
+    background-color: #000;
+  }
+}

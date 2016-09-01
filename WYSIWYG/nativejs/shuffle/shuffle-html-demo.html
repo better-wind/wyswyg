@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #NumWrap{
+            position: fixed;
+            top:50px;
+            left: 50px;
+            width: 200px;
+            height: 400px;
+        }
+        #InputNum{
+            width: 300px;
+            line-height: 40px;
+            padding-left: 10px;
+        }
+        #shuffleWrap{
+            width: 400px;
+            height: 400px;
+            margin: 80px auto 10px;
+            line-height: 400px;
+            font-size: 90px;
+            text-align: center;
+            background-color: #AAA;
+        }
+        button{
+            display: block;
+            width: 200px;
+            height: 40px;
+            margin:10px auto 0;
+        }
+    </style>
+</head>
+<body>
+<div id="shuffleWrap"></div>
+<div id="NumWrap">
+    <input id="InputNum" type="text" placeholder="请输入抽奖人数"/>
+    <button id="numBt" data-click="click">开始</button>
+</div>
+<button id="startBt" data-click="click">抽取</button>
+<button id="sumbitBt">结果</button>
+<script>
+    (function(){
+        var viewInter,
+                NUM;
+        var ShuffleModle = {
+            init:function(){
+                var self = this;
+                self.J_shuffleWrap = document.querySelector('#shuffleWrap');
+                self.J_sumbitBt = document.querySelector('#sumbitBt');
+                self.J_startBt = document.querySelector('#startBt');
+                self.J_numBt = document.querySelector('#numBt');
+                self.J_InputNum = document.querySelector('#InputNum');
+                self.eventHanding();
+            },
+            eventHanding:function(){
+                var self = this;
+                self.J_sumbitBt.addEventListener('click',function(){
+                    clearInterval(viewInter);
+                    self.J_startBt.setAttribute('data-click','click');
+                    self.J_numBt.setAttribute('data-click','click');
+                },false);
+                self.J_startBt.addEventListener('click',function(){
+                    if(self.J_startBt.getAttribute('data-click') == 'click'){
+                        self.initArr();
+                    }
+
+                },false);
+                self.J_numBt.addEventListener('click',function(){
+                    if(self.J_numBt.getAttribute('data-click') == 'click'){
+                        var num = self.J_InputNum.value;
+                        var reg = /^\d+/g;
+                        if(!num){
+                            alert('请输入人数');
+                            return false;
+                        }
+                        if(!reg.test(num)){
+                            alert('请输入数字');
+                            self.J_InputNum.value = '';
+                            return false;
+                        }
+                        NUM = parseInt(num);
+                        self.initArr();
+
+                    }
+                },false);
+            },
+            initArr:function(){
+                var self = this;
+                var arr = [];
+                if(!NUM){
+                    alert('输入人数');
+                    return false
+                }
+                for(var i=0;i<NUM;i++){
+                    arr[arr.length] = i+1;
+                }
+                Array.prototype.shuffle = function(n){
+                    var len = this.length,num = n ? Math.min(n,len) : len,index,
+                            arr = this.slice(0),temp,
+                            lib = {};
+                    lib.range = function(min,max){
+                        return min + Math.floor(Math.random()*(max-min+1))
+                    }
+                    for(var i =0;i<len;i++){
+                        index = lib.range(i,len-1);
+                        temp = arr[i];
+                        arr[i] = arr[index];
+                        arr[index] = temp;
+                    }
+                    return arr.slice(0,num);
+                }
+                self.shufflearr = arr.shuffle();
+                self.ViewArr();
+            },
+            ViewArr:function(){
+                var self = this,
+                        i=0;
+                self.J_startBt.setAttribute('data-click','clicked');
+                self.J_numBt.setAttribute('data-click','clicked');
+                viewInter = setInterval(function(){
+                    if(i>=NUM){
+                        i=0;
+                    }
+                    self.J_shuffleWrap.innerText = self.shufflearr[i];
+                    i++;
+                },200)
+            }
+
+        }
+        ShuffleModle.init();
+
+    })()
+
+</script>
+</body>
+</html>

@@ -76,7 +76,7 @@
         function eventUp(e){
             e.preventDefault();
             mousedown = false;
-            clearMask();
+            //clearMask();
         }
         function clearMask(){
             var num = 0,
@@ -100,7 +100,7 @@
                 //console.log(e.clientX+','+e.clientY+'    '+e.pageX+','+e.pageY+'    '+x+','+y);
 
                 context.beginPath();
-                context.arc(x, y, 15, 0, Math.PI * 2);
+                context.arc(x, y, 5, 0, Math.PI * 2);
                 context.fill();
             }
         }
