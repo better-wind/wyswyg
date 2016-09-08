@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    (function(){
+        var Module = {
+            init:function(){
+                var arr = [2,5,7,8,9,12,15];
+                var arrde = ['a','0.9','1','2.6',4,6,{a:1,b:2},[1,2,3],8.9,9,3,11,12,12,15,15];
+                this.simpleArr(arrde,arr);
+            },
+            simpleArr:function(arr,arrori){
+                var backarr = [],curr,objback = {},backarr2 =[],backarr3 =[];
+                for(var i = 0,j = arr.length;i<j;i++){
+                    if((typeof arr[i] == 'string' && parseFloat(arr[i]))){
+                        backarr.push(parseFloat(arr[i]));
+                    }
+                    if(typeof arr[i] == 'number'){
+                        backarr.push(arr[i]);
+                    }
+                }
+                console.log(backarr);
+                for(var i = 0,j= arrori.length;i<j;i++){
+                    objback[arrori[i]] = 'ok';
+                }
+                console.log(objback);
+                for(var i = 0,j= backarr.length;i<j;i++){
+                    if(objback[backarr[i]] == 'ok'){
+                        objback[backarr[i]] = 'no';
+                        backarr2.push(backarr[i])
+                    }
+                    else{
+                        backarr3.push(backarr[i])
+                    }
+                }
+                console.log(backarr2);
+                console.log(backarr3);
+                console.log(backarr3.sort(function(a,b){
+                    return a-b;
+                }))
+            }
+        }
+        Module.init();
+    })()
+</script>
+</body>
+</html>
