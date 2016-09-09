@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Components - Custom Elements</title>
+    <script>
+        document.registerElement('button-hello', {
+            prototype: Object.create(HTMLButtonElement.prototype, {
+                createdCallback: {
+                    value: function createdCallback() {
+                        this.innerHTML = '<button>hello world</button>'
+                        this.addEventListener('click', () => {
+                            alert('hello world')
+                        })
+                    }
+                }
+            })
+        })
+//        class ButtonHelloElement extends HTMLButtonElement {
+//            constructor() {
+//                super()
+//                this.addEventListener('click', () => {
+//                    alert('hello world')
+//                })
+//
+//            }
+//        }
+//        customElements.define('button-hello', ButtonHelloElement, { extends: 'button' })
+    </script>
+</head>
+<body>
+<button-hello></button-hello>
+</body>
+</html>
