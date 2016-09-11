@@ -1,0 +1,50 @@
+@import "reset";
+@import "config";
+.list-two-module{
+  width: 6.4rem;
+  ul{
+    width: 6rem;
+    margin:0 auto;
+    overflow: hidden;
+    li{
+      width: 2.9rem;
+      margin:.2rem 0 0 0;
+      div{
+        &.view-img{
+          height: 2.9rem;
+          display: -webkit-box;
+          -webkit-box-pack: center;
+          -webkit-box-align: center;
+          background-color: #AAA;
+          img{
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        &.view-msg{
+          p{
+            @include remsize(font-size,30);
+            text-align: center;
+            line-height: 1.4rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+      }
+      &:nth-child(2n){
+        float:right;
+      }
+      &:nth-child(2n+1){
+        float:left;
+      }
+    }
+    button{
+      width: 3rem;
+      background-color: transparent;
+      border:1px solid #AAA;
+      line-height: .8rem;
+      line-height: .2rem;
+    }
+  }
+}

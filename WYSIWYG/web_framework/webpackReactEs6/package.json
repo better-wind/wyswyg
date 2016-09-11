@@ -1,0 +1,27 @@
+{
+  "name": "fenghou",
+  "version": "1.0.0",
+  "description": "my first package",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --progress --colors",
+    "build": "webpack --progress --colors"
+  },
+  "keywords": [
+    "util"
+  ],
+  "author": "fenghou",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "css-loader": "^0.25.0",
+    "jsx-loader": "^0.13.2",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-hot-loader": "^3.0.0-beta.3",
+    "react-router": "^2.8.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
+  }
+}
