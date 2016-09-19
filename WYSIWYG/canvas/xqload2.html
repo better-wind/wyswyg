@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        canvas{
+            display: block;
+            width: 500px;
+            height: 500px;
+            margin:100px auto;
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="LoadCanvas"></canvas>
+
+<script>
+    (function(){
+        var Module = {
+            init :function(){
+                var self = this;
+                self.canvas = document.getElementById('LoadCanvas');
+                self.ctx = self.canvas.getContext('2d');
+                self.canvas.width = 500;
+                self.canvas.height = 500;
+                self.ctx.beginPath();
+                self.ctx.lineCap='round';
+                self.ctx.lineJoin='round';
+                self.ctx.lineWidth = 20;
+                self.ctx.moveTo(50,240);
+                self.view({x:50,y:240},{x:450,y:240},function(){
+                    self.view({x:450,y:240},{x:410,y:200});
+                });
+
+            },
+            view :function(start,end,callback){
+                var self = this,
+                    _length = 10,
+                    _speed = 20,
+                    _start = start,
+                    _end = end,
+                    lineX = _start.x == _end.x ? false : true,
+                    lineY = _start.y == _end.y ? false : true;
+                var inter = setInterval(function(){
+                    if(lineX && !lineY){
+                            if(_start.x > _end.x){
+                                clearInterval(inter);
+                                if(callback){
+                                    callback();
+                                }
+                            }else{
+                                self.ctx.lineTo(_start.x,_start.y);
+                                self.ctx.stroke();
+                                _start.x += _speed;
+                            }
+                    }
+                    if(!lineX && lineY){
+
+                    }
+                    if(lineX && lineY){
+                        if(_start.x < _end.x && _start.y < _end.y){
+                            clearInterval(inter);
+                        }
+                        self.ctx.lineTo(_start.x,_start.y);
+                        self.ctx.stroke();
+                        if(_start.x >= _end.x){
+                            _start.x -= _speed;
+                        }
+                        if(_start.y >= _end.y){
+                            _start.y -= _speed;
+                        }
+                    }
+
+                },_speed)
+
+            }
+        }
+        Module.init()
+    })()
+</script>
+</body>
+</html>

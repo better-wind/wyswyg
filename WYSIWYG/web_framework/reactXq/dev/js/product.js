@@ -79,7 +79,7 @@ var ProductModule = () => {
             let items = [];
             this.state.products.forEach(function(product){
                 items.push(<ProductLi product={product} key={product.id}></ProductLi>)
-            }.bind(this))
+            }.bind(this));
             return (
                 <ul>{items}</ul>
             )

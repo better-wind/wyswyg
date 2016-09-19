@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="LoadCanvas"></canvas>
+<script>
+    (function(){
+        var LoadModule = {
+            init:function(){
+                var self = this;
+                self.loadInit();
+            },
+            loadInit:function(){
+                var self = this,
+                        canvas = document.createElement('canvas'),
+                        context = canvas.getContext('2d'),
+                        image = new Image();
+                image.onload = function(){
+                    var width = this.width,
+                            height = this.height;
+                    canvas.width = width;
+                    canvas.height = height;
+                    context.drawImage(this,0,0,width,height);
+                    var imageData = context.getImageData(0,0,width,height),
+                            loadList = [],
+                            loadobj = {};
+                    for(var i = 0,l= imageData.data.length;i<l;i++ ){
+                        if(i % 4 === 0){
+                            var x = i / 4 % width + 1,
+                                    y = Math.floor(i / 4 / width) + 1,
+                                    r = imageData.data[i],
+                                    g = imageData.data[i + 1],
+                                    b = imageData.data[i + 2],
+                                    rgb = 'rgb('+r+','+g+','+b+')';
+                            if(r > 0 || g > 0 || b > 0){
+                                loadobj = {
+                                    x:x,
+                                    y:y,
+                                    rgb:rgb
+                                }
+                                loadList.push(loadobj);
+                            }
+
+
+                        }
+                    }
+                    self.loadShow(loadList,width,height);
+                }
+                image.src = 'pc_logo2.jpg'
+
+            },
+            loadShow:function(list,w,h){
+                var self = this,
+                    LoadCanvas = document.getElementById('LoadCanvas'),
+                    ctx = LoadCanvas.getContext('2d');
+                LoadCanvas.width = w;
+                LoadCanvas.height = h;
+                console.log(list.length);
+                for(var i = 0,l = list.length;i <l;i++){
+                    ctx.fillStyle = ''+list[i].rgb;
+                    ctx.fillRect(list[i].x,list[i].y,1,1);
+                }
+            }
+
+        }
+        LoadModule.init();
+
+    })()
+
+</script>
+</body>
+</html>

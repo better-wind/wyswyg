@@ -46,11 +46,15 @@
 
 	'use strict';
 
-	var _product = __webpack_require__(1);
+	var _banner = __webpack_require__(1);
 
-	(0, _product.ProductModule)(); /**
-	                                * Created by wjf55 on 2016/9/10.
-	                                */
+	var _product = __webpack_require__(178);
+
+	/**
+	 * Created by wjf55 on 2016/9/10.
+	 */
+
+	(0, _product.ProductModule)();
 
 /***/ },
 /* 1 */
@@ -61,7 +65,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.ProductModule = undefined;
+	exports.BannerModule = undefined;
 
 	__webpack_require__(2);
 
@@ -77,120 +81,23 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ProductModule = function ProductModule() {
-	    var ProductLi = _react2.default.createClass({
-	        displayName: 'ProductLi',
+	/**
+	 * Created by wjf55 on 2016/9/11.
+	 */
+
+	var BannerModule = function BannerModule() {
+
+	    var Banner = _react2.default.createClass({
+	        displayName: 'Banner',
 
 	        render: function render() {
-	            return _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'view-img' },
-	                    _react2.default.createElement('img', { src: this.props.product.imgUrl, alt: '' })
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'view-msg' },
-	                    _react2.default.createElement(
-	                        'p',
-	                        null,
-	                        this.props.product.title
-	                    )
-	                )
-	            );
+	            return _react2.default.createElement('section', { classNamr: 'banner-list-module' });
 	        }
 	    });
-
-	    var ProductUl = _react2.default.createClass({
-	        displayName: 'ProductUl',
-
-	        ajaxSign: {
-	            isLast: false,
-	            isLoad: false
-	        },
-	        ajaxComm: function ajaxComm(url, callback) {
-	            $.ajax({
-	                url: url,
-	                type: 'post',
-	                dataType: 'json',
-	                success: function success(rs) {
-	                    return callback && callback(rs);
-	                }
-	            });
-	        },
-	        getInitialState: function getInitialState() {
-	            return {
-	                products: []
-	            };
-	        },
-	        handleScroll: function handleScroll() {
-	            var _this = this;
-
-	            if (document.body.scrollTop + document.documentElement.clientHeight + 100 > document.body.scrollHeight) {
-	                if (this.ajaxSign.isLast || this.ajaxSign.isLoad) {
-	                    return false;
-	                }
-	                this.ajaxSign.isLoad = true;
-	                this.ajaxComm('/WebTry/WYSIWYG/web_framework/reactXq/dev/data/product2.json', function (rs) {
-	                    if (rs.data.products.length < 20) {
-	                        _this.ajaxSign.isLast = true;
-	                    }
-	                    _this.setState({
-	                        products: _this.state.products.concat(rs.data.products)
-	                    });
-	                });
-	            }
-	        },
-	        componentWillMount: function componentWillMount() {
-	            var _this2 = this;
-
-	            this.ajaxSign.isLoad = true;
-	            this.ajaxComm(this.props.ajaxurl, function (rs) {
-	                _this2.setState({
-	                    products: _this2.state.products.concat(rs.data.products)
-	                });
-	            });
-	        },
-	        componentDidMount: function componentDidMount() {
-	            this.ajaxSign.isLoad = false;
-	            if (!this.ajaxSign.isLast && !this.ajaxSign.isLoad) {
-	                window.addEventListener('scroll', this.handleScroll);
-	            } else {
-	                window.removeEventListener('scroll', this.handleScroll);
-	            }
-	        },
-	        componentDidUpdate: function componentDidUpdate() {
-	            this.ajaxSign.isLoad = false;
-	        },
-	        render: function render() {
-	            var items = [];
-	            this.state.products.forEach(function (product) {
-	                items.push(_react2.default.createElement(ProductLi, { product: product, key: product.id }));
-	            }.bind(this));
-	            return _react2.default.createElement(
-	                'ul',
-	                null,
-	                items
-	            );
-	        }
-	    });
-	    var ProductList = _react2.default.createClass({
-	        displayName: 'ProductList',
-
-	        render: function render() {
-	            return _react2.default.createElement(
-	                'section',
-	                { className: 'list-two-module' },
-	                _react2.default.createElement(ProductUl, { ajaxurl: this.props.ajaxurl })
-	            );
-	        }
-	    });
-	    var url = '/WebTry/WYSIWYG/web_framework/reactXq/dev/data/product.json';
-	    _reactDom2.default.render(_react2.default.createElement(ProductList, { ajaxurl: url }), document.getElementById('listWrap'));
+	    _reactDom2.default.render(_react2.default.createElement(Banner, null), document.getElementById('bannerWrap'));
 	};
-	exports.ProductModule = ProductModule;
+
+	exports.BannerModule = BannerModule;
 
 /***/ },
 /* 2 */
@@ -208,8 +115,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./product.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./product.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./banner.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./banner.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -227,7 +134,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\nhtml {\n  color: #000;\n  overflow-y: scroll;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%; }\n\nhtml * {\n  outline: none;\n  -webkit-text-size-adjust: none;\n  -webkit-tap-highlight-color: transparent; }\n\nhtml, body {\n  font-family: sans-serif; }\n\n/* �߿������ڸ߶��� */\nsection, p, div, ul, li {\n  box-sizing: border-box; }\n\n/* �����߾�ͨ���ø�����������ʽ�ı���λ�ò�ͬ */\nbody, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  margin: 0;\n  padding: 0; }\n\ninput, select, textarea {\n  font-size: 100%; }\n\n/* ȥ���� Table  cell �ı߾ಢ�������غ� */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n/* ȥ��Ĭ�ϱ߿� */\nfieldset, img {\n  border: 0; }\n\n/* ȥ�� firefox �´�Ԫ�صı߿� */\nabbr, acronym {\n  border: 0;\n  font-variant: normal; }\n\n/* һ�µ� del ��ʽ */\ndel {\n  text-decoration: line-through; }\n\naddress, caption, cite, code, dfn, em, th, var {\n  font-style: normal;\n  font-weight: 500; }\n\n/* ȥ���б�ǰ�ı�ʶ, li ���̳� */\nol, ul {\n  list-style: none; }\n\n/* �������Ű�����Ҫ������, ����ʲô������ */\ncaption, th {\n  text-align: left; }\n\n/* ���� yahoo, �ñ��ⶼ�Զ���, ��Ӧ����ϵͳӦ�� */\nh1, h2, h3, h4, h5, h6 {\n  font-size: 100%;\n  font-weight: 500; }\n\nq:before, q:after {\n  content: ''; }\n\n/* ͳһ�ϱ����±� */\nsub, sup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* �������� δ���� */\n/* ������ͣ */\na:hover {\n  text-decoration: underline; }\n\n/* Ĭ�ϲ���ʾ�»��ߣ�����ҳ������ */\nins, a {\n  text-decoration: none; }\n\nbody {\n  font-size: 12px; }\n\n.list-two-module {\n  width: 6.4rem; }\n  .list-two-module ul {\n    width: 6rem;\n    margin: 0 auto;\n    overflow: hidden; }\n    .list-two-module ul li {\n      width: 2.9rem;\n      margin: .2rem 0 0 0; }\n      .list-two-module ul li div.view-img {\n        height: 2.9rem;\n        display: -webkit-box;\n        -webkit-box-pack: center;\n        -webkit-box-align: center;\n        background-color: #AAA; }\n        .list-two-module ul li div.view-img img {\n          max-width: 100%;\n          max-height: 100%; }\n      .list-two-module ul li div.view-msg p {\n        text-align: center;\n        line-height: 1.4rem;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        overflow: hidden; }\n        [data-dpr=\"1\"] .list-two-module ul li div.view-msg p {\n          font-size: 15px; }\n        [data-dpr=\"2\"] .list-two-module ul li div.view-msg p {\n          font-size: 30px; }\n        [data-dpr=\"2.5\"] .list-two-module ul li div.view-msg p {\n          font-size: 37.5px; }\n        [data-dpr=\"2.75\"] .list-two-module ul li div.view-msg p {\n          font-size: 41.25px; }\n        [data-dpr=\"3\"] .list-two-module ul li div.view-msg p {\n          font-size: 45px; }\n        [data-dpr=\"3.5\"] .list-two-module ul li div.view-msg p {\n          font-size: 52.5px; }\n        [data-dpr=\"4\"] .list-two-module ul li div.view-msg p {\n          font-size: 60px; }\n      .list-two-module ul li:nth-child(2n) {\n        float: right; }\n      .list-two-module ul li:nth-child(2n+1) {\n        float: left; }\n    .list-two-module ul button {\n      width: 3rem;\n      background-color: transparent;\n      border: 1px solid #AAA;\n      line-height: .8rem;\n      line-height: .2rem; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\nhtml {\n  color: #000;\n  overflow-y: scroll;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%; }\n\nhtml * {\n  outline: none;\n  -webkit-text-size-adjust: none;\n  -webkit-tap-highlight-color: transparent; }\n\nhtml, body {\n  font-family: sans-serif; }\n\n/* �߿������ڸ߶��� */\nsection, p, div, ul, li {\n  box-sizing: border-box; }\n\n/* �����߾�ͨ���ø�����������ʽ�ı���λ�ò�ͬ */\nbody, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  margin: 0;\n  padding: 0; }\n\ninput, select, textarea {\n  font-size: 100%; }\n\n/* ȥ���� Table  cell �ı߾ಢ�������غ� */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n/* ȥ��Ĭ�ϱ߿� */\nfieldset, img {\n  border: 0; }\n\n/* ȥ�� firefox �´�Ԫ�صı߿� */\nabbr, acronym {\n  border: 0;\n  font-variant: normal; }\n\n/* һ�µ� del ��ʽ */\ndel {\n  text-decoration: line-through; }\n\naddress, caption, cite, code, dfn, em, th, var {\n  font-style: normal;\n  font-weight: 500; }\n\n/* ȥ���б�ǰ�ı�ʶ, li ���̳� */\nol, ul {\n  list-style: none; }\n\n/* �������Ű�����Ҫ������, ����ʲô������ */\ncaption, th {\n  text-align: left; }\n\n/* ���� yahoo, �ñ��ⶼ�Զ���, ��Ӧ����ϵͳӦ�� */\nh1, h2, h3, h4, h5, h6 {\n  font-size: 100%;\n  font-weight: 500; }\n\nq:before, q:after {\n  content: ''; }\n\n/* ͳһ�ϱ����±� */\nsub, sup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* �������� δ���� */\n/* ������ͣ */\na:hover {\n  text-decoration: underline; }\n\n/* Ĭ�ϲ���ʾ�»��ߣ�����ҳ������ */\nins, a {\n  text-decoration: none; }\n\nbody {\n  font-size: 12px; }\n", ""]);
 
 	// exports
 
@@ -24398,6 +24305,186 @@
 	    return accumulator;
 	  };
 	})();
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.ProductModule = undefined;
+
+	__webpack_require__(179);
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(39);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	__webpack_require__(177);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ProductModule = function ProductModule() {
+	    var ProductLi = _react2.default.createClass({
+	        displayName: 'ProductLi',
+
+	        render: function render() {
+	            return _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'view-img' },
+	                    _react2.default.createElement('img', { src: this.props.product.imgUrl, alt: '' })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'view-msg' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        this.props.product.title
+	                    )
+	                )
+	            );
+	        }
+	    });
+
+	    var ProductUl = _react2.default.createClass({
+	        displayName: 'ProductUl',
+
+	        ajaxSign: {
+	            isLast: false,
+	            isLoad: false
+	        },
+	        ajaxComm: function ajaxComm(url, callback) {
+	            $.ajax({
+	                url: url,
+	                type: 'post',
+	                dataType: 'json',
+	                success: function success(rs) {
+	                    return callback && callback(rs);
+	                }
+	            });
+	        },
+	        getInitialState: function getInitialState() {
+	            return {
+	                products: []
+	            };
+	        },
+	        handleScroll: function handleScroll() {
+	            var _this = this;
+
+	            if (document.body.scrollTop + document.documentElement.clientHeight + 100 > document.body.scrollHeight) {
+	                if (this.ajaxSign.isLast || this.ajaxSign.isLoad) {
+	                    return false;
+	                }
+	                this.ajaxSign.isLoad = true;
+	                this.ajaxComm('/WebTry/WYSIWYG/web_framework/reactXq/dev/data/product2.json', function (rs) {
+	                    if (rs.data.products.length < 20) {
+	                        _this.ajaxSign.isLast = true;
+	                    }
+	                    _this.setState({
+	                        products: _this.state.products.concat(rs.data.products)
+	                    });
+	                });
+	            }
+	        },
+	        componentWillMount: function componentWillMount() {
+	            var _this2 = this;
+
+	            this.ajaxSign.isLoad = true;
+	            this.ajaxComm(this.props.ajaxurl, function (rs) {
+	                _this2.setState({
+	                    products: _this2.state.products.concat(rs.data.products)
+	                });
+	            });
+	        },
+	        componentDidMount: function componentDidMount() {
+	            this.ajaxSign.isLoad = false;
+	            if (!this.ajaxSign.isLast && !this.ajaxSign.isLoad) {
+	                window.addEventListener('scroll', this.handleScroll);
+	            } else {
+	                window.removeEventListener('scroll', this.handleScroll);
+	            }
+	        },
+	        componentDidUpdate: function componentDidUpdate() {
+	            this.ajaxSign.isLoad = false;
+	        },
+	        render: function render() {
+	            var items = [];
+	            this.state.products.forEach(function (product) {
+	                items.push(_react2.default.createElement(ProductLi, { product: product, key: product.id }));
+	            }.bind(this));
+	            return _react2.default.createElement(
+	                'ul',
+	                null,
+	                items
+	            );
+	        }
+	    });
+	    var ProductList = _react2.default.createClass({
+	        displayName: 'ProductList',
+
+	        render: function render() {
+	            return _react2.default.createElement(
+	                'section',
+	                { className: 'list-two-module' },
+	                _react2.default.createElement(ProductUl, { ajaxurl: this.props.ajaxurl })
+	            );
+	        }
+	    });
+	    var url = '/WebTry/WYSIWYG/web_framework/reactXq/dev/data/product.json';
+	    _reactDom2.default.render(_react2.default.createElement(ProductList, { ajaxurl: url }), document.getElementById('listWrap'));
+	};
+	exports.ProductModule = ProductModule;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(180);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./product.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./product.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(4)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@charset \"UTF-8\";\nhtml {\n  color: #000;\n  overflow-y: scroll;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%; }\n\nhtml * {\n  outline: none;\n  -webkit-text-size-adjust: none;\n  -webkit-tap-highlight-color: transparent; }\n\nhtml, body {\n  font-family: sans-serif; }\n\n/* �߿������ڸ߶��� */\nsection, p, div, ul, li {\n  box-sizing: border-box; }\n\n/* �����߾�ͨ���ø�����������ʽ�ı���λ�ò�ͬ */\nbody, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  margin: 0;\n  padding: 0; }\n\ninput, select, textarea {\n  font-size: 100%; }\n\n/* ȥ���� Table  cell �ı߾ಢ�������غ� */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n/* ȥ��Ĭ�ϱ߿� */\nfieldset, img {\n  border: 0; }\n\n/* ȥ�� firefox �´�Ԫ�صı߿� */\nabbr, acronym {\n  border: 0;\n  font-variant: normal; }\n\n/* һ�µ� del ��ʽ */\ndel {\n  text-decoration: line-through; }\n\naddress, caption, cite, code, dfn, em, th, var {\n  font-style: normal;\n  font-weight: 500; }\n\n/* ȥ���б�ǰ�ı�ʶ, li ���̳� */\nol, ul {\n  list-style: none; }\n\n/* �������Ű�����Ҫ������, ����ʲô������ */\ncaption, th {\n  text-align: left; }\n\n/* ���� yahoo, �ñ��ⶼ�Զ���, ��Ӧ����ϵͳӦ�� */\nh1, h2, h3, h4, h5, h6 {\n  font-size: 100%;\n  font-weight: 500; }\n\nq:before, q:after {\n  content: ''; }\n\n/* ͳһ�ϱ����±� */\nsub, sup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* �������� δ���� */\n/* ������ͣ */\na:hover {\n  text-decoration: underline; }\n\n/* Ĭ�ϲ���ʾ�»��ߣ�����ҳ������ */\nins, a {\n  text-decoration: none; }\n\nbody {\n  font-size: 12px; }\n\n.list-two-module {\n  width: 6.4rem; }\n  .list-two-module ul {\n    width: 6rem;\n    margin: 0 auto;\n    overflow: hidden; }\n    .list-two-module ul li {\n      width: 2.9rem;\n      margin: .2rem 0 0 0; }\n      .list-two-module ul li div.view-img {\n        height: 2.9rem;\n        display: -webkit-box;\n        -webkit-box-pack: center;\n        -webkit-box-align: center;\n        background-color: #AAA; }\n        .list-two-module ul li div.view-img img {\n          max-width: 100%;\n          max-height: 100%; }\n      .list-two-module ul li div.view-msg p {\n        text-align: center;\n        line-height: 1.4rem;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        overflow: hidden; }\n        [data-dpr=\"1\"] .list-two-module ul li div.view-msg p {\n          font-size: 15px; }\n        [data-dpr=\"2\"] .list-two-module ul li div.view-msg p {\n          font-size: 30px; }\n        [data-dpr=\"2.5\"] .list-two-module ul li div.view-msg p {\n          font-size: 37.5px; }\n        [data-dpr=\"2.75\"] .list-two-module ul li div.view-msg p {\n          font-size: 41.25px; }\n        [data-dpr=\"3\"] .list-two-module ul li div.view-msg p {\n          font-size: 45px; }\n        [data-dpr=\"3.5\"] .list-two-module ul li div.view-msg p {\n          font-size: 52.5px; }\n        [data-dpr=\"4\"] .list-two-module ul li div.view-msg p {\n          font-size: 60px; }\n      .list-two-module ul li:nth-child(2n) {\n        float: right; }\n      .list-two-module ul li:nth-child(2n+1) {\n        float: left; }\n    .list-two-module ul button {\n      width: 3rem;\n      background-color: transparent;\n      border: 1px solid #AAA;\n      line-height: .8rem;\n      line-height: .2rem; }\n", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    (function(){
+        var setTimeInterval = function(fn,interval){
+            var fncall = arguments.callee;
+            var timeout = setTimeout(function(){
+                clearTimeout(timeout);
+                if(fn) fn();
+                fncall(fn,interval);
+            },interval);
+        }
+        setTimeInterval(function(){
+            console.log(1);
+        },1000)
+    })()
+</script>
+</body>
+</html>

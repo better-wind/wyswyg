@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import './zepto.js';
 
 var BannerModule = () => {
+
     let Banner = React.createClass({
         render: function() {
             return (

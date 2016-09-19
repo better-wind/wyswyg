@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function(){
+        function add(a,b){
+            return
+                    a+b;
+        }
+        console.log(add(1,2));
+        var res = null instanceof Object;
+        console.log(res);
+
+        var userInfo = {
+            username:'aaaa',
+            gerUser:function(){
+                return this.username;
+            }
+        }
+        var user = userInfo.gerUser;
+        console.log(userInfo.username);
+        console.log(user())
+        var ABC = function(N,M,O,P){
+            var a = (N+O)/ 2,
+                b = (O-N)/ 2,
+                c = (P-M)/ 2;
+            console.log(a+' '+b+' '+c);
+        }
+        ABC(1,-2,3,4);
+
+        var Rex = function(X){
+            var s = X.toString(),x = '';
+            for(var i = s.length-1;i>=0;i--){
+                x += s.charAt(i);
+            }
+            return Number(x);
+        }
+        console.log(Rex(Rex(123)+Rex(100)))
+
+        var Point = function(X){
+            var r = Math.sqrt(X),
+                _point = 0,
+                    pointList = [];
+            for(var i = -r;i <= r;i++){
+                for(var j = -r; j <= r;j++){
+                    if(i*i + j*j == X){
+                        pointList.push({x:i,y:j});
+                        _point += 1;
+                    }
+                }
+            }
+            console.log(pointList);
+            console.log(_point);
+            return _point;
+        }
+        Point(25);
+
+        //get
+        var arr,reg=new RegExp("(^| )"+key+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return arr[2];
+        else
+            return null;
+
+        //set
+        var exp = new Date();
+        exp.setTime(exp.getTime() + option.time);
+        document.cookie = key + "="+value + ";expires=" + exp.toGMTString();
+
+        //remove
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval=this.get(key);
+        if(cval!=null)
+            document.cookie= key + "="+cval+";expires="+exp.toGMTString();
+
+    })()
+
+</script>
+</body>
+</html>
